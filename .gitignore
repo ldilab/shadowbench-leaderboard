@@ -1,0 +1,30 @@
+# --- Local test setup and secrets (never commit) ---
+.env
+.env.local
+.env.*.local
+
+# Real LiteLLM / proxy configs hold keys. The *.example.yaml template is tracked.
+litellm.config.yaml
+litellm.config.yml
+litellm.yaml
+litellm.yml
+
+secrets.*
+*.secret.*
+*.key
+*.pem
+api-keys.*
+
+# Local scratch dirs
+/local/
+/.local/
+/scratch/
+
+# --- Node ---
+node_modules/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit · ShadowBench Leaderboard</title>
+  <meta name="description" content="Submit a model to the ShadowBench leaderboard. Provide an endpoint and hyperparameters and view SA-PASS results." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234f46e5'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <script>
+    try { var t = localStorage.getItem("sb_theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="logo"></span> ShadowBench</div>
+      <nav class="nav">
+        <a href="./index.html">Leaderboard</a>
+        <a class="active" href="./submit.html">Submit</a>
+        <a href="https://arxiv.org/abs/2608.29270" target="_blank" rel="noopener">Paper</a>
+        <a href="https://github.com/ldilab/shadowbench" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <button class="theme-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Submit a <span class="grad">model</span></h1>
+      <p>
+        Provide an OpenAI-compatible chat endpoint and sampling settings. The job runs on the ShadowBench backend.
+        This page reports Compile rate, SA-pass (Soft), and SA-pass on completion.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Model and run configuration</h2>
+      <p class="sub">Fields marked * are required. Defaults follow the paper's zero-shot LLM runs.</p>
+      <form id="submit-form" autocomplete="off">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="f-name">Display name *</label>
+            <input id="f-name" name="name" placeholder="e.g. My Model 7B" maxlength="64" required />
+            <span class="hint">
+              This is the label shown in the Model column of the leaderboard, kept verbatim.
+              The submission id is derived from it as <code>leaderboard-&lt;slug&gt;-&lt;random&gt;</code>,
+              where <code>&lt;slug&gt;</code> is the name lowercased with non-alphanumeric characters
+              replaced by hyphens and truncated to 48 characters. The random suffix keeps the id unique.
+            </span>
+          </div>
+          <div class="field">
+            <label for="f-org">Organization *</label>
+            <input id="f-org" name="org" placeholder="e.g. My Lab" required />
+          </div>
+          <div class="field">
+            <label for="f-endpoint">Model endpoint (OpenAI-compatible base URL) *</label>
+            <input id="f-endpoint" name="endpoint" placeholder="https://openrouter.ai/api/v1" required />
+            <span class="hint">The <code>/v1</code> base of a chat-completions API.</span>
+          </div>
+          <div class="field">
+            <label for="f-model">Model id *</label>
+            <input id="f-model" name="model" placeholder="e.g. deepseek/deepseek-r1" required />
+          </div>
+          <div class="field">
+            <label for="f-maxtok">Max tokens</label>
+            <input id="f-maxtok" name="maxTokens" type="number" min="256" max="65536" value="8192" />
+          </div>
+          <div class="field">
+            <label for="f-temp">Temperature</label>
+            <input id="f-temp" name="temperature" type="number" step="0.05" min="0" max="2" value="0.6" />
+          </div>
+          <div class="field full">
+            <label for="f-pass">Delete password *</label>
+            <input id="f-pass" name="password" type="password" autocomplete="new-password" required />
+            <span class="hint">
+              Set a password now. It is required to delete this entry later, from any browser.
+              A slow hash of it is stored in a public tag, so this guards against casual deletion
+              through the site, not against a determined caller. Use a password you do not reuse.
+            </span>
+          </div>
+          <div class="field full">
+            <span class="hint">Every submission runs the full 178-problem ShadowBench set (all areas, L1 to L3). Scope is fixed.</span>
+          </div>
+
+          <div class="field full" id="dev-panel" hidden>
+            <div class="notice info" style="margin:0">
+              <span class="ico">🧪</span>
+              <div style="flex:1">
+                <b>Local test mode.</b> Shown only when this page is served from localhost. The deployed
+                site never shows these fields or sends a key. The endpoint must be reachable from the eval
+                backend, so a laptop LiteLLM needs a public tunnel, or point the endpoint straight at a
+                public API.
+                <div class="form-grid" style="margin-top:12px">
+                  <div class="field">
+                    <label for="f-key">API key (test)</label>
+                    <input id="f-key" name="apiKey" type="password" autocomplete="off" placeholder="sk-… (LiteLLM or provider key)" />
+                  </div>
+                  <div class="field">
+                    <label for="f-devcount">Test problem count</label>
+                    <input id="f-devcount" name="devCount" type="number" min="1" max="178" value="3" />
+                    <span class="hint">Overrides 178 for local testing only.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary" id="submit-btn">Submit to leaderboard</button>
+          <span class="rate-note" id="rate-note">One submission per 10 minutes.</span>
+        </div>
+        <div class="rate-note" id="form-msg" style="margin-top:8px"></div>
+      </form>
+      <div class="notice info" style="margin-top:16px">
+        <span class="ico">⏱</span>
+        <div>A run can take hours (about 30s per problem, few shared workers). You can close this tab.
+          The run continues and results appear on the leaderboard after the next sync.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Your submissions</h2>
+      <p class="sub">Tracked in this browser. Status is polled from the backend. Metrics are computed on completion.</p>
+      <div class="jobs" id="jobs"><div class="empty">No submissions from this browser yet.</div></div>
+    </section>
+
+    <section class="card">
+      <h2>Delete a submission</h2>
+      <p class="sub">Enter a submission id and its delete password. Works from any browser.</p>
+      <form id="delete-form" autocomplete="off">
+        <div class="form-grid">
+          <div class="field">
+            <label for="d-id">Submission id</label>
+            <input id="d-id" name="delId" placeholder="leaderboard-…" required />
+          </div>
+          <div class="field">
+            <label for="d-pass">Delete password</label>
+            <input id="d-pass" name="delPass" type="password" autocomplete="off" required />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn ghost" id="delete-btn">Delete submission</button>
+          <span class="rate-note" id="delete-msg"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    Submissions run on the shared ShadowBench backend. One run consumes hours of compute.
+    The 10 minute limit is enforced in the browser only, not on the server.
+  </footer>
+
+  <script type="module" src="./assets/submit.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+name: Sync community leaderboard
+
+# Publishes data/community.json from the lift backend so every visitor sees the
+# same community submissions. The browser can't fetch the ~128 MB dump itself.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *" # every 30 minutes
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-leaderboard
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build community.json
+        run: node scripts/sync_leaderboard.mjs
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain data/community.json)" ]]; then
+            git config user.name "shadowbench-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/community.json
+            git commit -m "chore: sync community leaderboard [skip ci]"
+            git push
+          else
+            echo "No changes."
+          fi

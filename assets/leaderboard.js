@@ -1,6 +1,6 @@
-import { API_BASE, ID_PREFIX, RUN_ANALYSIS_URL, METRIC_LABELS } from "./config.js";
+import { API_BASE, ID_PREFIX, METRIC_LABELS } from "./config.js";
 import { computeMetrics } from "./metrics.js";
-import { initTheme, fmtPct, escapeHtml, loadTrackedJobs } from "./ui.js";
+import { initTheme, fmtPct, escapeHtml, loadTrackedJobs, renderCategoryMetrics } from "./ui.js";
 
 initTheme();
 
@@ -10,14 +10,6 @@ const isPending = (status) => {
   const s = String(status || "").toLowerCase();
   return !TERMINAL_OK.has(s) && !TERMINAL_FAIL.has(s);
 };
-
-const GROUP_BADGE = {
-  Agentic: "agentic",
-  "Closed-source LLM": "closed",
-  "Open-source LLM": "open",
-  "Lean-specialized": "lean",
-};
-const METRIC_ORDER = ["compile", "saPassSoft", "saPass"];
 
 /* ------------------------------ Paper table ------------------------------ */
 
@@ -41,6 +33,7 @@ async function loadPaper() {
 
 function renderPaper() {
   const { data, level, group, sort, dir } = paperState;
+  if (!data) return;
   let rows = data.rows.filter((r) => group === "all" || r.group === group);
   rows = rows
     .map((r) => ({ ...r, cur: r[level] }))
@@ -55,18 +48,14 @@ function renderPaper() {
     });
 
   const th = (key, label) =>
-    `<th class="num sortable ${sort === key ? (dir < 0 ? "sort-desc" : "sort-asc") : ""}" data-sort="${key}">${label}</th>`;
+    `<th class="num" scope="col" aria-sort="${sort === key ? (dir < 0 ? "descending" : "ascending") : "none"}"><button type="button" class="sort-button" data-sort="${key}">${label}</button></th>`;
 
-  const medalsOn = dir < 0; // top-of-column highlight only when ranking high→low
   const rowsHtml = rows
     .map((r, i) => {
-      const md = medalsOn ? medal(i) : "";
-      const badge = GROUP_BADGE[r.group] || "";
-      const bestTag = r.best ? ` <span class="badge good" title="Highest SA-PASS">best</span>` : "";
-      return `<tr class="${medalsOn && i === 0 ? "top-row" : ""}">
-        <td class="rank">${md ? `<span class="medal">${md}</span>` : i + 1}</td>
-        <td><span class="method">${escapeHtml(r.method)}</span>${bestTag}</td>
-        <td><span class="badge ${badge}">${escapeHtml(r.group)}</span></td>
+      return `<tr>
+        <td class="rank">${i + 1}</td>
+        <td><span class="method">${escapeHtml(r.method)}</span></td>
+        <td class="group">${escapeHtml(r.group)}</td>
         ${metricCell(r.cur.compile, sort === "compile")}
         ${metricCell(r.cur.saPassSoft, sort === "saPassSoft")}
         ${metricCell(r.cur.saPass, sort === "saPass")}
@@ -75,7 +64,7 @@ function renderPaper() {
     .join("");
 
   document.getElementById("paper-board").innerHTML = `
-    <div class="tbl-wrap"><table class="board">
+    <div class="tbl-wrap" role="region" aria-label="Reported results" tabindex="0"><table class="board">
       <thead><tr>
         <th>#</th><th>Method</th><th>Group</th>
         ${th("compile", METRIC_LABELS.compile)}
@@ -85,24 +74,20 @@ function renderPaper() {
       <tbody>${rowsHtml}</tbody>
     </table></div>`;
 
-  document.querySelectorAll("#paper-board th[data-sort]").forEach((el) => {
+  document.querySelectorAll("#paper-board button[data-sort]").forEach((el) => {
     el.addEventListener("click", () => {
       const key = el.dataset.sort;
       if (paperState.sort === key) paperState.dir *= -1;
       else { paperState.sort = key; paperState.dir = -1; }
       renderPaper();
+      document.querySelector(`#paper-board button[data-sort="${key}"]`).focus({ preventScroll: true });
     });
   });
 }
 
 function metricCell(v, strong) {
   const pct = fmtPct(v);
-  const width = Math.max(0, Math.min(100, Number(v) || 0));
-  return `<td class="num bar"><span class="track"><span style="width:${width}%"></span></span><span class="val ${strong ? "metric-strong" : ""}">${pct}</span></td>`;
-}
-
-function medal(i) {
-  return ["🥇", "🥈", "🥉"][i] || "";
+  return `<td class="num ${strong ? "metric-strong" : ""}">${pct}</td>`;
 }
 
 /* --------------------------- Community table ----------------------------- */
@@ -125,7 +110,8 @@ async function loadCommunity() {
     if (TERMINAL_OK.has(String(j.status).toLowerCase()) && j.metrics && !byId.has(j.id)) {
       byId.set(j.id, {
         id: j.id, name: j.name, org: j.org,
-        completedAt: j.completedAt || null, metrics: j.metrics, local: true,
+        completedAt: j.completedAt || null, metrics: j.metrics,
+        categories: j.categories || [], local: true,
       });
     }
   }
@@ -137,11 +123,11 @@ async function loadCommunity() {
 
   if (community.generatedAt) {
     document.getElementById("community-sub").textContent =
-      `Models submitted through this site, dataset v1.2. Last synced ${new Date(community.generatedAt).toLocaleString()}.`;
+      `Live dataset ${community.datasetVersion || "v1.2"}; task selection may differ from the paper. Updated ${new Date(community.generatedAt).toLocaleString()}.`;
   }
 
   if (entries.length === 0 && pending.length === 0) {
-    host.innerHTML = `<div class="empty">No community submissions. <a href="./submit.html">Submit a model</a>.</div>`;
+    host.innerHTML = `<div class="empty">No community submissions yet.</div>`;
     return;
   }
 
@@ -155,18 +141,23 @@ async function loadCommunity() {
       const m = e.metrics;
       const localTag = e.local ? ` <span class="badge run" title="From this browser, not in the shared sync">you</span>` : "";
       const date = e.completedAt ? new Date(e.completedAt).toLocaleDateString() : "n/a";
-      const md = medal(i);
-      return `<tr class="${i === 0 ? "top-row" : ""}">
-        <td class="rank">${md ? `<span class="medal">${md}</span>` : i + 1}</td>
-        <td><span class="method">${escapeHtml(e.name || e.id)}</span>${localTag}<div class="id">${escapeHtml(e.id)}</div></td>
+      const detailId = `categories-${i}`;
+      const hasCategories = Array.isArray(e.categories) && e.categories.length > 0;
+      const expander = hasCategories
+        ? `<button type="button" class="expand-btn" data-category-toggle="${detailId}" aria-expanded="false" aria-controls="${detailId}" title="Show category performance"><span aria-hidden="true">&#9656;</span></button>`
+        : "";
+      return `<tr>
+        <td class="rank">${i + 1}</td>
+        <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(e.name || e.id)}</span>${localTag}<span class="id">${escapeHtml(e.id)}</span></span></div></td>
         <td>${escapeHtml(e.org || "n/a")}</td>
         ${metricCell(m.compile, false)}
         ${metricCell(m.saPassSoft, false)}
         ${metricCell(m.saPass, true)}
         <td class="num metric-mut">${m.n ?? "n/a"}</td>
         <td class="num metric-mut">${date}</td>
-        <td><a href="${RUN_ANALYSIS_URL(e.id)}" target="_blank" rel="noopener">analysis</a></td>
-      </tr>`;
+      </tr>${hasCategories ? `<tr class="category-row" id="${detailId}" hidden>
+        <td colspan="8">${renderCategoryMetrics(e.categories)}</td>
+      </tr>` : ""}`;
     })
     .join("");
 
@@ -185,22 +176,31 @@ async function loadCommunity() {
         <td class="num metric-mut">n/a</td>
         <td class="num metric-mut">n/a</td>
         <td class="num metric-mut">n/a</td>
-        <td><a href="${RUN_ANALYSIS_URL(p.id)}" target="_blank" rel="noopener">analysis</a></td>
       </tr>`;
     })
     .join("");
 
   host.innerHTML = `
-    <div class="tbl-wrap"><table class="board">
+    <div class="tbl-wrap" role="region" aria-label="Community submissions" tabindex="0"><table class="board">
       <thead><tr>
-        <th>#</th><th>Model</th><th>Org</th>
+        <th>#</th><th>Submission</th><th>Org</th>
         <th class="num">${METRIC_LABELS.compile}</th>
         <th class="num">${METRIC_LABELS.saPassSoft}</th>
         <th class="num">${METRIC_LABELS.saPass}</th>
-        <th class="num">Tasks</th><th class="num">Date</th><th>Run</th>
+        <th class="num">Tasks</th><th class="num">Date</th>
       </tr></thead>
       <tbody>${pendingHtml}${rowsHtml}</tbody>
     </table></div>`;
+
+  host.querySelectorAll("[data-category-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const detail = document.getElementById(button.dataset.categoryToggle);
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      button.title = expanded ? "Show category performance" : "Hide category performance";
+      detail.hidden = expanded;
+    });
+  });
 }
 
 // Collect runs still being evaluated: shared backend queue entries with our
@@ -230,8 +230,12 @@ async function loadPending(doneIds, tracked) {
 
 document.querySelectorAll("#level-seg button").forEach((b) => {
   b.addEventListener("click", () => {
-    document.querySelectorAll("#level-seg button").forEach((x) => x.classList.remove("active"));
+    document.querySelectorAll("#level-seg button").forEach((x) => {
+      x.classList.remove("active");
+      x.setAttribute("aria-pressed", "false");
+    });
     b.classList.add("active");
+    b.setAttribute("aria-pressed", "true");
     paperState.level = b.dataset.level;
     renderPaper();
   });

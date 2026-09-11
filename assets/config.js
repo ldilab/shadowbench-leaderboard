@@ -63,21 +63,15 @@ export const EVAL_DEFAULTS = {
   },
 };
 
-// The generic OpenAI-compatible adapter every standard submission uses. We fix
-// this on purpose: `model_cmd` is executed on the eval host, so the form never
-// lets a visitor choose it. Only the model endpoint/params below are variable.
+// Runtime fixed by the hosted evaluator. Generated-code submissions provide a
+// fixed reader command in code-submission.js and never call a model endpoint.
 export const ADAPTER = {
-  model_cmd: "/home/dhyeon/abm/abm-models/qwen235b_remote/model.py",
   runtime: {
     docker_image: "lift/lean-eval:lean4.26.0-data",
     eval_project_dir: "/data2/autoformal/lean-eval-proj",
     docker_network: "none",
     model_timeout_sec: 600,
     compile_timeout_sec: 180,
-  },
-  env_static: {
-    VLLM_CONNECT_TIMEOUT: "3.0",
-    VLLM_READ_TIMEOUT: "540.0",
   },
 };
 

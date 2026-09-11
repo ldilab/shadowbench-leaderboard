@@ -4,79 +4,48 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ShadowBench Leaderboard</title>
-  <meta name="description" content="ShadowBench leaderboard. Semantic alignment in Lean 4 autoformalization measured by SA-PASS." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234f46e5'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Semantic alignment in Lean 4 autoformalization, measured by SA-PASS." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23266252'/%3E%3Ctext x='16' y='23' font-size='24' text-anchor='middle' fill='white' font-family='Georgia'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="./assets/styles.css" />
   <script>
-    // Pre-paint theme to avoid flash.
     try { var t = localStorage.getItem("sb_theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
   </script>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><span class="logo"></span> ShadowBench</div>
-      <nav class="nav">
-        <a class="active" href="./index.html">Leaderboard</a>
-        <a href="./submit.html">Submit</a>
+      <a class="brand" href="./index.html">ShadowBench</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" aria-current="page" href="./index.html">Leaderboard</a>
+        <a href="./submit.html">Submit code</a>
         <a href="https://arxiv.org/abs/2608.29270" target="_blank" rel="noopener">Paper</a>
         <a href="https://github.com/ldilab/shadowbench" target="_blank" rel="noopener">GitHub</a>
       </nav>
-      <button class="theme-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+      <button class="theme-btn" title="Toggle theme" aria-label="Toggle theme">&#9680;</button>
     </div>
   </header>
-
   <main class="container">
-    <section class="hero">
-      <h1>ShadowBench <span class="grad">Leaderboard</span></h1>
-      <p>
-        Full autoformalization in Lean 4, scored by <b>SA-PASS</b>. A statement passes when it compiles and
-        satisfies the forward and backward shadow checks for the intended theorem.
-      </p>
-      <div class="links">
-        <a class="pill" href="https://arxiv.org/abs/2608.29270" target="_blank" rel="noopener">📄 arXiv:2608.29270</a>
-        <a class="pill" href="https://github.com/ldilab/shadowbench" target="_blank" rel="noopener">⌥ ldilab/shadowbench</a>
-        <a class="pill" href="./submit.html">➕ Submit a model</a>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Metrics</h2>
-      <div class="defs">
-        <div class="def">
-          <h4><span class="dot t"></span> Compile rate</h4>
-          <p>Fraction of problems that compile standalone. <code>mean(standalone_compile_ok)</code></p>
-        </div>
-        <div class="def">
-          <h4><span class="dot g"></span> SA-pass (Soft)</h4>
-          <p>Mean forward and backward checker pass rate over problems that compile. <code>compile ? (fwd+bwd)/2 : 0</code></p>
-        </div>
-        <div class="def">
-          <h4><span class="dot c"></span> SA-pass</h4>
-          <p>Problem compiles and all forward and backward checkers pass. <code>compile &amp;&amp; fwd=100% &amp;&amp; bwd=100%</code></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
+    <div class="page-intro">
+      <h1>ShadowBench</h1>
+      <p>A benchmark for semantic alignment in Lean 4 autoformalization.
+        SA-PASS checks whether generated code compiles and expresses the intended theorem.</p>
+    </div>
+    <section class="section" aria-labelledby="reported-title">
       <div class="section-head">
         <div>
-          <h2>Reported results (paper)</h2>
-          <p class="sub" id="paper-sub">Loading…</p>
+          <h2 id="reported-title">Reported results</h2>
+          <p class="sub" id="paper-sub">Loading paper results...</p>
         </div>
         <div class="controls">
-          <div class="seg" id="level-seg">
-            <button class="active" data-level="average">Average</button>
-            <button data-level="L1">L1</button>
-            <button data-level="L2">L2</button>
-            <button data-level="L3">L3</button>
+          <div class="seg" id="level-seg" role="group" aria-label="Difficulty level">
+            <button class="active" data-level="average" aria-pressed="true">Average</button>
+            <button data-level="L1" aria-pressed="false">L1</button>
+            <button data-level="L2" aria-pressed="false">L2</button>
+            <button data-level="L3" aria-pressed="false">L3</button>
           </div>
           <label for="group-filter">Group</label>
           <select id="group-filter">
-            <option value="all">All</option>
+            <option value="all">All groups</option>
             <option value="Agentic">Agentic</option>
             <option value="Closed-source LLM">Closed-source</option>
             <option value="Open-source LLM">Open-source</option>
@@ -84,25 +53,28 @@
           </select>
         </div>
       </div>
-      <div id="paper-board"><div class="empty">Loading…</div></div>
+      <div id="paper-board"><div class="empty">Loading...</div></div>
+      <details class="metric-definitions">
+        <summary>Metric definitions</summary>
+        <dl>
+          <dt>Compile rate</dt><dd>Share of tasks whose generated Lean code compiles standalone.</dd>
+          <dt>SA-pass (Soft)</dt><dd>Mean forward and backward checker pass rate, averaged over all tasks. Non-compiling tasks score zero.</dd>
+          <dt>SA-pass</dt><dd>Share of tasks that compile and pass every forward and backward checker.</dd>
+        </dl>
+      </details>
     </section>
-
-    <section class="card">
+    <section class="section" aria-labelledby="community-title">
       <div class="section-head">
         <div>
-          <h2>Community submissions</h2>
-          <p class="sub" id="community-sub">Models submitted through this site, scored on dataset v1.2. Metrics recomputed with the SA-PASS definition above.</p>
+          <h2 id="community-title">Community submissions</h2>
+          <p class="sub" id="community-sub">Evaluated on the live dataset. Task selection may differ from the paper.</p>
         </div>
+        <a href="./submit.html">Submit code</a>
       </div>
-      <div id="community-board"><div class="empty">Loading…</div></div>
+      <div id="community-board"><div class="empty">Loading...</div></div>
     </section>
   </main>
-
-  <footer>
-    ShadowBench, a Lean 4 full autoformalization benchmark with SA-PASS.
-    Paper results from arXiv:2608.29270. Metrics recomputed from per-run analysis.
-  </footer>
-
+  <footer>ShadowBench &middot; <a href="https://arxiv.org/abs/2608.29270">arXiv:2608.29270</a></footer>
   <script type="module" src="./assets/leaderboard.js"></script>
 </body>
 </html>

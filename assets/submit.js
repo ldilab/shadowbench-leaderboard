@@ -1,12 +1,10 @@
-import {
-  API_BASE, ID_PREFIX, RATE_LIMIT_MS, RUN_ANALYSIS_URL,
-  EVAL_DEFAULTS, ADAPTER, PROBLEM_COUNT, SUBMISSION_AREAS, SUBMISSION_LEVELS,
-} from "./config.js";
-import { computeMetrics } from "./metrics.js";
+import { API_BASE, ID_PREFIX, RATE_LIMIT_MS, PROBLEM_COUNT } from "./config.js";
+import { parseSolutions, buildCodeSpec, MAX_SOURCE_BYTES } from "./code-submission.js";
+import { computeMetrics, computeCategoryMetrics } from "./metrics.js";
 import {
   initTheme, fmtPct, escapeHtml, slugify,
   loadTrackedJobs, saveTrackedJob, removeTrackedJob, lastSubmitAt, markSubmitted,
-  derivePasswordHash, delkTag, parseDelkTag, verifyPassword,
+  derivePasswordHash, delkTag, parseDelkTag, verifyPassword, renderCategoryMetrics,
 } from "./ui.js";
 
 initTheme();
@@ -14,166 +12,153 @@ initTheme();
 const POLL_MS = 15000;
 const TERMINAL_OK = new Set(["completed", "done", "succeeded", "success"]);
 const TERMINAL_FAIL = new Set(["failed", "error", "errored", "cancelled", "canceled"]);
-
-// Local test mode: an API key + small problem count, revealed only when the page
-// is served from localhost. The deployed site never shows these or reads a key.
-const IS_LOCAL = typeof location !== "undefined" &&
-  (["localhost", "127.0.0.1", "0.0.0.0", "::1", "[::1]"].includes(location.hostname) ||
-    location.protocol === "file:");
-if (IS_LOCAL) {
-  const dev = document.getElementById("dev-panel");
-  if (dev) dev.hidden = false;
-}
-
-/* ---------------------------- Rate-limit gate ---------------------------- */
-
 const submitBtn = document.getElementById("submit-btn");
 const rateNote = document.getElementById("rate-note");
-let rateTimer = null;
+const form = document.getElementById("submit-form");
+const formMsg = document.getElementById("form-msg");
+const codeInput = document.getElementById("f-code");
+const fileInput = document.getElementById("f-file");
+const codeStatus = document.getElementById("code-status");
+let submitting = false;
+let readingFile = false;
+let fileReadVersion = 0;
+let validationTimer;
 
 function refreshRateGate() {
   const remaining = lastSubmitAt() + RATE_LIMIT_MS - Date.now();
+  submitBtn.disabled = submitting || readingFile || remaining > 0;
   if (remaining > 0) {
-    submitBtn.disabled = true;
-    const mm = Math.floor(remaining / 60000);
-    const ss = String(Math.ceil((remaining % 60000) / 1000)).padStart(2, "0");
-    rateNote.textContent = `Rate limit: you can submit again in ${mm}:${ss}.`;
-    if (!rateTimer) rateTimer = setInterval(refreshRateGate, 1000);
+    const seconds = Math.ceil(remaining / 1000);
+    rateNote.textContent = `Next submission in ${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}.`;
   } else {
-    submitBtn.disabled = false;
-    rateNote.textContent = "One submission per 10 minutes.";
-    if (rateTimer) { clearInterval(rateTimer); rateTimer = null; }
+    rateNote.textContent = "One submission per 10 minutes in this browser.";
   }
 }
 refreshRateGate();
+setInterval(refreshRateGate, 1000);
 
-/* ------------------------------- Submit ---------------------------------- */
+function validateCode() {
+  codeInput.setCustomValidity("");
+  if (!codeInput.value.trim()) {
+    codeStatus.textContent = "No solutions loaded.";
+    codeStatus.style.color = "";
+    return null;
+  }
+  try {
+    const rows = parseSolutions(codeInput.value);
+    codeStatus.textContent = `${rows.length} solution${rows.length === 1 ? "" : "s"} loaded. ${PROBLEM_COUNT} tasks will be evaluated.`;
+    codeStatus.style.color = "var(--good)";
+    return rows;
+  } catch (error) {
+    codeStatus.textContent = error.message;
+    codeStatus.style.color = "var(--bad)";
+    codeInput.setCustomValidity(error.message);
+    return null;
+  }
+}
 
-const form = document.getElementById("submit-form");
-const formMsg = document.getElementById("form-msg");
+codeInput.addEventListener("input", () => {
+  fileReadVersion++;
+  readingFile = false;
+  refreshRateGate();
+  codeInput.setCustomValidity("");
+  clearTimeout(validationTimer);
+  validationTimer = setTimeout(validateCode, 250);
+});
+codeInput.addEventListener("blur", validateCode);
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  formMsg.textContent = "";
-  formMsg.className = "rate-note";
+fileInput.addEventListener("change", async () => {
+  const file = fileInput.files[0];
+  const version = ++fileReadVersion;
+  readingFile = Boolean(file);
+  refreshRateGate();
+  if (!file) return;
+  try {
+    if (!/\.(json|jsonl)$/i.test(file.name)) throw new Error("Choose a .json or .jsonl file.");
+    if (file.size > MAX_SOURCE_BYTES) throw new Error("Solutions must be 4 MiB or smaller.");
+    const text = await file.text();
+    if (version !== fileReadVersion) return;
+    codeInput.value = text;
+    validateCode();
+  } catch (error) {
+    if (version !== fileReadVersion) return;
+    fileInput.value = "";
+    fail(error.message);
+  } finally {
+    if (version === fileReadVersion) {
+      readingFile = false;
+      refreshRateGate();
+    }
+  }
+});
 
-  if (lastSubmitAt() + RATE_LIMIT_MS - Date.now() > 0) { refreshRateGate(); return; }
-
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (submitting || readingFile || lastSubmitAt() + RATE_LIMIT_MS > Date.now()) return;
+  const rows = validateCode();
+  if (!rows) return fail(codeInput.validationMessage || "Add your generated solutions.");
   const fd = new FormData(form);
   const name = String(fd.get("name") || "").trim();
   const org = String(fd.get("org") || "").trim();
-  const endpoint = String(fd.get("endpoint") || "").trim();
-  const model = String(fd.get("model") || "").trim();
-  const maxTokens = String(fd.get("maxTokens") || "8192").trim();
-  const temperature = String(fd.get("temperature") || "0.6").trim();
   const password = String(fd.get("password") || "");
-  // Local test mode only: an API key and a small problem count. Read nowhere else.
-  const apiKey = IS_LOCAL ? String(fd.get("apiKey") || "").trim() : "";
-  const devCount = IS_LOCAL ? Number(fd.get("devCount") || 0) : 0;
-  const count = devCount > 0 ? devCount : PROBLEM_COUNT;
-  // Scope is fixed: every submission runs the full ShadowBench set (all areas, L1 to L3).
-  const areas = SUBMISSION_AREAS;
-  const levels = SUBMISSION_LEVELS;
+  if (!name || !org) return fail("Submission name and organization are required.");
+  if (password.length < 4) return fail("Set a delete password of at least 4 characters.");
 
-  if (!name || !org || !endpoint || !model) {
-    return fail("Name, organization, model endpoint and model id are required.");
-  }
-  if (!/^https?:\/\//i.test(endpoint)) {
-    return fail("Model endpoint must be an http(s) URL (e.g. https://openrouter.ai/api/v1).");
-  }
-  if (password.length < 4) {
-    return fail("Set a delete password of at least 4 characters.");
-  }
-
-  const evalCfg = {
-    num_problems: count,
-    areas, levels,
-    seed: EVAL_DEFAULTS.seed,
-    sampling: EVAL_DEFAULTS.sampling,
-    prompt_components: EVAL_DEFAULTS.prompt_components,
-    two_phase_evaluation: EVAL_DEFAULTS.two_phase_evaluation,
-    lean_version: EVAL_DEFAULTS.lean_version,
-    hidden_checker_only: EVAL_DEFAULTS.hidden_checker_only,
-  };
-  const env = {
-    ...ADAPTER.env_static,
-    VLLM_BASE_URL: endpoint,
-    VLLM_MODEL: model,
-    VLLM_MAX_TOKENS: maxTokens,
-    VLLM_TEMPERATURE: temperature,
-    ABM_MAX_TASKS: String(count),
-  };
-  if (apiKey) { env.VLLM_API_KEY = apiKey; env.OPENAI_API_KEY = apiKey; env.OPENROUTER_API_KEY = apiKey; }
-
-  const submissionSpec = {
-    model_cmd: ADAPTER.model_cmd,
-    env,
-    eval: evalCfg,
-    runtime: ADAPTER.runtime,
-    bench: {
-      limit: count,
-      seed: evalCfg.seed,
-      sampling: evalCfg.sampling,
-      areas, levels,
-      prompt_components: EVAL_DEFAULTS.prompt_components,
-      two_phase_evaluation: EVAL_DEFAULTS.two_phase_evaluation,
-      hidden_checker_only: EVAL_DEFAULTS.hidden_checker_only,
-    },
-  };
-
-  const id = `${ID_PREFIX}${slugify(name)}-${Math.random().toString(16).slice(2, 8)}`;
-  const delk = await derivePasswordHash(password);
-  const body = {
-    id, name, org, track: "Open",
-    tags: ["leaderboard", delkTag(delk.salt, delk.hash)],
-    submissionSpec,
-  };
-
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = `<span class="spinner"></span> Submitting…`;
+  // Lock before hashing/compressing so repeated clicks cannot create duplicate jobs.
+  submitting = true;
+  refreshRateGate();
+  submitBtn.textContent = "Submitting...";
+  formMsg.textContent = "";
+  let acceptedJob = null;
   try {
+    const submissionSpec = await buildCodeSpec(rows);
+    const id = `${ID_PREFIX}${slugify(name)}-${crypto.randomUUID().slice(0, 8)}`;
+    const delk = await derivePasswordHash(password);
+    const body = {
+      id, name, org, track: "Open",
+      tags: ["leaderboard", "generated-code", delkTag(delk.salt, delk.hash)],
+      submissionSpec,
+    };
     const res = await fetch(`${API_BASE}/api/submissions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
+      signal: AbortSignal.timeout(60000),
     });
     const text = await res.text();
     if (!res.ok) {
       let detail = text;
-      try { detail = JSON.stringify(JSON.parse(text).detail); } catch (_e) {}
-      throw new Error(`HTTP ${res.status}: ${detail}`);
+      try { detail = JSON.stringify(JSON.parse(text).detail); } catch {}
+      throw new Error(`HTTP ${res.status}: ${detail.slice(0, 500)}`);
     }
     const out = JSON.parse(text);
+    if (!out.submission_id) throw new Error("The server did not return a submission ID.");
     markSubmitted();
-    const job = {
-      id: out.submission_id || id,
-      name, org,
-      status: out.status || "queued",
-      createdAt: Date.now(),
-      endpoint, model,
-      delk, // local fallback for verifying the delete password
+    acceptedJob = {
+      id: out.submission_id, name, org, status: out.status || "queued",
+      createdAt: Date.now(), solutionCount: rows.length, submissionType: "generated-code", delk,
     };
-    saveTrackedJob(job);
+    saveTrackedJob(acceptedJob);
     form.reset();
-    formMsg.className = "rate-note";
+    validateCode();
     formMsg.style.color = "var(--good)";
-    formMsg.textContent = `Submitted as ${job.id}. Tracking below.`;
+    formMsg.textContent = `Submitted as ${acceptedJob.id}.`;
     renderJobs();
-    pollJob(job.id);
-  } catch (err) {
-    fail(err.message);
+  } catch (error) {
+    fail(error.name === "TimeoutError"
+      ? "The server response timed out. The run may have been accepted; check the leaderboard before retrying."
+      : error.message);
   } finally {
-    submitBtn.innerHTML = "Submit to leaderboard";
+    submitting = false;
+    submitBtn.textContent = "Submit code";
     refreshRateGate();
   }
+  if (acceptedJob) void pollJob(acceptedJob.id);
 });
 
-function fail(msg) {
-  formMsg.className = "rate-note";
+function fail(message) {
   formMsg.style.color = "var(--bad)";
-  formMsg.textContent = msg;
-  submitBtn.disabled = false;
-  submitBtn.innerHTML = "Submit to leaderboard";
+  formMsg.textContent = message;
   return false;
 }
 
@@ -194,23 +179,26 @@ async function pollJob(id) {
     if (!res.ok) throw new Error(`status ${res.status}`);
     const s = await res.json();
     const status = String(s.status || "").toLowerCase();
-    const patch = { status: s.status || "unknown" };
+    const patch = { status: s.status || "unknown", lastError: null };
     if (s.error) patch.error = s.error;
 
     if (TERMINAL_OK.has(status)) {
       const an = await fetchAnalysis(id);
       if (an) {
         patch.metrics = computeMetrics(an);
+        patch.categories = computeCategoryMetrics(an);
         patch.completedAt = Date.now();
         patch.status = "completed";
       }
     }
+    if (!loadTrackedJobs().some((job) => job.id === id)) return true;
     saveTrackedJob({ id, ...patch });
     renderJobs();
 
     const done = TERMINAL_OK.has(status) || TERMINAL_FAIL.has(status);
     return done;
   } catch (e) {
+    if (!loadTrackedJobs().some((job) => job.id === id)) return true;
     saveTrackedJob({ id, lastError: e.message });
     renderJobs();
     return false;
@@ -225,14 +213,22 @@ async function fetchAnalysis(id) {
   } catch (_e) { return null; }
 }
 
+let polling = false;
 async function pollAllActive() {
+  if (polling) return;
+  polling = true;
+  try {
   await refreshQueue();
   const active = loadTrackedJobs().filter((j) => {
     const st = String(j.status || "").toLowerCase();
-    return !TERMINAL_OK.has(st) && !TERMINAL_FAIL.has(st) || (TERMINAL_OK.has(st) && !j.metrics);
+    return !TERMINAL_OK.has(st) && !TERMINAL_FAIL.has(st) ||
+      (TERMINAL_OK.has(st) && (!j.metrics || !Array.isArray(j.categories)));
   });
   for (const j of active) await pollJob(j.id);
   renderJobs();
+  } finally {
+    polling = false;
+  }
 }
 
 /* ------------------------------- Rendering ------------------------------- */
@@ -286,13 +282,17 @@ function renderJobs() {
           <div class="m"><span class="k">SA-pass</span><span class="v">${fmtPct(m.saPass)}</span></div>
           <div class="m"><span class="k">Tasks</span><span class="v">${m.n ?? "n/a"}</span></div>
         </div>
-        <div class="meta"><a href="${RUN_ANALYSIS_URL(j.id)}" target="_blank" rel="noopener">analysis</a> <a href="./index.html">leaderboard</a></div>`;
+        <div class="job-categories">
+          <h3>By category</h3>
+          ${renderCategoryMetrics(j.categories)}
+        </div>
+        <div class="meta"><a href="./index.html">leaderboard</a></div>`;
       }
 
       const progress = active
         ? `<div class="progress indet"><span></span></div>`
         : "";
-      const errLine = (isFail && (j.error || j.lastError))
+      const errLine = ((isFail && j.error) || j.lastError)
         ? `<div class="meta" style="color:var(--bad)">${escapeHtml(j.error || j.lastError)}</div>`
         : "";
 
@@ -304,7 +304,7 @@ function renderJobs() {
         </div>
         <div class="id">${escapeHtml(j.id)}</div>
         <div class="meta">
-          <span>${escapeHtml(j.model || "")}</span>
+          <span>${j.submissionType === "generated-code" ? `${j.solutionCount} solutions` : escapeHtml(j.model || "")}</span>
           <span>elapsed ${elapsed}</span>
           ${queueLine ? `<span>${escapeHtml(queueLine)}</span>` : ""}
         </div>

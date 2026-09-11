@@ -27,6 +27,23 @@ export function fmtPct(v) {
   return typeof v === "number" && Number.isFinite(v) ? `${v.toFixed(1)}%` : "—";
 }
 
+export function renderCategoryMetrics(categories) {
+  if (!Array.isArray(categories) || categories.length === 0) {
+    return '<div class="empty">No category results available.</div>';
+  }
+  const rows = categories.map((item) => '<tr>' +
+    '<td>' + escapeHtml(item.category) + '</td>' +
+    '<td class="num">' + fmtPct(item.compile) + '</td>' +
+    '<td class="num">' + fmtPct(item.saPassSoft) + '</td>' +
+    '<td class="num metric-strong">' + fmtPct(item.saPass) + '</td>' +
+    '<td class="num metric-mut">' + (item.n ?? "n/a") + '</td>' +
+  '</tr>').join("");
+  return '<div class="category-table-wrap"><table class="category-table">' +
+    '<thead><tr><th>Category</th><th class="num">Compile</th>' +
+    '<th class="num">SA-pass (Soft)</th><th class="num">SA-pass</th>' +
+    '<th class="num">Tasks</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+}
+
 export function escapeHtml(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));

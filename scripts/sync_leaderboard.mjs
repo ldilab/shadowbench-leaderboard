@@ -10,7 +10,7 @@ import { writeFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { API_BASE, ID_PREFIX } from "../assets/config.js";
-import { computeMetrics } from "../assets/metrics.js";
+import { computeMetrics, computeCategoryMetrics } from "../assets/metrics.js";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const OUT = join(HERE, "..", "data", "community.json");
@@ -61,6 +61,7 @@ async function main() {
         try {
           const an = await getJson(`${API_BASE}/api/submissions/${encodeURIComponent(r.id)}/analysis`);
           const metrics = computeMetrics(an);
+          const categories = computeCategoryMetrics(an);
           if (metrics.n === 0) return null;
           return {
             id: r.id,
@@ -69,6 +70,7 @@ async function main() {
             track: r.track || "Open",
             completedAt: r.completedAt || r.completed_at || null,
             metrics,
+            categories,
           };
         } catch (e) {
           console.warn(`  skip ${r.id}: ${e.message}`);

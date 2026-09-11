@@ -1,0 +1,6 @@
+[
+  {
+    "task_id": "algebra/L1/alg_gen_L1_005",
+    "lean_code": "import Mathlib\n\n-- Submission pipeline example. This compiles, but it does not solve the benchmark task.\nexample : True := by\n  trivial\n"
+  }
+]

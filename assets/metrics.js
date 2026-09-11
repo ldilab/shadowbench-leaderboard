@@ -39,10 +39,7 @@ export function taskScores(t) {
   return { compile: compile ? 1 : 0, saPass, saPassSoft };
 }
 
-// Aggregate over an analysis payload => percentages in [0,100].
-// Denominator is the number of tasks in the run (matches summary.total_tasks).
-export function computeMetrics(analysis) {
-  const tasks = (analysis && analysis.tasks) || [];
+function aggregateTasks(tasks) {
   const n = tasks.length;
   if (n === 0) {
     return { n: 0, compile: null, saPass: null, saPassSoft: null };
@@ -62,4 +59,23 @@ export function computeMetrics(analysis) {
     saPass: (sa / n) * 100,
     saPassSoft: (soft / n) * 100,
   };
+}
+
+// Aggregate over an analysis payload => percentages in [0,100].
+// Denominator is the number of tasks in the run (matches summary.total_tasks).
+export function computeMetrics(analysis) {
+  return aggregateTasks((analysis && analysis.tasks) || []);
+}
+
+export function computeCategoryMetrics(analysis) {
+  const groups = new Map();
+  for (const task of (analysis && analysis.tasks) || []) {
+    const fromId = String(task.task_id || task.id || "").split("/")[0];
+    const category = String(task.area || fromId || "uncategorized").trim().toLowerCase();
+    if (!groups.has(category)) groups.set(category, []);
+    groups.get(category).push(task);
+  }
+  return [...groups.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([category, tasks]) => ({ category, ...aggregateTasks(tasks) }));
 }

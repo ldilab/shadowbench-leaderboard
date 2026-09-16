@@ -40,16 +40,17 @@ try {
         ],
       }],
     }}));
-    // The Worker provides this route in production; the plain static dev
-    // server used here does not, so mock it to avoid a spurious 404.
-    await page.route("**/api/track", (route) => route.fulfill({ status: 202, json: { ok: true } }));
+    // The Worker provides these routes in production; the plain static dev
+    // server used here does not, so mock them to avoid spurious 404s.
     let submittedPayload;
+    await page.route("**/api/submit", async (route) => {
+      submittedPayload = route.request().postDataJSON();
+      await route.fulfill({ json: { submission_id: "leaderboard-browser-check", status: "queued" } });
+    });
+    await page.route("**/api/delete", (route) => route.fulfill({ json: { ok: true, removedFromBoard: false } }));
     await page.route("https://apilift.lim247.com/**", async (route) => {
       const url = route.request().url();
-      if (url.endsWith("/api/submissions") && route.request().method() === "POST") {
-        submittedPayload = route.request().postDataJSON();
-        await route.fulfill({ json: { submission_id: "leaderboard-browser-check", status: "queued" } });
-      } else if (url.endsWith("/api/submissions/leaderboard-browser-check")) {
+      if (url.endsWith("/api/submissions/leaderboard-browser-check")) {
         await route.fulfill({ json: { submission_id: "leaderboard-browser-check", status: "queued" } });
       } else if (url.endsWith("/api/submission_queue.json")) {
         await route.fulfill({ json: { items: [], queued: 0, running: 0, maxWorkers: 4 } });

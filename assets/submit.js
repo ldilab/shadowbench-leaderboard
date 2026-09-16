@@ -119,18 +119,28 @@ form.addEventListener("submit", async (event) => {
     const body = {
       id, name, org, track: "Open",
       tags: ["leaderboard", "generated-code", delkTag(delk.salt, delk.hash)],
-      submissionSpec,
+      submissionSpec, email,
     };
-    const res = await fetch(`${API_BASE}/api/submissions`, {
+    // Goes through our Worker, not straight to the evaluator: it enforces a
+    // real per-IP/per-email rate limit (unlike the localStorage gate above,
+    // which a private window resets), and starts watching the id + email for
+    // completion in the same request, so there's no separate tracking call
+    // that could be lost to a network blip.
+    const res = await fetch(`${WORKER_BASE}/api/submit`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(60000),
     });
     const text = await res.text();
+    if (res.status === 429) {
+      let detail = "Too many submissions recently -- please wait before trying again.";
+      try { detail = JSON.parse(text).error || detail; } catch {}
+      throw new Error(detail);
+    }
     if (!res.ok) {
       let detail = text;
-      try { detail = JSON.stringify(JSON.parse(text).detail); } catch {}
+      try { detail = JSON.parse(text).error || JSON.stringify(JSON.parse(text).detail); } catch {}
       throw new Error(`HTTP ${res.status}: ${detail.slice(0, 500)}`);
     }
     const out = JSON.parse(text);
@@ -141,10 +151,6 @@ form.addEventListener("submit", async (event) => {
       createdAt: Date.now(), solutionCount: rows.length, submissionType: "generated-code", delk,
     };
     saveTrackedJob(acceptedJob);
-    // Tell our Worker to watch this id and email the result when done -- the
-    // Worker has no other way to learn this run exists or who to notify, so
-    // retry once rather than silently losing it on a single network blip.
-    void trackWithRetry(acceptedJob.id, email);
     form.reset();
     validateCode();
     formMsg.style.color = "var(--good)";
@@ -166,20 +172,6 @@ function fail(message) {
   formMsg.style.color = "var(--bad)";
   formMsg.textContent = message;
   return false;
-}
-
-async function trackWithRetry(id, email) {
-  for (const delayMs of [0, 3000]) {
-    if (delayMs) await new Promise((r) => setTimeout(r, delayMs));
-    try {
-      const res = await fetch(`${WORKER_BASE}/api/track`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, email }),
-      });
-      if (res.ok) return;
-    } catch (_e) { /* retry */ }
-  }
 }
 
 /* ------------------------------- Polling --------------------------------- */

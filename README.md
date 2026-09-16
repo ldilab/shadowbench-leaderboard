@@ -73,8 +73,10 @@ The site itself is static and served by **GitHub Pages** from this repo
 <https://ldilab.github.io/shadowbench-leaderboard/>. GitHub Pages can't run any server code, so a
 small **Cloudflare Worker** (`worker/index.mjs`) handles the two things that need one:
 
-1. `POST /api/track {id, email}` -- called by `submit.js` right after a submission is accepted.
-   Records the id and email so the Worker starts watching it.
+1. `POST /api/submit {id, name, org, track, tags, submissionSpec, email}` -- called by `submit.js`
+   instead of the evaluator's own `/api/submissions`. Enforces a real rate limit (by IP first, then
+   by email -- unlike the localStorage-based courtesy gate the UI also has, which a private window
+   resets), forwards to the evaluator, and starts watching the id + email for completion.
 2. A Cron Trigger, every minute, polls watched ids against the hosted evaluator. When one finishes,
    the Worker computes the score (same `assets/metrics.js` logic the site itself uses), stashes it in
    KV, and fires a `repository_dispatch` that makes `.github/workflows/send-score.yml` email the
@@ -93,7 +95,7 @@ small **Cloudflare Worker** (`worker/index.mjs`) handles the two things that nee
 
 So: a result is private (only in that email) until the submitter confirms publishing it. The Worker
 never serves the site; it's the deploy target `wrangler.jsonc` points at, reachable directly at its
-own `*.workers.dev` URL only for `/api/track`, `/publish`, and `/api/delete`.
+own `*.workers.dev` URL only for `/api/submit`, `/publish`, and `/api/delete`.
 
 ```bash
 npx wrangler login
@@ -123,7 +125,8 @@ assets/leaderboard.js          paper and community tables
 assets/metrics.js              shared SA-PASS calculation (also used by worker/index.mjs)
 data/paper_results.json        paper Table 3 values
 data/community.json            published community results (Worker commits to this on publish)
-worker/index.mjs               Cloudflare Worker: /api/track, /publish, and the scheduled watcher
+worker/index.mjs               Cloudflare Worker: /api/submit, /publish, /api/delete, and the
+                                scheduled watcher
 .github/workflows/pages.yml        builds and deploys the static site to GitHub Pages
 .github/workflows/send-score.yml   emails a submitter when their run completes
 scripts/test_submit.mjs        dry-run and live service check

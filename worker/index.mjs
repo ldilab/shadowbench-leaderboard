@@ -7,8 +7,12 @@
 // the submitter) decide whether to publish it.
 //
 // Flow:
-//   1. POST /api/track {id, email} -- called by submit.js right after a
-//      submission is accepted. Records the id + email to watch.
+//   1. POST /api/submit {id, name, org, track, tags, submissionSpec, email} --
+//      called by submit.js instead of hitting the evaluator directly. Rate
+//      limits by IP and by email (a courtesy per-browser localStorage gate
+//      alone is trivially reset by opening a private window; this can't be),
+//      then forwards to the evaluator's own /api/submissions and starts
+//      watching the id + email for completion.
 //   2. scheduled() (Cron Trigger, every minute) polls watched ids against the
 //      backend. When one completes, it computes the score (reusing the exact
 //      metrics.js logic the site itself uses), stashes it in KV under a random
@@ -35,7 +39,7 @@
 //      watch list if still pending, removes it from data/community.json if
 //      it was published, and emails the original submitter that it's gone.
 
-import { API_BASE, ID_PREFIX } from "../assets/config.js";
+import { API_BASE, ID_PREFIX, RATE_LIMIT_MS } from "../assets/config.js";
 import { computeMetrics, computeCategoryMetrics } from "../assets/metrics.js";
 import { parseDelkTag } from "../assets/ui.js";
 
@@ -43,6 +47,7 @@ const WATCH_KEY = "community:watch";
 const OWNER_PREFIX = "community:owner:"; // outlives the watch entry, for delete-notice emails
 const PENDING_PREFIX = "community:pending:";
 const PENDING_TTL_SEC = 30 * 24 * 60 * 60; // 30 days -- long enough to not lose a slow responder
+const RATE_LIMIT_SEC = Math.ceil(RATE_LIMIT_MS / 1000); // same window as the client-side gate
 
 const REPO = "ldilab/shadowbench-leaderboard";
 const REPO_API = `https://api.github.com/repos/${REPO}`;
@@ -166,7 +171,7 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
-    if (url.pathname === "/api/track") {
+    if (url.pathname === "/api/submit") {
       if (request.method === "OPTIONS") {
         return new Response(null, {
           headers: {
@@ -183,10 +188,7 @@ export default {
       } catch {
         return jsonResponse({ error: "Invalid JSON body." }, { status: 400 });
       }
-      if (!isValidTrackId(body && body.id)) return jsonResponse({ error: "Invalid submission id." }, { status: 400 });
-      if (!isValidEmail(body && body.email)) return jsonResponse({ error: "Invalid email." }, { status: 400 });
-      await trackSubmission(env, body.id, body.email);
-      return jsonResponse({ ok: true }, { status: 202 });
+      return handleSubmit(env, request, body);
     }
 
     if (url.pathname === "/api/delete") {
@@ -296,6 +298,75 @@ async function publishEntry(env, pending) {
   let res = await attempt();
   if (res.status === 409) res = await attempt(); // one retry on a concurrent-publish race
   if (!res.ok) throw new Error(`GitHub Contents API PUT failed: HTTP ${res.status} ${await res.text()}`);
+}
+
+// Keyed on IP first (an incognito window gets a fresh localStorage but not a
+// fresh IP) and email second (raises the bar further without needing an
+// account system). Neither stops a determined direct call to the evaluator's
+// own API -- that's outside this repo's control -- but it closes the "just
+// reopen in a private window" bypass of the old client-only gate.
+async function checkRateLimit(env, ip, email) {
+  const [ipHit, emailHit] = await Promise.all([
+    env.COMMUNITY_KV.get(`ratelimit:ip:${ip}`),
+    env.COMMUNITY_KV.get(`ratelimit:email:${email}`),
+  ]);
+  const expiry = Math.max(Number(ipHit) || 0, Number(emailHit) || 0);
+  return expiry > Date.now() ? Math.ceil((expiry - Date.now()) / 60000) : 0;
+}
+
+async function setRateLimit(env, ip, email) {
+  const expiry = String(Date.now() + RATE_LIMIT_MS);
+  await Promise.all([
+    env.COMMUNITY_KV.put(`ratelimit:ip:${ip}`, expiry, { expirationTtl: RATE_LIMIT_SEC }),
+    env.COMMUNITY_KV.put(`ratelimit:email:${email}`, expiry, { expirationTtl: RATE_LIMIT_SEC }),
+  ]);
+}
+
+async function handleSubmit(env, request, body) {
+  const { id, name, org, track, tags, submissionSpec, email } = body || {};
+  if (!isValidTrackId(id)) return jsonResponse({ error: "Invalid submission id." }, { status: 400 });
+  if (!isValidEmail(email)) return jsonResponse({ error: "Invalid email." }, { status: 400 });
+  if (!submissionSpec || typeof submissionSpec !== "object") {
+    return jsonResponse({ error: "Missing submissionSpec." }, { status: 400 });
+  }
+
+  const ip = request.headers.get("cf-connecting-ip") || "unknown";
+  const minutesLeft = await checkRateLimit(env, ip, email);
+  if (minutesLeft > 0) {
+    return jsonResponse(
+      { error: `Too many submissions from this connection or email recently -- try again in about ${minutesLeft} minute${minutesLeft === 1 ? "" : "s"}.` },
+      { status: 429 }
+    );
+  }
+
+  let res;
+  try {
+    res = await fetch(`${API_BASE}/api/submissions`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id, name, org, track, tags, submissionSpec }),
+      signal: AbortSignal.timeout(30000),
+    });
+  } catch (err) {
+    return jsonResponse({ error: `Evaluator request failed: ${err.message}` }, { status: 502 });
+  }
+  const text = await res.text();
+  if (!res.ok) {
+    return new Response(text, {
+      status: res.status,
+      headers: { "content-type": "application/json; charset=utf-8", "access-control-allow-origin": ALLOWED_ORIGIN },
+    });
+  }
+  let out;
+  try {
+    out = JSON.parse(text);
+  } catch {
+    return jsonResponse({ error: "Evaluator returned an unexpected response." }, { status: 502 });
+  }
+  if (out.submission_id) {
+    await Promise.all([setRateLimit(env, ip, email), trackSubmission(env, out.submission_id, email)]);
+  }
+  return jsonResponse(out, { status: res.status });
 }
 
 async function handleDelete(env, id, hash) {

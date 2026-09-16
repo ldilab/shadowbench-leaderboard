@@ -1,7 +1,51 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-09-16T06:15:33.585Z",
   "datasetVersion": "v1.2",
   "prefix": "leaderboard-",
-  "count": 0,
-  "entries": []
+  "count": 1,
+  "entries": [
+    {
+      "id": "leaderboard-test-2a150d9f",
+      "name": "test",
+      "org": "SNU-LDI",
+      "track": "Open",
+      "completedAt": "2026-09-16T06:12:53.657Z",
+      "metrics": {
+        "n": 178,
+        "compile": 0.5617977528089888,
+        "saPass": 0,
+        "saPassSoft": 0
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "n": 104,
+          "compile": 0.9615384615384616,
+          "saPass": 0,
+          "saPassSoft": 0
+        },
+        {
+          "category": "algebraic-geometry",
+          "n": 25,
+          "compile": 0,
+          "saPass": 0,
+          "saPassSoft": 0
+        },
+        {
+          "category": "analysis",
+          "n": 33,
+          "compile": 0,
+          "saPass": 0,
+          "saPassSoft": 0
+        },
+        {
+          "category": "college-math-competition",
+          "n": 16,
+          "compile": 0,
+          "saPass": 0,
+          "saPassSoft": 0
+        }
+      ]
+    }
+  ]
 }

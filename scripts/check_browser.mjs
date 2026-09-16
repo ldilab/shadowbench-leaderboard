@@ -60,7 +60,7 @@ try {
     await page.goto(`${baseUrl}/index.html`, { waitUntil: "domcontentloaded" });
     await page.locator("#paper-board tbody tr").first().waitFor();
     await page.locator("[data-category-toggle]").click();
-    await page.locator(".category-row").waitFor();
+    await page.locator(".category-row").first().waitFor();
     await page.screenshot({ path: `/tmp/shadowbench-${viewport.width}.png`, fullPage: true });
     const overflow = await page.evaluate(() =>
       [...document.querySelectorAll("body *")].filter((element) => {

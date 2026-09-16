@@ -68,7 +68,14 @@ table .id { max-width: 220px; white-space: normal; margin-top: 3px; }
 .expand-btn { width: 22px; height: 22px; flex: 0 0 22px; padding: 0; border: 0; background: transparent; color: var(--muted); line-height: 22px; }
 .expand-btn span { display: inline-block; transition: transform .12s ease; }
 .expand-btn[aria-expanded="true"] span { transform: rotate(90deg); }
-.category-row > td { padding: 0 12px 16px 46px !important; background: var(--panel-2); white-space: normal !important; }
+/* Community-board category breakdown: plain <tr>s in the same table.board,
+   sharing its column widths exactly -- not a separate nested table, so
+   nothing to keep in sync for alignment. */
+.category-row td { background: var(--panel-2); font-size: 12px; }
+.category-row .category-name { padding-left: 20px; color: var(--muted); }
+
+/* Per-job category breakdown on submit.html (assets/submit.js renderJobs) --
+   a standalone card, not a table row, so it uses its own small table. */
 .category-table-wrap { max-width: 720px; overflow-x: auto; border-top: 1px solid var(--border-strong); }
 .category-table { width: 100%; min-width: 500px; border-collapse: collapse; font-size: 12px; }
 .category-table th, .category-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; }

@@ -1,6 +1,6 @@
 import { API_BASE, ID_PREFIX, METRIC_LABELS } from "./config.js";
 import { computeMetrics } from "./metrics.js";
-import { initTheme, fmtPct, escapeHtml, loadTrackedJobs, renderCategoryMetrics } from "./ui.js";
+import { initTheme, fmtPct, escapeHtml, loadTrackedJobs } from "./ui.js";
 
 initTheme();
 
@@ -90,6 +90,26 @@ function metricCell(v, strong) {
   return `<td class="num ${strong ? "metric-strong" : ""}">${pct}</td>`;
 }
 
+// Category breakdown rows share the board table's own <colgroup>, so they line
+// up with the parent row's columns exactly (a separate nested table can't).
+function categoryRowsHtml(categories, groupId) {
+  if (!Array.isArray(categories) || categories.length === 0) return "";
+  return categories
+    .map(
+      (item, idx) => `<tr class="category-row" id="${groupId}-${idx}" data-group="${groupId}" hidden>
+        <td class="rank"></td>
+        <td class="category-name">${escapeHtml(item.category)}</td>
+        <td></td>
+        ${metricCell(item.compile, false)}
+        ${metricCell(item.saPassSoft, false)}
+        ${metricCell(item.saPass, true)}
+        <td class="num metric-mut">${item.n ?? "n/a"}</td>
+        <td></td>
+      </tr>`
+    )
+    .join("");
+}
+
 /* --------------------------- Community table ----------------------------- */
 
 async function loadCommunity() {
@@ -144,8 +164,9 @@ async function loadCommunity() {
       const date = e.completedAt ? new Date(e.completedAt).toLocaleDateString() : "n/a";
       const detailId = `categories-${i}`;
       const hasCategories = Array.isArray(e.categories) && e.categories.length > 0;
+      const controlsIds = hasCategories ? e.categories.map((_, idx) => `${detailId}-${idx}`).join(" ") : "";
       const expander = hasCategories
-        ? `<button type="button" class="expand-btn" data-category-toggle="${detailId}" aria-expanded="false" aria-controls="${detailId}" title="Show category performance"><span aria-hidden="true">&#9656;</span></button>`
+        ? `<button type="button" class="expand-btn" data-category-toggle="${detailId}" aria-expanded="false" aria-controls="${controlsIds}" title="Show category performance"><span aria-hidden="true">&#9656;</span></button>`
         : "";
       return `<tr>
         <td class="rank">${i + 1}</td>
@@ -156,9 +177,7 @@ async function loadCommunity() {
         ${metricCell(m.saPass, true)}
         <td class="num metric-mut">${m.n ?? "n/a"}</td>
         <td class="num metric-mut">${date}</td>
-      </tr>${hasCategories ? `<tr class="category-row" id="${detailId}" hidden>
-        <td colspan="8">${renderCategoryMetrics(e.categories)}</td>
-      </tr>` : ""}`;
+      </tr>${categoryRowsHtml(e.categories, detailId)}`;
     })
     .join("");
 
@@ -195,11 +214,11 @@ async function loadCommunity() {
 
   host.querySelectorAll("[data-category-toggle]").forEach((button) => {
     button.addEventListener("click", () => {
-      const detail = document.getElementById(button.dataset.categoryToggle);
+      const rows = host.querySelectorAll(`[data-group="${button.dataset.categoryToggle}"]`);
       const expanded = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", String(!expanded));
       button.title = expanded ? "Show category performance" : "Hide category performance";
-      detail.hidden = expanded;
+      rows.forEach((row) => { row.hidden = expanded; });
     });
   });
 }

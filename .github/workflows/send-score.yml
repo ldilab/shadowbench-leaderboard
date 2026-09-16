@@ -1,0 +1,43 @@
+name: Send score email
+
+# Triggered by the Cloudflare Worker (worker/index.mjs) via repository_dispatch
+# once a tracked submission finishes evaluating. The Worker computes and holds
+# the score; this workflow's only job is delivering the private notification +
+# publish-confirmation link by email, since GitHub Pages has no server of its
+# own to send it from.
+
+on:
+  repository_dispatch:
+    types: [score-ready]
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send result email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USER }}
+          password: ${{ secrets.SMTP_PASS }}
+          from: ShadowBench <${{ secrets.SMTP_USER }}>
+          to: ${{ github.event.client_payload.email }}
+          subject: "ShadowBench result ready: ${{ github.event.client_payload.name }}"
+          body: |
+            Your ShadowBench submission has finished evaluating.
+
+            Submission: ${{ github.event.client_payload.name }} (${{ github.event.client_payload.org }})
+            Tasks: ${{ github.event.client_payload.n }}
+            Compile rate: ${{ github.event.client_payload.compile }}%
+            SA-pass (Soft): ${{ github.event.client_payload.saPassSoft }}%
+            SA-pass: ${{ github.event.client_payload.saPass }}%
+
+            This result is private -- it is not on the public leaderboard yet.
+            If you'd like to publish it, confirm here:
+            ${{ github.event.client_payload.confirmUrl }}
+
+            If you don't confirm, it simply stays unpublished. No action needed
+            otherwise.
+
+            -- ShadowBench (https://ldilab.github.io/shadowbench-leaderboard/)

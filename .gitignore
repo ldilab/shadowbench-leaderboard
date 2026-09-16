@@ -24,6 +24,9 @@ api-keys.*
 node_modules/
 dist/
 
+# --- Wrangler local dev state (local KV/D1 simulation, etc.) ---
+.wrangler/
+
 # --- OS / editor ---
 .DS_Store
 Thumbs.db

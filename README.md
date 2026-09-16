@@ -37,8 +37,9 @@ The reader source and validation live in `assets/code-submission.js`. User-provi
 as JSON data and is never interpolated into the Python command. Source input is limited to 4 MiB and
 the compressed evaluator payload to 512 KiB.
 
-Submissions are public benchmark entries. Names, organizations, generated code, run metadata, and
-results should be treated as public. A delete password is hashed in the browser and stored in a
+A submission's result is private until the submitter chooses to publish it (see "How results become
+public" below) -- but treat generated code and run metadata sent to the hosted evaluator itself as
+visible to whoever operates that service. A delete password is hashed in the browser and stored in a
 submission tag. This is only a convenience check in the static site; real authorization depends on
 the hosted API.
 
@@ -65,25 +66,44 @@ three-task evaluator job:
 COUNT=3 node scripts/test_submit.mjs data/submission-example.json --live
 ```
 
-## Cloudflare deployment
+## Hosting: GitHub Pages + a small Cloudflare Worker
 
-`wrangler.jsonc` deploys the static `dist/` output as a Worker named `shadowbench`.
+The site itself is static and served by **GitHub Pages** from this repo
+(`.github/workflows/pages.yml`, source: GitHub Actions) at
+<https://ldilab.github.io/shadowbench-leaderboard/>. GitHub Pages can't run any server code, so a
+small **Cloudflare Worker** (`worker/index.mjs`) handles the two things that need one:
+
+1. `POST /api/track {id, email}` -- called by `submit.js` right after a submission is accepted.
+   Records the id and email so the Worker starts watching it.
+2. A Cron Trigger, every minute, polls watched ids against the hosted evaluator. When one finishes,
+   the Worker computes the score (same `assets/metrics.js` logic the site itself uses), stashes it in
+   KV, and fires a `repository_dispatch` that makes `.github/workflows/send-score.yml` email the
+   submitter a link.
+3. `GET/POST /publish?token=...` -- the confirmation page from that email. Only a `POST` (i.e. only
+   an actual click on the confirm button, never a bare `GET` -- email security scanners prefetch
+   links) commits the entry into `data/community.json` on `main` via the GitHub Contents API, which
+   triggers the Pages redeploy above.
+
+So: a result is private (only in that email) until the submitter confirms publishing it. The Worker
+never serves the site; it's the deploy target `wrangler.jsonc` points at, reachable directly at its
+own `*.workers.dev` URL only for `/api/track` and `/publish`.
 
 ```bash
 npx wrangler login
+npx wrangler kv namespace create COMMUNITY_KV        # once; paste the id into wrangler.jsonc
+npx wrangler secret put GITHUB_TOKEN                 # fine-grained PAT: Contents R/W on this repo
+gh secret set SMTP_USER --repo ldilab/shadowbench-leaderboard   # a Gmail address
+gh secret set SMTP_PASS --repo ldilab/shadowbench-leaderboard   # that Gmail account's app password
 npm run deploy
 ```
 
-A Workers development URL always has the form
-`<worker>.<account-subdomain>.workers.dev`. The middle label belongs to the Cloudflare account,
-not this repository. In **Workers & Pages > Account details > workers.dev subdomain**, change it to
-a neutral available name. This changes the account label for every Worker in that Cloudflare
-account.
+**Known gap**: removing an already-published entry is manual (edit `data/community.json` and push) --
+there's no automatic reconciliation against the evaluator backend for the git-published list.
 
-For a stable production address without an account label, attach a domain you control in
-**Worker > Settings > Domains & Routes > Add > Custom Domain**, such as
-`shadowbench.example.org`. Cloudflare creates the DNS record and certificate. A separate
-Cloudflare Pages project is another option and uses `<project>.pages.dev`.
+**Branch protection**: `main` requires a pull request to merge (0 required approvals -- this just
+blocks accidental direct pushes, it's not a review gate), with force-push and branch deletion
+blocked. The Worker's bot account is on the bypass list so its direct commits to `data/community.json`
+still work; everyone else needs a PR.
 
 ## Project layout
 
@@ -93,12 +113,12 @@ submit.html                    generated-code form and run tracking
 assets/code-submission.js      input validation and fixed code replay adapter
 assets/submit.js               submission, polling, and deletion UI
 assets/leaderboard.js          paper and community tables
-assets/metrics.js              shared SA-PASS calculation
+assets/metrics.js              shared SA-PASS calculation (also used by worker/index.mjs)
 data/paper_results.json        paper Table 3 values
-data/community.json            periodically generated community results
-scripts/sync_leaderboard.mjs   community data sync
+data/community.json            published community results (Worker commits to this on publish)
+worker/index.mjs               Cloudflare Worker: /api/track, /publish, and the scheduled watcher
+.github/workflows/pages.yml        builds and deploys the static site to GitHub Pages
+.github/workflows/send-score.yml   emails a submitter when their run completes
 scripts/test_submit.mjs        dry-run and live service check
-scripts/build.mjs              Cloudflare static build
+scripts/build.mjs              static build (used by pages.yml)
 ```
-
-The scheduled GitHub Action refreshes `data/community.json` every 30 minutes.

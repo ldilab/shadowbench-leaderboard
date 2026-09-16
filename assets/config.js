@@ -1,7 +1,13 @@
 // Shared configuration for the ShadowBench leaderboard site.
-// ES module — imported by the browser pages and by scripts/sync_leaderboard.mjs.
+// ES module — imported by the browser pages and by worker/index.mjs.
 
 export const API_BASE = "https://apilift.lim247.com";
+
+// The site is served as a static GitHub Pages project (no server of its own),
+// so anything dynamic -- accepting a submission's tracking email, and the
+// "publish to the public leaderboard" confirmation link -- goes to this
+// small Cloudflare Worker instead. It never serves the site itself.
+export const WORKER_BASE = "https://shadowbench.johnjongyoonkim.workers.dev";
 
 // Every job this leaderboard submits is prefixed so it can be distinguished
 // from other traffic on the shared lift backend. The sync job only surfaces

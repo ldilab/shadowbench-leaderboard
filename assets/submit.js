@@ -1,4 +1,4 @@
-import { API_BASE, ID_PREFIX, RATE_LIMIT_MS, PROBLEM_COUNT } from "./config.js";
+import { API_BASE, ID_PREFIX, RATE_LIMIT_MS, PROBLEM_COUNT, WORKER_BASE } from "./config.js";
 import { parseSolutions, buildCodeSpec, MAX_SOURCE_BYTES } from "./code-submission.js";
 import { computeMetrics, computeCategoryMetrics } from "./metrics.js";
 import {
@@ -100,8 +100,10 @@ form.addEventListener("submit", async (event) => {
   const fd = new FormData(form);
   const name = String(fd.get("name") || "").trim();
   const org = String(fd.get("org") || "").trim();
+  const email = String(fd.get("email") || "").trim();
   const password = String(fd.get("password") || "");
   if (!name || !org) return fail("Submission name and organization are required.");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("Enter a valid email address.");
   if (password.length < 4) return fail("Set a delete password of at least 4 characters.");
 
   // Lock before hashing/compressing so repeated clicks cannot create duplicate jobs.
@@ -139,6 +141,10 @@ form.addEventListener("submit", async (event) => {
       createdAt: Date.now(), solutionCount: rows.length, submissionType: "generated-code", delk,
     };
     saveTrackedJob(acceptedJob);
+    // Tell our Worker to watch this id and email the result when done -- the
+    // Worker has no other way to learn this run exists or who to notify, so
+    // retry once rather than silently losing it on a single network blip.
+    void trackWithRetry(acceptedJob.id, email);
     form.reset();
     validateCode();
     formMsg.style.color = "var(--good)";
@@ -160,6 +166,20 @@ function fail(message) {
   formMsg.style.color = "var(--bad)";
   formMsg.textContent = message;
   return false;
+}
+
+async function trackWithRetry(id, email) {
+  for (const delayMs of [0, 3000]) {
+    if (delayMs) await new Promise((r) => setTimeout(r, delayMs));
+    try {
+      const res = await fetch(`${WORKER_BASE}/api/track`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, email }),
+      });
+      if (res.ok) return;
+    } catch (_e) { /* retry */ }
+  }
 }
 
 /* ------------------------------- Polling --------------------------------- */

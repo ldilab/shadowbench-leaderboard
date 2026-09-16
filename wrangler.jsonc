@@ -4,7 +4,11 @@
   "compatibility_date": "2026-09-11",
   "workers_dev": true,
   "preview_urls": false,
-  "assets": {
-    "directory": "./dist"
+  "main": "worker/index.mjs",
+  "kv_namespaces": [
+    { "binding": "COMMUNITY_KV", "id": "6aa8eb13ffc445f2bf0015c1a7ead604" }
+  ],
+  "triggers": {
+    "crons": ["* * * * *"]
   }
 }

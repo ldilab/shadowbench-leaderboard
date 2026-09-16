@@ -99,11 +99,12 @@ async function loadCommunity() {
     const res = await fetch("./data/community.json", { cache: "no-cache" });
     if (res.ok) community = await res.json();
   } catch (e) {
-    /* file may not exist yet before the first sync run */
+    /* file may not exist yet before the first publish */
   }
 
   // Merge in locally-tracked completed jobs (so a submitter sees their own
-  // result immediately, before the periodic sync commits community.json).
+  // result immediately in this browser, even before they confirm publishing
+  // it -- their own view is never gated on the email confirmation step).
   const byId = new Map((community.entries || []).map((e) => [e.id, e]));
   const tracked = loadTrackedJobs();
   for (const j of tracked) {

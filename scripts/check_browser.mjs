@@ -40,6 +40,9 @@ try {
         ],
       }],
     }}));
+    // The Worker provides this route in production; the plain static dev
+    // server used here does not, so mock it to avoid a spurious 404.
+    await page.route("**/api/track", (route) => route.fulfill({ status: 202, json: { ok: true } }));
     let submittedPayload;
     await page.route("https://apilift.lim247.com/**", async (route) => {
       const url = route.request().url();
@@ -74,6 +77,7 @@ try {
     await page.screenshot({ path: `/tmp/shadowbench-submit-${viewport.width}.png`, fullPage: true });
     await page.locator("#f-name").fill("Browser check");
     await page.locator("#f-org").fill("ShadowBench");
+    await page.locator("#f-email").fill("browser-check@example.com");
     await page.locator("#f-pass").fill("browser-test-password");
     await page.locator("#submit-btn").click();
     await page.getByText("Submitted as leaderboard-browser-check.").waitFor();

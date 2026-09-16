@@ -1,22 +1,7 @@
 {
-  "generatedAt": "2026-09-16T06:08:07.275Z",
+  "generatedAt": null,
   "datasetVersion": "v1.2",
   "prefix": "leaderboard-",
-  "count": 1,
-  "entries": [
-    {
-      "id": "leaderboard-worker-selftest-aaaa1111",
-      "name": "Worker self-test (safe to delete)",
-      "org": "internal-test",
-      "track": "Open",
-      "completedAt": "2026-09-16T06:00:00.000Z",
-      "metrics": {
-        "n": 178,
-        "compile": 12.34,
-        "saPass": 1.23,
-        "saPassSoft": 5.67
-      },
-      "categories": []
-    }
-  ]
+  "count": 0,
+  "entries": []
 }

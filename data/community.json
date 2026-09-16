@@ -1,9 +1,23 @@
 {
-  "generatedAt": "2026-09-16T06:15:33.585Z",
+  "generatedAt": "2026-09-16T06:32:55.359Z",
   "datasetVersion": "v1.2",
   "prefix": "leaderboard-",
-  "count": 1,
+  "count": 2,
   "entries": [
+    {
+      "id": "leaderboard-delete-selftestb-32db6ffe",
+      "name": "Delete flow test B (published)",
+      "org": "internal-test",
+      "track": "Open",
+      "completedAt": "2026-09-16T06:33:00.000Z",
+      "metrics": {
+        "n": 178,
+        "compile": 1,
+        "saPass": 0,
+        "saPassSoft": 0.5
+      },
+      "categories": []
+    },
     {
       "id": "leaderboard-test-2a150d9f",
       "name": "test",

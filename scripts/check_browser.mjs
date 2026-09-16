@@ -66,8 +66,11 @@ try {
     const overflow = await page.evaluate(() =>
       [...document.querySelectorAll("body *")].filter((element) => {
         const style = getComputedStyle(element);
+        // text-overflow: ellipsis intentionally reports scrollWidth > clientWidth
+        // on the label itself -- the overflow is clipped, never visible, and
+        // never widens the page. Only a real (unclipped) overflow should fail this.
         return style.position !== "fixed" && element.scrollWidth > element.clientWidth + 1 &&
-          !element.closest(".tbl-wrap") && style.overflowX !== "auto";
+          !element.closest(".tbl-wrap") && style.overflowX !== "auto" && style.textOverflow !== "ellipsis";
       }).map((element) => element.tagName + "." + element.className).slice(0, 10)
     );
     if (overflow.length) errors.push(`${viewport.width}px overflow: ${overflow.join(", ")}`);

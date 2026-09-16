@@ -49,6 +49,8 @@ function renderPaper() {
       return 0;
     });
 
+  renderPaperChart(rows);
+
   const rowsHtml = rows
     .map((r, i) => {
       return `<tr>
@@ -72,6 +74,39 @@ function renderPaper() {
       </tr></thead>
       <tbody>${rowsHtml}</tbody>
     </table></div>`;
+}
+
+const CHART_TOP_N = 10;
+
+// One series (magnitude, not identity) -> one flat hue, bar length is the
+// primary encoding, value direct-labeled at the tip. Bars scale to the best
+// score in view (not to 100%), so the ranking is legible even though SA-PASS
+// values themselves are small percentages.
+function renderPaperChart(sortedRows) {
+  const host = document.getElementById("paper-chart");
+  const top = sortedRows.slice(0, CHART_TOP_N);
+  if (top.length === 0) {
+    host.innerHTML = "";
+    return;
+  }
+  const maxVal = Math.max(top[0].cur.saPass, 0.0001);
+  const rowsHtml = top
+    .map((r, i) => {
+      const pct = fmtPct(r.cur.saPass);
+      const widthPct = Math.max((r.cur.saPass / maxVal) * 100, 1.5);
+      return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS">
+        <div class="chart-rank">${i + 1}</div>
+        <div class="chart-label">${escapeHtml(r.method)}</div>
+        <div class="chart-bar-track"><div class="chart-bar" style="width:${widthPct}%"></div></div>
+        <div class="chart-value">${pct}</div>
+      </div>`;
+    })
+    .join("");
+  host.innerHTML = `
+    <div class="chart-wrap" role="img" aria-label="Top ${top.length} methods by SA-PASS, ${top.map((r) => `${r.method} ${fmtPct(r.cur.saPass)}`).join(", ")}">
+      <div class="chart-title">Top ${top.length} by ${METRIC_LABELS.saPass}</div>
+      ${rowsHtml}
+    </div>`;
 }
 
 function metricCell(v, strong) {

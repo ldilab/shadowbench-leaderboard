@@ -1,0 +1,37 @@
+name: Send deletion notice email
+
+# Triggered by the Cloudflare Worker (worker/index.mjs handleDelete) after a
+# submission has been deleted from the evaluator and, if it was published,
+# from data/community.json.
+
+on:
+  repository_dispatch:
+    types: [submission-deleted]
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send deletion notice
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USER }}
+          password: ${{ secrets.SMTP_PASS }}
+          from: ShadowBench <${{ secrets.SMTP_USER }}>
+          to: ${{ github.event.client_payload.email }}
+          subject: "ShadowBench submission deleted: ${{ github.event.client_payload.name }}"
+          body: |
+            Your ShadowBench submission was deleted using its delete password.
+
+            Submission: ${{ github.event.client_payload.name }} (${{ github.event.client_payload.org }})
+            ID: ${{ github.event.client_payload.id }}
+
+            It has been removed from the evaluator and, if it was on the public
+            leaderboard, from there too.
+
+            If you didn't request this, someone else had your delete password --
+            you'll need to submit again with a new one.
+
+            -- ShadowBench (https://ldilab.github.io/shadowbench-leaderboard/)

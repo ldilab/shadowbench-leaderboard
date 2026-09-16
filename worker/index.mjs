@@ -24,16 +24,23 @@
 //   4. POST /publish commits the entry directly into data/community.json on
 //      main via the GitHub Contents API. That push triggers the Pages deploy
 //      workflow, so the public leaderboard updates within about a minute.
-//
-// Known gap: deleting an already-published entry is manual (edit
-// data/community.json directly) -- there's no automatic reconciliation
-// against the backend the way the KV-only design had, because the published
-// list now lives in git, not KV.
+//   5. POST /api/delete {id, hash} -- called from submit.html's delete form,
+//      from any browser. `hash` is the PBKDF2 hash the browser derives from
+//      the password the caller typed, using the salt from the submission's
+//      public delk tag (see assets/ui.js). This mirrors the courtesy gate
+//      that has always guarded deletion here: the delk tag is public and the
+//      backend's own delete route has no auth of its own, so this isn't real
+//      access control, just the same friction the UI has always offered.
+//      On success this deletes from the backend, drops the id from the
+//      watch list if still pending, removes it from data/community.json if
+//      it was published, and emails the original submitter that it's gone.
 
 import { API_BASE, ID_PREFIX } from "../assets/config.js";
 import { computeMetrics, computeCategoryMetrics } from "../assets/metrics.js";
+import { parseDelkTag } from "../assets/ui.js";
 
 const WATCH_KEY = "community:watch";
+const OWNER_PREFIX = "community:owner:"; // outlives the watch entry, for delete-notice emails
 const PENDING_PREFIX = "community:pending:";
 const PENDING_TTL_SEC = 30 * 24 * 60 * 60; // 30 days -- long enough to not lose a slow responder
 
@@ -63,6 +70,10 @@ function isValidTrackId(id) {
 
 function isValidEmail(email) {
   return typeof email === "string" && email.length <= 200 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidHash(hash) {
+  return typeof hash === "string" && /^[0-9a-f]{64}$/i.test(hash);
 }
 
 function jsonResponse(data, init = {}) {
@@ -117,10 +128,13 @@ function fmtPct(v) {
 
 async function trackSubmission(env, id, email) {
   const watch = await readJson(env.COMMUNITY_KV, WATCH_KEY, { ids: {} });
-  if (watch.ids[id]) return; // already tracked
-  if (Object.keys(watch.ids).length >= MAX_WATCH) return; // full, drop silently
-  watch.ids[id] = { email, firstSeen: Date.now(), attempts: 0 };
-  await env.COMMUNITY_KV.put(WATCH_KEY, JSON.stringify(watch));
+  if (!watch.ids[id] && Object.keys(watch.ids).length < MAX_WATCH) {
+    watch.ids[id] = { email, firstSeen: Date.now(), attempts: 0 };
+    await env.COMMUNITY_KV.put(WATCH_KEY, JSON.stringify(watch));
+  }
+  // Kept separately from the watch entry (which is removed once terminal) so
+  // a deletion request can still notify the submitter long after publishing.
+  await env.COMMUNITY_KV.put(OWNER_PREFIX + id, JSON.stringify({ email }));
 }
 
 function confirmPageHtml({ token, name, org, metrics, error }) {
@@ -173,6 +187,28 @@ export default {
       if (!isValidEmail(body && body.email)) return jsonResponse({ error: "Invalid email." }, { status: 400 });
       await trackSubmission(env, body.id, body.email);
       return jsonResponse({ ok: true }, { status: 202 });
+    }
+
+    if (url.pathname === "/api/delete") {
+      if (request.method === "OPTIONS") {
+        return new Response(null, {
+          headers: {
+            "access-control-allow-origin": ALLOWED_ORIGIN,
+            "access-control-allow-methods": "POST",
+            "access-control-allow-headers": "Content-Type",
+          },
+        });
+      }
+      if (request.method !== "POST") return jsonResponse({ error: "POST only" }, { status: 405 });
+      let body;
+      try {
+        body = await request.json();
+      } catch {
+        return jsonResponse({ error: "Invalid JSON body." }, { status: 400 });
+      }
+      if (!isValidTrackId(body && body.id)) return jsonResponse({ error: "Invalid submission id." }, { status: 400 });
+      if (!isValidHash(body && body.hash)) return jsonResponse({ error: "Invalid password hash." }, { status: 400 });
+      return handleDelete(env, body.id, body.hash);
     }
 
     if (url.pathname === "/publish" && request.method === "GET") {
@@ -260,6 +296,106 @@ async function publishEntry(env, pending) {
   let res = await attempt();
   if (res.status === 409) res = await attempt(); // one retry on a concurrent-publish race
   if (!res.ok) throw new Error(`GitHub Contents API PUT failed: HTTP ${res.status} ${await res.text()}`);
+}
+
+async function handleDelete(env, id, hash) {
+  let run;
+  try {
+    run = await getJson(`${API_BASE}/api/submissions/${encodeURIComponent(id)}`);
+  } catch {
+    return jsonResponse({ error: "Submission not found." }, { status: 404 });
+  }
+  const delk = parseDelkTag((run.run && run.run.tags) || []);
+  if (!delk) return jsonResponse({ error: "No delete password is on record for this submission." }, { status: 404 });
+  if (hash !== delk.hash) return jsonResponse({ error: "Wrong password." }, { status: 403 });
+
+  const del = await fetch(`${API_BASE}/api/admin/submissions/${encodeURIComponent(id)}`, { method: "DELETE" });
+  if (!del.ok) return jsonResponse({ error: `Backend delete failed: HTTP ${del.status}` }, { status: 502 });
+
+  const watch = await readJson(env.COMMUNITY_KV, WATCH_KEY, { ids: {} });
+  if (watch.ids[id]) {
+    delete watch.ids[id];
+    await env.COMMUNITY_KV.put(WATCH_KEY, JSON.stringify(watch));
+  }
+
+  let removedFromBoard = false;
+  try {
+    removedFromBoard = await removeFromPublished(env, id);
+  } catch (err) {
+    console.error("removeFromPublished failed:", err && err.stack ? err.stack : err);
+    // Deleted on the backend, but the public board may still show it -- say
+    // so plainly rather than emailing a "deleted" notice that isn't fully true.
+    return jsonResponse(
+      { error: "Deleted from the evaluator, but removing it from the public leaderboard failed. Press Delete again in a minute to finish." },
+      { status: 500 }
+    );
+  }
+
+  const owner = await readJson(env.COMMUNITY_KV, OWNER_PREFIX + id, null);
+  if (owner && owner.email) {
+    try {
+      await notifyDeletion(env, {
+        id,
+        email: owner.email,
+        name: (run.run && run.run.name) || id,
+        org: (run.run && run.run.org) || "n/a",
+      });
+    } catch (err) {
+      console.error(`delete notify failed for ${id}:`, err.message);
+    }
+    await env.COMMUNITY_KV.delete(OWNER_PREFIX + id);
+  }
+
+  return jsonResponse({ ok: true, removedFromBoard });
+}
+
+async function removeFromPublished(env, id) {
+  const auth = { authorization: `Bearer ${env.GITHUB_TOKEN}`, "user-agent": "shadowbench-leaderboard-worker" };
+
+  async function attempt() {
+    const cur = await getJson(`${REPO_API}/contents/${DATA_PATH}?ref=main`, auth);
+    const doc = JSON.parse(base64ToUtf8(cur.content));
+    const entries = doc.entries || [];
+    if (!entries.some((e) => e.id === id)) return { found: false };
+    const next = {
+      generatedAt: new Date().toISOString(),
+      datasetVersion: doc.datasetVersion || "v1.2",
+      prefix: ID_PREFIX,
+      count: entries.length - 1,
+      entries: entries.filter((e) => e.id !== id),
+    };
+    const res = await fetch(`${REPO_API}/contents/${DATA_PATH}`, {
+      method: "PUT",
+      headers: { ...auth, "content-type": "application/json" },
+      body: JSON.stringify({
+        message: `chore: remove ${id} (deleted by submitter)`,
+        content: utf8ToBase64(JSON.stringify(next, null, 2) + "\n"),
+        sha: cur.sha,
+        branch: "main",
+      }),
+    });
+    return { found: true, res };
+  }
+
+  let { found, res } = await attempt();
+  if (!found) return false; // never published; nothing to remove, not an error
+  if (res.status === 409) ({ found, res } = await attempt()); // one retry on a concurrent-write race
+  if (!res.ok) throw new Error(`GitHub Contents API PUT failed: HTTP ${res.status} ${await res.text()}`);
+  return true;
+}
+
+async function notifyDeletion(env, payload) {
+  const res = await fetch(`${REPO_API}/dispatches`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "user-agent": "shadowbench-leaderboard-worker",
+      accept: "application/vnd.github+json",
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ event_type: "submission-deleted", client_payload: payload }),
+  });
+  if (!res.ok) throw new Error(`repository_dispatch failed: HTTP ${res.status} ${await res.text()}`);
 }
 
 async function notifySubmitter(env, pending, token) {

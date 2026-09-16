@@ -373,10 +373,18 @@ async function deleteSubmission(id, password, done) {
     const ok = await verifyPassword(password, delk.salt, delk.hash);
     if (!ok) return report("Wrong password.", false);
 
-    const del = await fetch(`${API_BASE}/api/admin/submissions/${encodeURIComponent(id)}`, { method: "DELETE" });
+    // The Worker re-checks this hash against the backend's own delk tag, then
+    // also removes the entry from the public leaderboard (if published) and
+    // emails the original submitter -- not just the backend delete this used
+    // to do directly.
+    const del = await fetch(`${WORKER_BASE}/api/delete`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, hash: delk.hash }),
+    });
+    const out = await del.json().catch(() => ({}));
     if (!del.ok) {
-      const t = await del.text();
-      return report(`Delete failed: HTTP ${del.status} ${t}`, false);
+      return report(out.error || `Delete failed: HTTP ${del.status}`, false);
     }
     removeTrackedJob(id);
     return report("Deleted.", true);

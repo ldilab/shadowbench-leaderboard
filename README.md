@@ -83,10 +83,17 @@ small **Cloudflare Worker** (`worker/index.mjs`) handles the two things that nee
    an actual click on the confirm button, never a bare `GET` -- email security scanners prefetch
    links) commits the entry into `data/community.json` on `main` via the GitHub Contents API, which
    triggers the Pages redeploy above.
+4. `POST /api/delete {id, hash}` -- from `submit.html`'s delete form, in any browser. `hash` is the
+   PBKDF2 hash the browser derives from the typed password using the salt in the submission's public
+   delk tag (this is the same courtesy gate the UI has always had -- the delk tag is public and the
+   backend's delete route has no auth of its own, so this was never real access control). On a match,
+   the Worker deletes from the evaluator, drops the id from the watch list if still pending, removes
+   it from `data/community.json` if it was published (triggering a redeploy), and fires
+   `.github/workflows/delete-notice.yml` to email the original submitter that it's gone.
 
 So: a result is private (only in that email) until the submitter confirms publishing it. The Worker
 never serves the site; it's the deploy target `wrangler.jsonc` points at, reachable directly at its
-own `*.workers.dev` URL only for `/api/track` and `/publish`.
+own `*.workers.dev` URL only for `/api/track`, `/publish`, and `/api/delete`.
 
 ```bash
 npx wrangler login

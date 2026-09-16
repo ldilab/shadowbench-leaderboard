@@ -80,25 +80,6 @@
       <p class="sub">Recent submissions from this browser.</p>
       <div class="jobs" id="jobs"><div class="empty">No submissions yet.</div></div>
     </section>
-    <details class="section">
-      <summary>Delete a submission</summary>
-      <form id="delete-form" autocomplete="off">
-        <div class="form-grid" style="margin-top:16px">
-          <div class="field">
-            <label for="d-id">Submission ID</label>
-            <input id="d-id" name="delId" placeholder="leaderboard-..." required />
-          </div>
-          <div class="field">
-            <label for="d-pass">Delete password</label>
-            <input id="d-pass" name="delPass" type="password" autocomplete="off" required />
-          </div>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn" id="delete-btn">Delete submission</button>
-          <span class="rate-note" id="delete-msg" role="status"></span>
-        </div>
-      </form>
-    </details>
   </main>
   <footer>ShadowBench &middot; <a href="https://github.com/ldilab/shadowbench/tree/main/data">Benchmark problems</a></footer>
   <script type="module" src="./assets/submit.js"></script>

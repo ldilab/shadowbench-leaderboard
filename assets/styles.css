@@ -54,10 +54,6 @@ table.board th { background: var(--panel-2); color: var(--muted); font-weight: 5
 table.board .num { text-align: right; font-variant-numeric: tabular-nums; }
 table.board td.num { font-family: var(--mono); }
 table.board tbody tr:hover { background: var(--panel-2); }
-.sort-button { border: 0; background: none; color: inherit; font: inherit; padding: 2px 0; }
-.sort-button::after { content: " ↕"; opacity: .45; }
-[aria-sort="ascending"] .sort-button::after { content: " ↑"; opacity: 1; }
-[aria-sort="descending"] .sort-button::after { content: " ↓"; opacity: 1; }
 .rank { width: 42px; color: var(--faint); font-variant-numeric: tabular-nums; }
 .method, .metric-strong { font-weight: 600; }
 .metric-mut, .group { color: var(--muted); }
@@ -68,6 +64,9 @@ table .id { max-width: 220px; white-space: normal; margin-top: 3px; }
 .expand-btn { width: 22px; height: 22px; flex: 0 0 22px; padding: 0; border: 0; background: transparent; color: var(--muted); line-height: 22px; }
 .expand-btn span { display: inline-block; transition: transform .12s ease; }
 .expand-btn[aria-expanded="true"] span { transform: rotate(90deg); }
+.del-btn { width: 20px; height: 20px; flex: 0 0 20px; margin-left: auto; padding: 0; border: 0; border-radius: 3px; background: transparent; color: var(--faint); font-size: 15px; line-height: 20px; transition: color .12s ease, background .12s ease; }
+.del-btn:hover, .del-btn:focus-visible { color: var(--bad); background: var(--panel-2); }
+.del-btn:disabled { opacity: .5; }
 /* Community-board category breakdown: plain <tr>s in the same table.board,
    sharing its column widths exactly -- not a separate nested table, so
    nothing to keep in sync for alignment. */

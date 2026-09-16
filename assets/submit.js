@@ -4,8 +4,9 @@ import { computeMetrics, computeCategoryMetrics } from "./metrics.js";
 import {
   initTheme, fmtPct, escapeHtml, slugify,
   loadTrackedJobs, saveTrackedJob, removeTrackedJob, lastSubmitAt, markSubmitted,
-  derivePasswordHash, delkTag, parseDelkTag, verifyPassword, renderCategoryMetrics,
+  derivePasswordHash, delkTag, renderCategoryMetrics,
 } from "./ui.js";
+import { deleteSubmission } from "./delete-submission.js";
 
 initTheme();
 
@@ -328,82 +329,18 @@ function renderJobs() {
     .join("");
 
   host.querySelectorAll(".mini-del").forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", async () => {
       const id = btn.dataset.delId;
       const pass = window.prompt(`Enter the delete password for ${id}:`);
       if (pass == null) return;
-      deleteSubmission(id, pass, (msg, ok) => {
-        btn.textContent = ok ? "Deleted" : "Failed";
-        if (!ok) window.alert(msg);
-        renderJobs();
-      });
+      const local = loadTrackedJobs().find((j) => j.id === id);
+      btn.disabled = true;
+      const { ok, message } = await deleteSubmission(id, pass, local && local.delk);
+      btn.textContent = ok ? "Deleted" : "Failed";
+      if (ok) removeTrackedJob(id);
+      else { btn.disabled = false; window.alert(message); }
+      renderJobs();
     });
-  });
-}
-
-/* ------------------------------- Deletion -------------------------------- */
-
-// Verify the password against the delete-key stored in the submission tag
-// (works from any browser), with a local fallback for a just-made submission.
-async function deleteSubmission(id, password, done) {
-  const report = typeof done === "function" ? done : () => {};
-  try {
-    let delk = null;
-    const local = loadTrackedJobs().find((j) => j.id === id);
-    try {
-      const res = await fetch(`${API_BASE}/api/submissions/${encodeURIComponent(id)}`, { cache: "no-cache" });
-      if (res.ok) {
-        const s = await res.json();
-        delk = parseDelkTag((s.run && s.run.tags) || []);
-      }
-    } catch (_e) { /* fall back to local delk */ }
-    if (!delk && local && local.delk) delk = local.delk;
-
-    if (!delk) {
-      return report("No delete password is on record for this submission, so it cannot be verified here.", false);
-    }
-    const ok = await verifyPassword(password, delk.salt, delk.hash);
-    if (!ok) return report("Wrong password.", false);
-
-    // The Worker re-checks this hash against the backend's own delk tag, then
-    // also removes the entry from the public leaderboard (if published) and
-    // emails the original submitter -- not just the backend delete this used
-    // to do directly.
-    const del = await fetch(`${WORKER_BASE}/api/delete`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, hash: delk.hash }),
-    });
-    const out = await del.json().catch(() => ({}));
-    if (!del.ok) {
-      return report(out.error || `Delete failed: HTTP ${del.status}`, false);
-    }
-    removeTrackedJob(id);
-    return report("Deleted.", true);
-  } catch (e) {
-    return report(`Delete error: ${e.message}`, false);
-  }
-}
-
-const deleteForm = document.getElementById("delete-form");
-if (deleteForm) {
-  const delMsg = document.getElementById("delete-msg");
-  deleteForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const fd = new FormData(deleteForm);
-    const id = String(fd.get("delId") || "").trim();
-    const pass = String(fd.get("delPass") || "");
-    if (!id || !pass) return;
-    const btn = document.getElementById("delete-btn");
-    btn.disabled = true;
-    btn.innerHTML = `<span class="spinner"></span> Deleting…`;
-    await deleteSubmission(id, pass, (msg, ok) => {
-      delMsg.style.color = ok ? "var(--good)" : "var(--bad)";
-      delMsg.textContent = msg;
-      if (ok) { deleteForm.reset(); renderJobs(); }
-    });
-    btn.disabled = false;
-    btn.textContent = "Delete submission";
   });
 }
 

@@ -83,7 +83,7 @@ export const ADAPTER = {
 
 // Metric labels shown across the UI.
 export const METRIC_LABELS = {
-  saPass: "SA-pass",
-  saPassSoft: "SA-pass (Soft)",
+  saPass: "SA-PASS",
+  saPassSoft: "SA-PASS (Soft)",
   compile: "Compile rate",
 };

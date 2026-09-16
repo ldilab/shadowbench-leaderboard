@@ -1,6 +1,7 @@
 import { API_BASE, ID_PREFIX, METRIC_LABELS } from "./config.js";
 import { computeMetrics } from "./metrics.js";
-import { initTheme, fmtPct, escapeHtml, loadTrackedJobs } from "./ui.js";
+import { initTheme, fmtPct, escapeHtml, loadTrackedJobs, removeTrackedJob } from "./ui.js";
+import { deleteSubmission } from "./delete-submission.js";
 
 initTheme();
 
@@ -13,7 +14,7 @@ const isPending = (status) => {
 
 /* ------------------------------ Paper table ------------------------------ */
 
-const paperState = { data: null, level: "average", group: "all", sort: "saPass", dir: -1 };
+const paperState = { data: null, level: "average", group: "all" };
 
 async function loadPaper() {
   const host = document.getElementById("paper-board");
@@ -31,24 +32,22 @@ async function loadPaper() {
   renderPaper();
 }
 
+// Always ranked by SA-PASS (ties broken by SA-PASS Soft, then compile) --
+// no interactive column sort. A toggleable sort arrow next to SA-PASS read as
+// ambiguous (does it mean this column, or "lower is better"?); a fixed,
+// clearly-labeled primary ranking avoids that entirely.
 function renderPaper() {
-  const { data, level, group, sort, dir } = paperState;
+  const { data, level, group } = paperState;
   if (!data) return;
   let rows = data.rows.filter((r) => group === "all" || r.group === group);
   rows = rows
     .map((r) => ({ ...r, cur: r[level] }))
     .sort((a, b) => {
-      const d = (a.cur[sort] - b.cur[sort]) * dir;
-      if (d !== 0) return d;
-      // stable tiebreak: saPass, then soft, then compile
       for (const m of ["saPass", "saPassSoft", "compile"]) {
-        if (a.cur[m] !== b.cur[m]) return (b.cur[m] - a.cur[m]);
+        if (a.cur[m] !== b.cur[m]) return b.cur[m] - a.cur[m];
       }
       return 0;
     });
-
-  const th = (key, label) =>
-    `<th class="num" scope="col" aria-sort="${sort === key ? (dir < 0 ? "descending" : "ascending") : "none"}"><button type="button" class="sort-button" data-sort="${key}">${label}</button></th>`;
 
   const rowsHtml = rows
     .map((r, i) => {
@@ -56,33 +55,23 @@ function renderPaper() {
         <td class="rank">${i + 1}</td>
         <td><span class="method">${escapeHtml(r.method)}</span></td>
         <td class="group">${escapeHtml(r.group)}</td>
-        ${metricCell(r.cur.compile, sort === "compile")}
-        ${metricCell(r.cur.saPassSoft, sort === "saPassSoft")}
-        ${metricCell(r.cur.saPass, sort === "saPass")}
+        ${metricCell(r.cur.compile, false)}
+        ${metricCell(r.cur.saPassSoft, false)}
+        ${metricCell(r.cur.saPass, true)}
       </tr>`;
     })
     .join("");
 
   document.getElementById("paper-board").innerHTML = `
-    <div class="tbl-wrap" role="region" aria-label="Reported results" tabindex="0"><table class="board">
+    <div class="tbl-wrap" role="region" aria-label="Reported results, ranked by SA-PASS" tabindex="0"><table class="board">
       <thead><tr>
         <th>#</th><th>Method</th><th>Group</th>
-        ${th("compile", METRIC_LABELS.compile)}
-        ${th("saPassSoft", METRIC_LABELS.saPassSoft)}
-        ${th("saPass", METRIC_LABELS.saPass)}
+        <th class="num">${METRIC_LABELS.compile}</th>
+        <th class="num">${METRIC_LABELS.saPassSoft}</th>
+        <th class="num">${METRIC_LABELS.saPass}</th>
       </tr></thead>
       <tbody>${rowsHtml}</tbody>
     </table></div>`;
-
-  document.querySelectorAll("#paper-board button[data-sort]").forEach((el) => {
-    el.addEventListener("click", () => {
-      const key = el.dataset.sort;
-      if (paperState.sort === key) paperState.dir *= -1;
-      else { paperState.sort = key; paperState.dir = -1; }
-      renderPaper();
-      document.querySelector(`#paper-board button[data-sort="${key}"]`).focus({ preventScroll: true });
-    });
-  });
 }
 
 function metricCell(v, strong) {
@@ -168,9 +157,10 @@ async function loadCommunity() {
       const expander = hasCategories
         ? `<button type="button" class="expand-btn" data-category-toggle="${detailId}" aria-expanded="false" aria-controls="${controlsIds}" title="Show category performance"><span aria-hidden="true">&#9656;</span></button>`
         : "";
+      const delBtn = `<button type="button" class="del-btn" data-del-id="${escapeHtml(e.id)}" title="Delete this submission">&times;</button>`;
       return `<tr>
         <td class="rank">${i + 1}</td>
-        <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(e.name || e.id)}</span>${localTag}<span class="id">${escapeHtml(e.id)}</span></span></div></td>
+        <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(e.name || e.id)}</span>${localTag}<span class="id">${escapeHtml(e.id)}</span></span>${delBtn}</div></td>
         <td>${escapeHtml(e.org || "n/a")}</td>
         ${metricCell(m.compile, false)}
         ${metricCell(m.saPassSoft, false)}
@@ -187,9 +177,10 @@ async function loadCommunity() {
         ? `<span class="badge run"><span class="spinner"></span> running</span>`
         : `<span class="badge warn"><span class="spinner"></span> ${escapeHtml(p.status || "queued")}</span>`;
       const youTag = p.local ? ` <span class="badge run" title="From your browser">you</span>` : "";
+      const delBtn = `<button type="button" class="del-btn" data-del-id="${escapeHtml(p.id)}" title="Delete this submission">&times;</button>`;
       return `<tr>
         <td class="rank">•</td>
-        <td><span class="method">${escapeHtml(p.name || p.id)}</span>${youTag}<div class="id">${escapeHtml(p.id)}</div></td>
+        <td><div class="submission-name"><span><span class="method">${escapeHtml(p.name || p.id)}</span>${youTag}<span class="id">${escapeHtml(p.id)}</span></span>${delBtn}</div></td>
         <td>${escapeHtml(p.org || "n/a")} ${badge}</td>
         <td class="num metric-mut">n/a</td>
         <td class="num metric-mut">n/a</td>
@@ -219,6 +210,27 @@ async function loadCommunity() {
       button.setAttribute("aria-expanded", String(!expanded));
       button.title = expanded ? "Show category performance" : "Hide category performance";
       rows.forEach((row) => { row.hidden = expanded; });
+    });
+  });
+
+  // Any submission can be deleted from any browser given its password -- see
+  // assets/delete-submission.js -- so this button is on every row, not just
+  // ones tracked locally.
+  host.querySelectorAll("[data-del-id]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const id = button.dataset.delId;
+      const pass = window.prompt(`Enter the delete password for ${id}:`);
+      if (pass == null) return;
+      const local = tracked.find((j) => j.id === id);
+      button.disabled = true;
+      const { ok, message } = await deleteSubmission(id, pass, local && local.delk);
+      if (ok) {
+        removeTrackedJob(id);
+        loadCommunity();
+      } else {
+        button.disabled = false;
+        window.alert(message);
+      }
     });
   });
 }

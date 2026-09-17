@@ -1,4 +1,4 @@
-import { API_BASE, ID_PREFIX, METRIC_LABELS } from "./config.js";
+import { API_BASE, ID_PREFIX, METRIC_LABELS, TEST_TASK_IDS } from "./config.js";
 import { computeMetrics } from "./metrics.js";
 import { initTheme, fmtPct, escapeHtml, loadTrackedJobs, removeTrackedJob } from "./ui.js";
 import { deleteSubmission } from "./delete-submission.js";
@@ -136,8 +136,34 @@ function categoryRowsHtml(categories, groupId) {
 
 /* --------------------------- Community table ----------------------------- */
 
+// Derived from the fixed 178-task set (not a static list) so it can never
+// list a category the live benchmark doesn't actually have, or miss one.
+const COMMUNITY_CATEGORIES = [...new Set(TEST_TASK_IDS.map((id) => id.split("/")[0]))].sort();
+
+const communityState = { category: "all", entries: [], pending: [], tracked: [], generatedAt: null, datasetVersion: null };
+
+const categoryFilter = document.getElementById("community-category-filter");
+if (categoryFilter) {
+  categoryFilter.insertAdjacentHTML(
+    "beforeend",
+    COMMUNITY_CATEGORIES.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")
+  );
+  categoryFilter.addEventListener("change", (e) => {
+    communityState.category = e.target.value;
+    renderCommunity();
+  });
+}
+
+// "all" -> the entry's overall metrics. A specific category -> that entry's
+// breakdown for just that category, or null if it has none (rendered as n/a,
+// sorted last) -- every entry runs the same fixed task set, so a null here
+// means something went wrong with that run, not a different scope submitted.
+function rowMetrics(entry, category) {
+  if (category === "all") return entry.metrics;
+  return (entry.categories || []).find((c) => c.category === category) || null;
+}
+
 async function loadCommunity() {
-  const host = document.getElementById("community-board");
   let community = { entries: [], generatedAt: null };
   try {
     const res = await fetch("./data/community.json", { cache: "no-cache" });
@@ -160,15 +186,23 @@ async function loadCommunity() {
       });
     }
   }
-  const entries = [...byId.values()].filter((e) => e.metrics);
-
+  communityState.entries = [...byId.values()].filter((e) => e.metrics);
+  communityState.tracked = tracked;
   // Runs still being evaluated: from the shared queue (any visitor) + this
   // browser's own in-flight jobs. Shown at the top with a waiting badge.
-  const pending = await loadPending(new Set(byId.keys()), tracked);
+  communityState.pending = await loadPending(new Set(byId.keys()), tracked);
+  communityState.generatedAt = community.generatedAt;
+  communityState.datasetVersion = community.datasetVersion;
+  renderCommunity();
+}
 
-  if (community.generatedAt) {
+function renderCommunity() {
+  const host = document.getElementById("community-board");
+  const { entries, pending, tracked, category } = communityState;
+
+  if (communityState.generatedAt) {
     document.getElementById("community-sub").textContent =
-      `Live dataset ${community.datasetVersion || "v1.2"}; the same 178-task test set as the paper. Updated ${new Date(community.generatedAt).toLocaleString()}.`;
+      `Live dataset ${communityState.datasetVersion || "v1.2"}; the same 178-task test set as the paper. Updated ${new Date(communityState.generatedAt).toLocaleString()}.`;
   }
 
   if (entries.length === 0 && pending.length === 0) {
@@ -176,14 +210,17 @@ async function loadCommunity() {
     return;
   }
 
-  entries.sort((a, b) => {
-    const am = a.metrics, bm = b.metrics;
-    return (bm.saPass - am.saPass) || (bm.saPassSoft - am.saPassSoft) || (bm.compile - am.compile);
-  });
+  const ranked = entries
+    .map((e) => ({ e, m: rowMetrics(e, category) }))
+    .sort((a, b) => {
+      if (!a.m && !b.m) return 0;
+      if (!a.m) return 1;
+      if (!b.m) return -1;
+      return (b.m.saPass - a.m.saPass) || (b.m.saPassSoft - a.m.saPassSoft) || (b.m.compile - a.m.compile);
+    });
 
-  const rowsHtml = entries
-    .map((e, i) => {
-      const m = e.metrics;
+  const rowsHtml = ranked
+    .map(({ e, m }, i) => {
       const localTag = e.local ? ` <span class="badge run" title="From this browser, not in the shared sync">you</span>` : "";
       const date = e.completedAt ? new Date(e.completedAt).toLocaleDateString() : "n/a";
       const detailId = `categories-${i}`;
@@ -197,10 +234,10 @@ async function loadCommunity() {
         <td class="rank">${i + 1}</td>
         <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(e.name || e.id)}</span>${localTag}<span class="id">${escapeHtml(e.id)}</span></span>${delBtn}</div></td>
         <td>${escapeHtml(e.org || "n/a")}</td>
-        ${metricCell(m.compile, false)}
-        ${metricCell(m.saPassSoft, false)}
-        ${metricCell(m.saPass, true)}
-        <td class="num metric-mut">${m.n ?? "n/a"}</td>
+        ${metricCell(m?.compile, false)}
+        ${metricCell(m?.saPassSoft, false)}
+        ${metricCell(m?.saPass, true)}
+        <td class="num metric-mut">${m ? (m.n ?? "n/a") : "n/a"}</td>
         <td class="num metric-mut">${date}</td>
       </tr>${categoryRowsHtml(e.categories, detailId)}`;
     })

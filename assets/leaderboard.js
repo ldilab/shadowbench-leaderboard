@@ -32,6 +32,19 @@ async function loadPaper() {
   renderPaper();
 }
 
+// Community submissions only ever have one overall score -- every run covers
+// the same fixed 178-task set across L2/L3/L4, there's no per-level split --
+// so they can only stand in for "average". Showing them under a specific
+// level would pass an all-levels score off as that level's.
+function communityAsPaperRows() {
+  return communityState.entries.map((e) => ({
+    method: e.name || e.id,
+    group: "Community",
+    cur: { compile: e.metrics.compile, saPassSoft: e.metrics.saPassSoft, saPass: e.metrics.saPass },
+    source: "community",
+  }));
+}
+
 // Always ranked by SA-PASS (ties broken by SA-PASS Soft, then compile) --
 // no interactive column sort. A toggleable sort arrow next to SA-PASS read as
 // ambiguous (does it mean this column, or "lower is better"?); a fixed,
@@ -39,30 +52,47 @@ async function loadPaper() {
 function renderPaper() {
   const { data, level, group } = paperState;
   if (!data) return;
-  let rows = data.rows.filter((r) => group === "all" || r.group === group);
-  rows = rows
-    .map((r) => ({ ...r, cur: r[level] }))
-    .sort((a, b) => {
-      for (const m of ["saPass", "saPassSoft", "compile"]) {
-        if (a.cur[m] !== b.cur[m]) return b.cur[m] - a.cur[m];
-      }
-      return 0;
-    });
+  let rows = data.rows
+    .filter((r) => group === "all" || r.group === group)
+    .map((r) => ({ ...r, cur: r[level], source: "paper" }));
+
+  const includeCommunity = level === "average";
+  if (includeCommunity) {
+    rows = rows.concat(communityAsPaperRows().filter((r) => group === "all" || r.group === group));
+  }
+
+  rows.sort((a, b) => {
+    for (const m of ["saPass", "saPassSoft", "compile"]) {
+      if (a.cur[m] !== b.cur[m]) return b.cur[m] - a.cur[m];
+    }
+    return 0;
+  });
 
   renderPaperChart(rows);
 
-  const rowsHtml = rows
-    .map((r, i) => {
-      return `<tr>
-        <td class="rank">${i + 1}</td>
-        <td><span class="method">${escapeHtml(r.method)}</span></td>
-        <td class="group">${escapeHtml(r.group)}</td>
-        ${metricCell(r.cur.compile, false)}
-        ${metricCell(r.cur.saPassSoft, false)}
-        ${metricCell(r.cur.saPass, true)}
-      </tr>`;
-    })
-    .join("");
+  const rowsHtml = rows.length
+    ? rows
+        .map((r, i) => {
+          // Text badge, not color alone -- a colored row/bar can't be told
+          // apart under CVD or in the table view, this can.
+          const communityTag = r.source === "community"
+            ? ` <span class="badge run" title="Self-reported community submission, not from the paper">community</span>`
+            : "";
+          return `<tr>
+            <td class="rank">${i + 1}</td>
+            <td><span class="method">${escapeHtml(r.method)}</span>${communityTag}</td>
+            <td class="group">${escapeHtml(r.group)}</td>
+            ${metricCell(r.cur.compile, false)}
+            ${metricCell(r.cur.saPassSoft, false)}
+            ${metricCell(r.cur.saPass, true)}
+          </tr>`;
+        })
+        .join("")
+    : `<tr><td colspan="6" class="empty-row">${
+        group === "Community" && !includeCommunity
+          ? "Community submissions only have an overall score -- switch to Average to see them."
+          : "No results for this filter."
+      }</td></tr>`;
 
   document.getElementById("paper-board").innerHTML = `
     <div class="tbl-wrap" role="region" aria-label="Reported results, ranked by SA-PASS" tabindex="0"><table class="board">
@@ -94,9 +124,13 @@ function renderPaperChart(sortedRows) {
     .map((r, i) => {
       const pct = fmtPct(r.cur.saPass);
       const widthPct = Math.max((r.cur.saPass / maxVal) * 100, 1.5);
-      return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS">
+      const isCommunity = r.source === "community";
+      // Same dot-plus-tooltip pattern as the table's "community" text badge
+      // below it -- not the bar's own color, so it survives CVD/grayscale.
+      const communityMark = isCommunity ? `<span class="chart-community-dot" aria-hidden="true"></span>` : "";
+      return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS${isCommunity ? " (community submission)" : ""}">
         <div class="chart-rank">${i + 1}</div>
-        <div class="chart-label">${escapeHtml(r.method)}</div>
+        <div class="chart-label">${communityMark}${escapeHtml(r.method)}</div>
         <div class="chart-bar-track"><div class="chart-bar" style="width:${widthPct}%"></div></div>
         <div class="chart-value">${pct}</div>
       </div>`;
@@ -194,6 +228,7 @@ async function loadCommunity() {
   communityState.generatedAt = community.generatedAt;
   communityState.datasetVersion = community.datasetVersion;
   renderCommunity();
+  renderPaper(); // community entries also rank in the top-10 chart; refresh it too
 }
 
 function renderCommunity() {

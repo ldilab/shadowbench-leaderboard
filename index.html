@@ -33,7 +33,7 @@
     <section class="section" aria-labelledby="reported-title">
       <div class="section-head">
         <div>
-          <h2 id="reported-title">Reported results</h2>
+          <h2 id="reported-title">Leaderboard</h2>
           <p class="sub" id="paper-sub">Loading paper results...</p>
         </div>
         <div class="controls">
@@ -43,6 +43,10 @@
             <button data-level="L2" aria-pressed="false">L2</button>
             <button data-level="L3" aria-pressed="false">L3</button>
           </div>
+          <label for="category-filter">Category</label>
+          <select id="category-filter">
+            <option value="all">Overall</option>
+          </select>
           <label for="group-filter">Group</label>
           <select id="group-filter">
             <option value="all">All groups</option>
@@ -53,6 +57,7 @@
             <option value="Community">Community</option>
           </select>
         </div>
+        <a href="./submit.html">Submit code</a>
       </div>
       <div id="paper-chart"></div>
       <div id="paper-board"><div class="empty">Loading...</div></div>
@@ -64,22 +69,6 @@
           <dt>SA-PASS</dt><dd>Share of tasks that compile and pass every forward and backward checker.</dd>
         </dl>
       </details>
-    </section>
-    <section class="section" aria-labelledby="community-title">
-      <div class="section-head">
-        <div>
-          <h2 id="community-title">Community submissions</h2>
-          <p class="sub" id="community-sub">Evaluated on the same 178-task test set as the paper.</p>
-        </div>
-        <div class="controls">
-          <label for="community-category-filter">Category</label>
-          <select id="community-category-filter">
-            <option value="all">Overall</option>
-          </select>
-        </div>
-        <a href="./submit.html">Submit code</a>
-      </div>
-      <div id="community-board"><div class="empty">Loading...</div></div>
     </section>
   </main>
   <footer>ShadowBench &middot; <a href="https://arxiv.org/abs/2608.29270">arXiv:2608.29270</a></footer>

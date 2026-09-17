@@ -12,189 +12,48 @@ const isPending = (status) => {
   return !TERMINAL_OK.has(s) && !TERMINAL_FAIL.has(s);
 };
 
-/* ------------------------------ Paper table ------------------------------ */
-
-const paperState = { data: null, level: "average", group: "all" };
-
-async function loadPaper() {
-  const host = document.getElementById("paper-board");
-  try {
-    const res = await fetch("./data/paper_results.json", { cache: "no-cache" });
-    paperState.data = await res.json();
-  } catch (e) {
-    host.innerHTML = `<div class="empty">Could not load paper results: ${escapeHtml(e.message)}</div>`;
-    return;
-  }
-  const src = paperState.data.source;
-  document.getElementById("paper-sub").innerHTML =
-    `<a href="${src.arxivUrl}" target="_blank" rel="noopener">arXiv:${src.arxiv}${src.version}</a>, ${escapeHtml(src.table)}. ` +
-    `${src.benchmark.problems} problems (L1 ${src.benchmark.levels.L1}, L2 ${src.benchmark.levels.L2}, L3 ${src.benchmark.levels.L3}).`;
-  renderPaper();
-}
-
-// Community submissions only ever have one overall score -- every run covers
-// the same fixed 178-task set across L2/L3/L4, there's no per-level split --
-// so they can only stand in for "average". Showing them under a specific
-// level would pass an all-levels score off as that level's.
-function communityAsPaperRows() {
-  return communityState.entries.map((e) => ({
-    method: e.name || e.id,
-    group: "Community",
-    cur: { compile: e.metrics.compile, saPassSoft: e.metrics.saPassSoft, saPass: e.metrics.saPass },
-    source: "community",
-  }));
-}
-
-// Always ranked by SA-PASS (ties broken by SA-PASS Soft, then compile) --
-// no interactive column sort. A toggleable sort arrow next to SA-PASS read as
-// ambiguous (does it mean this column, or "lower is better"?); a fixed,
-// clearly-labeled primary ranking avoids that entirely.
-function renderPaper() {
-  const { data, level, group } = paperState;
-  if (!data) return;
-  let rows = data.rows
-    .filter((r) => group === "all" || r.group === group)
-    .map((r) => ({ ...r, cur: r[level], source: "paper" }));
-
-  const includeCommunity = level === "average";
-  if (includeCommunity) {
-    rows = rows.concat(communityAsPaperRows().filter((r) => group === "all" || r.group === group));
-  }
-
-  rows.sort((a, b) => {
-    for (const m of ["saPass", "saPassSoft", "compile"]) {
-      if (a.cur[m] !== b.cur[m]) return b.cur[m] - a.cur[m];
-    }
-    return 0;
-  });
-
-  renderPaperChart(rows);
-
-  const rowsHtml = rows.length
-    ? rows
-        .map((r, i) => {
-          // Text badge, not color alone -- a colored row/bar can't be told
-          // apart under CVD or in the table view, this can.
-          const communityTag = r.source === "community"
-            ? ` <span class="badge run" title="Self-reported community submission, not from the paper">community</span>`
-            : "";
-          return `<tr>
-            <td class="rank">${i + 1}</td>
-            <td><span class="method">${escapeHtml(r.method)}</span>${communityTag}</td>
-            <td class="group">${escapeHtml(r.group)}</td>
-            ${metricCell(r.cur.compile, false)}
-            ${metricCell(r.cur.saPassSoft, false)}
-            ${metricCell(r.cur.saPass, true)}
-          </tr>`;
-        })
-        .join("")
-    : `<tr><td colspan="6" class="empty-row">${
-        group === "Community" && !includeCommunity
-          ? "Community submissions only have an overall score -- switch to Average to see them."
-          : "No results for this filter."
-      }</td></tr>`;
-
-  document.getElementById("paper-board").innerHTML = `
-    <div class="tbl-wrap" role="region" aria-label="Reported results, ranked by SA-PASS" tabindex="0"><table class="board">
-      <thead><tr>
-        <th>#</th><th>Method</th><th>Group</th>
-        <th class="num">${METRIC_LABELS.compile}</th>
-        <th class="num">${METRIC_LABELS.saPassSoft}</th>
-        <th class="num">${METRIC_LABELS.saPass}</th>
-      </tr></thead>
-      <tbody>${rowsHtml}</tbody>
-    </table></div>`;
-}
-
-const CHART_TOP_N = 10;
-
-// One series (magnitude, not identity) -> one flat hue, bar length is the
-// primary encoding, value direct-labeled at the tip. Bars scale to the best
-// score in view (not to 100%), so the ranking is legible even though SA-PASS
-// values themselves are small percentages.
-function renderPaperChart(sortedRows) {
-  const host = document.getElementById("paper-chart");
-  const top = sortedRows.slice(0, CHART_TOP_N);
-  if (top.length === 0) {
-    host.innerHTML = "";
-    return;
-  }
-  const maxVal = Math.max(top[0].cur.saPass, 0.0001);
-  const rowsHtml = top
-    .map((r, i) => {
-      const pct = fmtPct(r.cur.saPass);
-      const widthPct = Math.max((r.cur.saPass / maxVal) * 100, 1.5);
-      const isCommunity = r.source === "community";
-      // Same dot-plus-tooltip pattern as the table's "community" text badge
-      // below it -- not the bar's own color, so it survives CVD/grayscale.
-      const communityMark = isCommunity ? `<span class="chart-community-dot" aria-hidden="true"></span>` : "";
-      return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS${isCommunity ? " (community submission)" : ""}">
-        <div class="chart-rank">${i + 1}</div>
-        <div class="chart-label">${communityMark}${escapeHtml(r.method)}</div>
-        <div class="chart-bar-track"><div class="chart-bar" style="width:${widthPct}%"></div></div>
-        <div class="chart-value">${pct}</div>
-      </div>`;
-    })
-    .join("");
-  host.innerHTML = `
-    <div class="chart-wrap" role="img" aria-label="Top ${top.length} methods by SA-PASS, ${top.map((r) => `${r.method} ${fmtPct(r.cur.saPass)}`).join(", ")}">
-      <div class="chart-title">Top ${top.length} by ${METRIC_LABELS.saPass}</div>
-      ${rowsHtml}
-    </div>`;
-}
-
-function metricCell(v, strong) {
-  const pct = fmtPct(v);
-  return `<td class="num ${strong ? "metric-strong" : ""}">${pct}</td>`;
-}
-
-// Category breakdown rows share the board table's own <colgroup>, so they line
-// up with the parent row's columns exactly (a separate nested table can't).
-function categoryRowsHtml(categories, groupId) {
-  if (!Array.isArray(categories) || categories.length === 0) return "";
-  return categories
-    .map(
-      (item, idx) => `<tr class="category-row" id="${groupId}-${idx}" data-group="${groupId}" hidden>
-        <td class="rank"></td>
-        <td class="category-name">${escapeHtml(item.category)}</td>
-        <td></td>
-        ${metricCell(item.compile, false)}
-        ${metricCell(item.saPassSoft, false)}
-        ${metricCell(item.saPass, true)}
-        <td class="num metric-mut">${item.n ?? "n/a"}</td>
-        <td></td>
-      </tr>`
-    )
-    .join("");
-}
-
-/* --------------------------- Community table ----------------------------- */
+/* --------------------------- One unified board ---------------------------
+ * One ranked table + top-10 chart, mixing the paper's reported methods with
+ * live community submissions (badged "community", never color-only -- see
+ * table/chart rendering below). Level, Category, and Group are independent
+ * filters over the same row set:
+ *   - Level (Average/L1/L2/L3): paper rows have all four; community rows
+ *     only ever have one overall score (every run covers the same fixed
+ *     178-task set, no per-level split), so they drop out unless a Category
+ *     is also selected or Level is "Average".
+ *   - Category: a category's score is itself an all-levels aggregate (same
+ *     as the paper's/community's per-category numbers always were), so
+ *     picking one overrides the Level pick for scoring purposes rather than
+ *     compounding with it -- there's no per-level-per-category number to
+ *     show. Paper rows don't have category data yet (pending real numbers);
+ *     the per-row expand arrow and this filter already work for any row
+ *     that has a non-empty `categories` array, paper included, once
+ *     data/paper_results.json rows carry one.
+ *   - Group: same dropdown as always, "Community" included as one more
+ *     value rather than a special case.
+ * --------------------------------------------------------------------- */
 
 // Derived from the fixed 178-task set (not a static list) so it can never
 // list a category the live benchmark doesn't actually have, or miss one.
-const COMMUNITY_CATEGORIES = [...new Set(TEST_TASK_IDS.map((id) => id.split("/")[0]))].sort();
+const CATEGORIES = [...new Set(TEST_TASK_IDS.map((id) => id.split("/")[0]))].sort();
 
-const communityState = { category: "all", entries: [], pending: [], tracked: [], generatedAt: null, datasetVersion: null };
+const boardState = { level: "average", category: "all", group: "all" };
+let paperData = null;
+const communityState = { entries: [], pending: [], tracked: [], generatedAt: null, datasetVersion: null };
 
-const categoryFilter = document.getElementById("community-category-filter");
-if (categoryFilter) {
-  categoryFilter.insertAdjacentHTML(
-    "beforeend",
-    COMMUNITY_CATEGORIES.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")
-  );
-  categoryFilter.addEventListener("change", (e) => {
-    communityState.category = e.target.value;
-    renderCommunity();
-  });
-}
-
-// "all" -> the entry's overall metrics. A specific category -> that entry's
-// breakdown for just that category, or null if it has none (rendered as n/a,
-// sorted last) -- every entry runs the same fixed task set, so a null here
-// means something went wrong with that run, not a different scope submitted.
-function rowMetrics(entry, category) {
-  if (category === "all") return entry.metrics;
-  return (entry.categories || []).find((c) => c.category === category) || null;
+async function loadPaper() {
+  try {
+    const res = await fetch("./data/paper_results.json", { cache: "no-cache" });
+    paperData = await res.json();
+  } catch (e) {
+    document.getElementById("paper-board").innerHTML = `<div class="empty">Could not load paper results: ${escapeHtml(e.message)}</div>`;
+    return;
+  }
+  const src = paperData.source;
+  document.getElementById("paper-sub").innerHTML =
+    `<a href="${src.arxivUrl}" target="_blank" rel="noopener">arXiv:${src.arxiv}${src.version}</a>, ${escapeHtml(src.table)}. ` +
+    `${src.benchmark.problems} problems (L1 ${src.benchmark.levels.L1}, L2 ${src.benchmark.levels.L2}, L3 ${src.benchmark.levels.L3}).`;
+  renderBoard();
 }
 
 async function loadCommunity() {
@@ -223,85 +82,197 @@ async function loadCommunity() {
   communityState.entries = [...byId.values()].filter((e) => e.metrics);
   communityState.tracked = tracked;
   // Runs still being evaluated: from the shared queue (any visitor) + this
-  // browser's own in-flight jobs. Shown at the top with a waiting badge.
+  // browser's own in-flight jobs. Shown at the top with a waiting badge,
+  // unranked, regardless of the current filters.
   communityState.pending = await loadPending(new Set(byId.keys()), tracked);
   communityState.generatedAt = community.generatedAt;
   communityState.datasetVersion = community.datasetVersion;
-  renderCommunity();
-  renderPaper(); // community entries also rank in the top-10 chart; refresh it too
+  renderBoard();
 }
 
-function renderCommunity() {
-  const host = document.getElementById("community-board");
-  const { entries, pending, tracked, category } = communityState;
+// Build the unified row set for the current filters. `m` is the metrics
+// object to actually display/sort by -- null means "no data for this view"
+// (rendered as n/a, sorted last), not "zero".
+function computeRows() {
+  const { level, category, group } = boardState;
 
-  if (communityState.generatedAt) {
-    document.getElementById("community-sub").textContent =
-      `Live dataset ${communityState.datasetVersion || "v1.2"}; the same 178-task test set as the paper. Updated ${new Date(communityState.generatedAt).toLocaleString()}.`;
+  const paperRows = (paperData?.rows || [])
+    .filter((r) => group === "all" || r.group === group)
+    .map((r) => {
+      const categories = r.categories || [];
+      const m = category !== "all"
+        ? categories.find((c) => c.category === category) || null
+        : r[level];
+      return { method: r.method, group: r.group, org: null, id: null, completedAt: null, local: false, source: "paper", categories, m };
+    });
+
+  const includeCommunity = category !== "all" || level === "average";
+  const communityRows = includeCommunity
+    ? communityState.entries
+        .filter((e) => group === "all" || group === "Community")
+        .map((e) => {
+          const categories = e.categories || [];
+          const m = category !== "all" ? (categories.find((c) => c.category === category) || null) : e.metrics;
+          return {
+            method: e.name || e.id, group: "Community", org: e.org, id: e.id,
+            completedAt: e.completedAt, local: e.local, source: "community", categories, m,
+          };
+        })
+    : [];
+
+  return paperRows.concat(communityRows);
+}
+
+function sortRows(rows) {
+  return rows.slice().sort((a, b) => {
+    if (!a.m && !b.m) return 0;
+    if (!a.m) return 1;
+    if (!b.m) return -1;
+    return (b.m.saPass - a.m.saPass) || (b.m.saPassSoft - a.m.saPassSoft) || (b.m.compile - a.m.compile);
+  });
+}
+
+function renderBoard() {
+  if (!paperData) return;
+  const rows = sortRows(computeRows());
+  renderChart(rows);
+  renderTable(rows);
+}
+
+const CHART_TOP_N = 10;
+
+// One series (magnitude, not identity) -> one flat hue, bar length is the
+// primary encoding, value direct-labeled at the tip. Bars scale to the best
+// score in view (not to 100%), so the ranking is legible even though SA-PASS
+// values themselves are small percentages. Community rows get a small dot
+// marker (never the bar's own color -- see renderTable's "community" badge
+// for why) since they compete in the same ranking as paper-reported ones.
+function renderChart(sortedRows) {
+  const host = document.getElementById("paper-chart");
+  const top = sortedRows.filter((r) => r.m).slice(0, CHART_TOP_N);
+  if (top.length === 0) {
+    host.innerHTML = "";
+    return;
   }
+  const maxVal = Math.max(top[0].m.saPass, 0.0001);
+  const rowsHtml = top
+    .map((r, i) => {
+      const pct = fmtPct(r.m.saPass);
+      const widthPct = Math.max((r.m.saPass / maxVal) * 100, 1.5);
+      const isCommunity = r.source === "community";
+      const communityMark = isCommunity ? `<span class="chart-community-dot" aria-hidden="true"></span>` : "";
+      return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS${isCommunity ? " (community submission)" : ""}">
+        <div class="chart-rank">${i + 1}</div>
+        <div class="chart-label">${communityMark}${escapeHtml(r.method)}</div>
+        <div class="chart-bar-track"><div class="chart-bar" style="width:${widthPct}%"></div></div>
+        <div class="chart-value">${pct}</div>
+      </div>`;
+    })
+    .join("");
+  host.innerHTML = `
+    <div class="chart-wrap" role="img" aria-label="Top ${top.length} by SA-PASS, ${top.map((r) => `${r.method} ${fmtPct(r.m.saPass)}`).join(", ")}">
+      <div class="chart-title">Top ${top.length} by ${METRIC_LABELS.saPass}</div>
+      ${rowsHtml}
+    </div>`;
+}
 
-  if (entries.length === 0 && pending.length === 0) {
-    host.innerHTML = `<div class="empty">No community submissions yet.</div>`;
+function metricCell(v, strong) {
+  const pct = fmtPct(v);
+  return `<td class="num ${strong ? "metric-strong" : ""}">${pct}</td>`;
+}
+
+// Category breakdown rows share the board table's own <colgroup>, so they line
+// up with the parent row's columns exactly (a separate nested table can't).
+function categoryRowsHtml(categories, groupId) {
+  if (!Array.isArray(categories) || categories.length === 0) return "";
+  return categories
+    .map(
+      (item, idx) => `<tr class="category-row" id="${groupId}-${idx}" data-group="${groupId}" hidden>
+        <td class="rank"></td>
+        <td class="category-name">${escapeHtml(item.category)}</td>
+        <td></td>
+        <td></td>
+        ${metricCell(item.compile, false)}
+        ${metricCell(item.saPassSoft, false)}
+        ${metricCell(item.saPass, true)}
+        <td class="num metric-mut">${item.n ?? "n/a"}</td>
+        <td></td>
+      </tr>`
+    )
+    .join("");
+}
+
+function rowHtml(row, rank, idx) {
+  const { method, group, org, id, m, categories, source, completedAt, local } = row;
+  const isCommunity = source === "community";
+  const localTag = local ? ` <span class="badge run" title="From this browser, not in the shared sync">you</span>` : "";
+  const communityTag = isCommunity
+    ? ` <span class="badge run" title="Self-reported community submission, not from the paper">community</span>`
+    : "";
+  const idSpan = id ? `<span class="id">${escapeHtml(id)}</span>` : "";
+  const date = completedAt ? new Date(completedAt).toLocaleDateString() : "n/a";
+  const hasCategories = Array.isArray(categories) && categories.length > 0;
+  const detailId = `categories-${idx}`;
+  const controlsIds = hasCategories ? categories.map((_, k) => `${detailId}-${k}`).join(" ") : "";
+  const expander = hasCategories
+    ? `<button type="button" class="expand-btn" data-category-toggle="${detailId}" aria-expanded="false" aria-controls="${controlsIds}" title="Show category performance"><span aria-hidden="true">&#9656;</span></button>`
+    : "";
+  const delBtn = isCommunity
+    ? `<button type="button" class="del-btn" data-del-id="${escapeHtml(id)}" title="Delete this submission">&times;</button>`
+    : "";
+  return `<tr>
+    <td class="rank">${rank}</td>
+    <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(method)}</span>${localTag}${communityTag}${idSpan}</span>${delBtn}</div></td>
+    <td>${escapeHtml(org || "n/a")}</td>
+    <td class="group">${escapeHtml(group)}</td>
+    ${metricCell(m?.compile, false)}
+    ${metricCell(m?.saPassSoft, false)}
+    ${metricCell(m?.saPass, true)}
+    <td class="num metric-mut">${m ? (m.n ?? "n/a") : "n/a"}</td>
+    <td class="num metric-mut">${date}</td>
+  </tr>${categoryRowsHtml(categories, detailId)}`;
+}
+
+function pendingRowHtml(p) {
+  const badge = p.status === "running"
+    ? `<span class="badge run"><span class="spinner"></span> running</span>`
+    : `<span class="badge warn"><span class="spinner"></span> ${escapeHtml(p.status || "queued")}</span>`;
+  const youTag = p.local ? ` <span class="badge run" title="From your browser">you</span>` : "";
+  const delBtn = `<button type="button" class="del-btn" data-del-id="${escapeHtml(p.id)}" title="Delete this submission">&times;</button>`;
+  return `<tr>
+    <td class="rank">•</td>
+    <td><div class="submission-name"><span><span class="method">${escapeHtml(p.name || p.id)}</span>${youTag}<span class="id">${escapeHtml(p.id)}</span></span>${delBtn}</div></td>
+    <td>${escapeHtml(p.org || "n/a")} ${badge}</td>
+    <td class="group">Community</td>
+    <td class="num metric-mut">n/a</td>
+    <td class="num metric-mut">n/a</td>
+    <td class="num metric-mut">n/a</td>
+    <td class="num metric-mut">n/a</td>
+    <td class="num metric-mut">n/a</td>
+  </tr>`;
+}
+
+function renderTable(rows) {
+  const host = document.getElementById("paper-board");
+  const { pending, tracked } = communityState;
+
+  if (rows.length === 0 && pending.length === 0) {
+    const { group, category, level } = boardState;
+    host.innerHTML = `<div class="empty">${
+      group === "Community" && category === "all" && level !== "average"
+        ? "Community submissions only have an overall score -- switch to Average (or pick a Category) to see them."
+        : "No results for this filter."
+    }</div>`;
     return;
   }
 
-  const ranked = entries
-    .map((e) => ({ e, m: rowMetrics(e, category) }))
-    .sort((a, b) => {
-      if (!a.m && !b.m) return 0;
-      if (!a.m) return 1;
-      if (!b.m) return -1;
-      return (b.m.saPass - a.m.saPass) || (b.m.saPassSoft - a.m.saPassSoft) || (b.m.compile - a.m.compile);
-    });
-
-  const rowsHtml = ranked
-    .map(({ e, m }, i) => {
-      const localTag = e.local ? ` <span class="badge run" title="From this browser, not in the shared sync">you</span>` : "";
-      const date = e.completedAt ? new Date(e.completedAt).toLocaleDateString() : "n/a";
-      const detailId = `categories-${i}`;
-      const hasCategories = Array.isArray(e.categories) && e.categories.length > 0;
-      const controlsIds = hasCategories ? e.categories.map((_, idx) => `${detailId}-${idx}`).join(" ") : "";
-      const expander = hasCategories
-        ? `<button type="button" class="expand-btn" data-category-toggle="${detailId}" aria-expanded="false" aria-controls="${controlsIds}" title="Show category performance"><span aria-hidden="true">&#9656;</span></button>`
-        : "";
-      const delBtn = `<button type="button" class="del-btn" data-del-id="${escapeHtml(e.id)}" title="Delete this submission">&times;</button>`;
-      return `<tr>
-        <td class="rank">${i + 1}</td>
-        <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(e.name || e.id)}</span>${localTag}<span class="id">${escapeHtml(e.id)}</span></span>${delBtn}</div></td>
-        <td>${escapeHtml(e.org || "n/a")}</td>
-        ${metricCell(m?.compile, false)}
-        ${metricCell(m?.saPassSoft, false)}
-        ${metricCell(m?.saPass, true)}
-        <td class="num metric-mut">${m ? (m.n ?? "n/a") : "n/a"}</td>
-        <td class="num metric-mut">${date}</td>
-      </tr>${categoryRowsHtml(e.categories, detailId)}`;
-    })
-    .join("");
-
-  const pendingHtml = pending
-    .map((p) => {
-      const badge = p.status === "running"
-        ? `<span class="badge run"><span class="spinner"></span> running</span>`
-        : `<span class="badge warn"><span class="spinner"></span> ${escapeHtml(p.status || "queued")}</span>`;
-      const youTag = p.local ? ` <span class="badge run" title="From your browser">you</span>` : "";
-      const delBtn = `<button type="button" class="del-btn" data-del-id="${escapeHtml(p.id)}" title="Delete this submission">&times;</button>`;
-      return `<tr>
-        <td class="rank">•</td>
-        <td><div class="submission-name"><span><span class="method">${escapeHtml(p.name || p.id)}</span>${youTag}<span class="id">${escapeHtml(p.id)}</span></span>${delBtn}</div></td>
-        <td>${escapeHtml(p.org || "n/a")} ${badge}</td>
-        <td class="num metric-mut">n/a</td>
-        <td class="num metric-mut">n/a</td>
-        <td class="num metric-mut">n/a</td>
-        <td class="num metric-mut">n/a</td>
-        <td class="num metric-mut">n/a</td>
-      </tr>`;
-    })
-    .join("");
+  const pendingHtml = pending.map(pendingRowHtml).join("");
+  const rowsHtml = rows.map((r, i) => rowHtml(r, i + 1, i)).join("");
 
   host.innerHTML = `
-    <div class="tbl-wrap" role="region" aria-label="Community submissions" tabindex="0"><table class="board">
+    <div class="tbl-wrap" role="region" aria-label="Leaderboard, ranked by SA-PASS" tabindex="0"><table class="board">
       <thead><tr>
-        <th>#</th><th>Submission</th><th>Org</th>
+        <th>#</th><th>Submission</th><th>Org</th><th>Group</th>
         <th class="num">${METRIC_LABELS.compile}</th>
         <th class="num">${METRIC_LABELS.saPassSoft}</th>
         <th class="num">${METRIC_LABELS.saPass}</th>
@@ -312,17 +283,17 @@ function renderCommunity() {
 
   host.querySelectorAll("[data-category-toggle]").forEach((button) => {
     button.addEventListener("click", () => {
-      const rows = host.querySelectorAll(`[data-group="${button.dataset.categoryToggle}"]`);
+      const groupRows = host.querySelectorAll(`[data-group="${button.dataset.categoryToggle}"]`);
       const expanded = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", String(!expanded));
       button.title = expanded ? "Show category performance" : "Hide category performance";
-      rows.forEach((row) => { row.hidden = expanded; });
+      groupRows.forEach((row) => { row.hidden = expanded; });
     });
   });
 
   // Any submission can be deleted from any browser given its password -- see
-  // assets/delete-submission.js -- so this button is on every row, not just
-  // ones tracked locally.
+  // assets/delete-submission.js -- so this button is on every community row,
+  // not just ones tracked locally. Paper rows never get one.
   host.querySelectorAll("[data-del-id]").forEach((button) => {
     button.addEventListener("click", async () => {
       const id = button.dataset.delId;
@@ -375,13 +346,26 @@ document.querySelectorAll("#level-seg button").forEach((b) => {
     });
     b.classList.add("active");
     b.setAttribute("aria-pressed", "true");
-    paperState.level = b.dataset.level;
-    renderPaper();
+    boardState.level = b.dataset.level;
+    renderBoard();
   });
 });
+
+const categoryFilter = document.getElementById("category-filter");
+if (categoryFilter) {
+  categoryFilter.insertAdjacentHTML(
+    "beforeend",
+    CATEGORIES.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")
+  );
+  categoryFilter.addEventListener("change", (e) => {
+    boardState.category = e.target.value;
+    renderBoard();
+  });
+}
+
 document.getElementById("group-filter").addEventListener("change", (e) => {
-  paperState.group = e.target.value;
-  renderPaper();
+  boardState.group = e.target.value;
+  renderBoard();
 });
 
 loadPaper();

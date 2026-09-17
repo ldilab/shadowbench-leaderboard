@@ -1,4 +1,4 @@
-import { EVAL_DEFAULTS, ADAPTER, PROBLEM_COUNT, SUBMISSION_AREAS, SUBMISSION_LEVELS } from "./config.js";
+import { EVAL_DEFAULTS, ADAPTER, PROBLEM_COUNT, TEST_TASK_IDS } from "./config.js";
 
 export const MAX_SOURCE_BYTES = 4 * 1024 * 1024;
 export const MAX_ENCODED_BYTES = 512 * 1024;
@@ -53,6 +53,8 @@ function byteLength(value) {
   return new TextEncoder().encode(value).byteLength;
 }
 
+const TEST_TASK_ID_SET = new Set(TEST_TASK_IDS);
+
 export function parseSolutions(source) {
   if (typeof source !== "string" || !source.trim()) throw new Error("Add your generated solutions.");
   if (byteLength(source) > MAX_SOURCE_BYTES) throw new Error("Solutions must be 4 MiB or smaller.");
@@ -75,10 +77,12 @@ export function parseSolutions(source) {
   return rows.map((row, i) => {
     if (!row || typeof row !== "object" || Array.isArray(row)) throw new Error(`Solution ${i + 1} must be an object.`);
     const id = typeof row.task_id === "string" ? row.task_id.trim() : "";
-    const parts = id.split("/");
-    if (parts.length !== 3 || !SUBMISSION_AREAS.includes(parts[0]) ||
-        !SUBMISSION_LEVELS.includes(parts[1]) || !/^[A-Za-z0-9_-]+$/.test(parts[2])) {
-      throw new Error(`Solution ${i + 1}: use a full task_id such as algebra/L1/alg_gen_L1_001.`);
+    // Membership in the fixed 178-id test set (assets/test_task_ids.js) is the
+    // whole check -- it already implies a well-formed area/level/name, and,
+    // unlike a loose pattern match, rejects an id that merely looks
+    // plausible (e.g. a level the live dataset has but the test set doesn't).
+    if (!TEST_TASK_ID_SET.has(id)) {
+      throw new Error(`Solution ${i + 1}: "${id}" is not one of the 178 ShadowBench test task IDs.`);
     }
     if (seen.has(id)) throw new Error(`Duplicate task_id: ${id}.`);
     seen.add(id);
@@ -89,10 +93,10 @@ export function parseSolutions(source) {
   });
 }
 
-export async function buildCodeSpec(solutions, { count = PROBLEM_COUNT, areas = SUBMISSION_AREAS, levels = SUBMISSION_LEVELS } = {}) {
+export async function buildCodeSpec(solutions, { taskIds = TEST_TASK_IDS } = {}) {
   // Revalidate at the shared boundary so the CLI and browser have one contract.
   const rows = parseSolutions(JSON.stringify(solutions));
-  if (!Number.isInteger(count) || count < 1 || count > PROBLEM_COUNT) throw new Error("Invalid task count.");
+  if (!Array.isArray(taskIds) || taskIds.length === 0) throw new Error("No task IDs to evaluate.");
   const source = JSON.stringify(Object.fromEntries(rows.map((row) => [row.task_id, row.lean_code])));
   const compressed = new Blob([source]).stream().pipeThrough(new CompressionStream("gzip"));
   const bytes = new Uint8Array(await new Response(compressed).arrayBuffer());
@@ -104,12 +108,16 @@ export async function buildCodeSpec(solutions, { count = PROBLEM_COUNT, areas = 
   for (let i = 0; i * ENV_CHUNK_SIZE < encoded.length; i++) {
     env[`SB_CODE_${String(i).padStart(4, "0")}`] = encoded.slice(i * ENV_CHUNK_SIZE, (i + 1) * ENV_CHUNK_SIZE);
   }
-  const evalConfig = { ...EVAL_DEFAULTS, num_problems: count, areas, levels };
+  // `taskIds` pins the evaluator to exactly this id list -- it overrides the
+  // evaluator's own areas/levels/count sampling entirely (confirmed against
+  // the live API: with taskIds set, its echoed eval config reports
+  // sampling: "task_ids" regardless of the `sampling` value below).
+  const evalConfig = { ...EVAL_DEFAULTS, num_problems: taskIds.length, taskIds };
   return {
     model_cmd: CODE_MODEL_CMD,
     env,
     eval: evalConfig,
     runtime: { ...ADAPTER.runtime, model_timeout_sec: 30 },
-    bench: { ...evalConfig, limit: count },
+    bench: { ...evalConfig, limit: taskIds.length },
   };
 }

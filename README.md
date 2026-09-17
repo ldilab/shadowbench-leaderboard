@@ -16,15 +16,19 @@ The code upload format is:
 ```json
 [
   {
-    "task_id": "algebra/L1/alg_gen_L1_003",
+    "task_id": "algebra/L2/alg_gen_L2_002",
     "lean_code": "import Mathlib\n\n..."
   }
 ]
 ```
 
-A complete example is at `data/submission-example.json`. Each task ID may occur once. The live run
-selects 178 tasks across the configured L1-L3 areas. Missing solutions fail that task. The live
-dataset and selection are not presented as identical to the paper snapshot.
+A complete example is at `data/submission-example.json`. Each task ID may occur once and must be
+one of the 178 ids in `assets/test_task_ids.js` -- the exact "test" split of
+[DicoTiar/ShadowBench](https://huggingface.co/datasets/DicoTiar/ShadowBench) on Hugging Face
+("the problem set of the ShadowBench paper. Use this split for the public leaderboard."). That list
+is passed to the evaluator as `taskIds`, which pins it to exactly those 178 problems regardless of
+what else is in its live, growing benchmark directory -- missing solutions just fail that task.
+See "Fixed task selection" below for why this exists and how to regenerate the list.
 
 ## How code submission works
 
@@ -42,6 +46,39 @@ public" below) -- but treat generated code and run metadata sent to the hosted e
 visible to whoever operates that service. A delete password is hashed in the browser and stored in a
 submission tag. This is only a convenience check in the static site; real authorization depends on
 the hosted API.
+
+## Fixed task selection
+
+The hosted evaluator's own benchmark directory is a live, growing superset (well over the paper's
+178 problems, and its own `L1`-`L4` level labels don't line up with the paper's -- the paper's
+178-problem set actually spans the evaluator's `L2`/`L3`/`L4`, not `L1`/`L2`/`L3`). Asking it to pick
+178 by area/level/count (`sampling: "first"`) therefore was not reliably the paper's problem set,
+just something the same shape.
+
+`assets/test_task_ids.js` fixes this: it's the exact 178 ids from the `test` split of
+[DicoTiar/ShadowBench](https://huggingface.co/datasets/DicoTiar/ShadowBench) ("the problem set of
+the ShadowBench paper. Use this split for the public leaderboard."), passed to the evaluator as
+`taskIds` on every submission. Confirmed against the live API: setting `taskIds` makes it report
+back `sampling: "task_ids"` and select exactly (and only) those ids, regardless of `areas`/`levels`.
+`assets/code-submission.js` also validates each submitted `task_id` against this same list, so a
+mismatched or malformed id is rejected in the browser rather than silently scoring zero.
+
+Regenerate the list only if the dataset's `test` split changes:
+
+```bash
+curl -sL https://huggingface.co/datasets/DicoTiar/ShadowBench/resolve/main/test.jsonl \
+  | python3 -c "
+import json, sys
+ids = [json.loads(l)['idx'] for l in sys.stdin]
+assert len(ids) == len(set(ids))
+print('export const TEST_TASK_IDS = [')
+print(',\n'.join(f'  \"{i}\"' for i in ids))
+print('];')
+" > assets/test_task_ids.js
+```
+
+Then prepend the header comment (what the list is, where it's from, when it was fetched) by hand --
+the script above only emits the array.
 
 ## Local development
 

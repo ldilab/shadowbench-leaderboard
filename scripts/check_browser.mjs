@@ -75,7 +75,7 @@ try {
     );
     if (overflow.length) errors.push(`${viewport.width}px overflow: ${overflow.join(", ")}`);
     await page.goto(`${baseUrl}/submit.html`, { waitUntil: "domcontentloaded" });
-    await page.locator("#f-code").fill('[{"task_id":"algebra/L1/alg_gen_L1_003","lean_code":"import Mathlib\\nexample : True := by trivial"}]');
+    await page.locator("#f-code").fill('[{"task_id":"algebra/L2/alg_gen_L2_002","lean_code":"import Mathlib\\nexample : True := by trivial"}]');
     await page.locator("#f-code").blur();
     await page.getByText("1 solution loaded. 178 tasks will be evaluated.").waitFor();
     await page.screenshot({ path: `/tmp/shadowbench-submit-${viewport.width}.png`, fullPage: true });

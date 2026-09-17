@@ -1,6 +1,6 @@
 // Dry run by default. --live creates one small generated-code evaluation.
 import { readFile, writeFile } from "node:fs/promises";
-import { API_BASE, RUN_ANALYSIS_URL, PROBLEM_COUNT } from "../assets/config.js";
+import { API_BASE, RUN_ANALYSIS_URL, PROBLEM_COUNT, TEST_TASK_IDS } from "../assets/config.js";
 import { parseSolutions, buildCodeSpec } from "../assets/code-submission.js";
 import { computeMetrics } from "../assets/metrics.js";
 
@@ -25,14 +25,13 @@ async function main() {
   if (!process.env.RESUME_ID) {
     if (!path) throw new Error("Usage: node scripts/test_submit.mjs solutions.json [--live]");
     const solutions = parseSolutions(await readFile(path, "utf8"));
-    const areas = process.env.AREAS?.split(",") || ["algebra"];
-    const levels = process.env.LEVELS?.split(",") || ["L1"];
-    const submissionSpec = await buildCodeSpec(solutions, { count, areas, levels });
+    const taskIds = process.env.TASK_IDS?.split(",") || TEST_TASK_IDS.slice(0, count);
+    const submissionSpec = await buildCodeSpec(solutions, { taskIds });
     const body = {
       id, name: "Generated-code service check", org: "ShadowBench",
       track: "Open", tags: ["generated-code", "smoke-test"], submissionSpec,
     };
-    console.log(`${solutions.length} solutions; ${count} requested tasks; ${areas.join(",")} / ${levels.join(",")}.`);
+    console.log(`${solutions.length} solutions; ${taskIds.length} requested tasks (${taskIds.slice(0, 3).join(", ")}${taskIds.length > 3 ? ", ..." : ""}).`);
     console.log("No model endpoint, API key, or generation request.");
     if (!live) {
       console.log("Payload validated. Add --live to send it to the evaluator.");

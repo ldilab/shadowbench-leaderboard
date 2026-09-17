@@ -1,6 +1,9 @@
 // Shared configuration for the ShadowBench leaderboard site.
 // ES module — imported by the browser pages and by worker/index.mjs.
 
+import { TEST_TASK_IDS } from "./test_task_ids.js";
+export { TEST_TASK_IDS };
+
 export const API_BASE = "https://apilift.lim247.com";
 
 // The site is served as a static GitHub Pages project (no server of its own),
@@ -22,34 +25,18 @@ export const RATE_LIMIT_MS = 10 * 60 * 1000; // 10 minutes
 export const RUN_ANALYSIS_URL = (id) =>
   `https://lift.lim247.com/run-analysis.html?id=${encodeURIComponent(id)}`;
 
-// Every community submission runs the fixed 178-problem ShadowBench set.
-export const PROBLEM_COUNT = 178;
-
-// Benchmark surface, from GET /api/benchmark_manifest.json (datasetVersion v1.2).
-export const AREAS = [
-  "algebra",
-  "analysis",
-  "topology",
-  "geometry",
-  "number-theory",
-  "combinatorics",
-  "probability",
-  "algebraic-geometry",
-  "college-math-competition",
-  "misc",
-];
-
-// Difficulty levels used by ShadowBench (L1 to L3 are the paper snapshot, L4 exists in v1.2).
-export const LEVELS = ["L1", "L2", "L3", "L4"];
-
-// Fixed scope for every community submission. The whole ShadowBench set runs each
-// time, with no per-submission area or level choice. Areas cover all of AREAS and
-// levels cover L1 to L3, which together is the 178-problem set (see PROBLEM_COUNT).
-export const SUBMISSION_AREAS = AREAS;
-export const SUBMISSION_LEVELS = ["L1", "L2", "L3"];
+// Every community submission runs against exactly the ids in
+// assets/test_task_ids.js (the paper's official "test" split) -- passed to
+// the evaluator as `taskIds`, which overrides its own areas/levels/count
+// sampling. PROBLEM_COUNT is derived from that list, not a separate literal,
+// so the two can't drift apart.
+export const PROBLEM_COUNT = TEST_TASK_IDS.length;
 
 // Sampling/prompt defaults mirror the reference submissions on the backend so a
 // community run is configured the same way the paper's LLM runs were.
+// `sampling` here is moot once `taskIds` is set on the request (the backend
+// switches to its own "task_ids" sampling mode and ignores this), kept only
+// because EVAL_DEFAULTS is spread into requests that predate that field.
 export const EVAL_DEFAULTS = {
   seed: 1337,
   sampling: "first",

@@ -6,8 +6,12 @@ import {
 } from "../assets/code-submission.js";
 import { computeCategoryMetrics } from "../assets/metrics.js";
 
+// A real id from assets/test_task_ids.js (the paper's official 178-id test
+// set) -- parseSolutions/buildCodeSpec now validate membership in that list,
+// so an id that merely looks well-formed (e.g. the old algebra/L1/... shape)
+// is no longer enough.
 const one = {
-  task_id: "algebra/L1/alg_gen_L1_003",
+  task_id: "algebra/L2/alg_gen_L2_002",
   lean_code: "import Mathlib\nexample : True := by trivial",
 };
 
@@ -18,12 +22,14 @@ test("parses JSON and JSONL solutions", () => {
 
 test("rejects duplicate and malformed task IDs", () => {
   assert.throws(() => parseSolutions(JSON.stringify([one, one])), /Duplicate task_id/);
-  assert.throws(() => parseSolutions(JSON.stringify([{ ...one, task_id: "../secret" }])), /full task_id/);
+  assert.throws(() => parseSolutions(JSON.stringify([{ ...one, task_id: "../secret" }])), /not one of the 178/);
 });
 
 test("builds a model-free spec and replays code by exact task ID", async () => {
-  const spec = await buildCodeSpec([one], { count: 3, areas: ["algebra"], levels: ["L1"] });
-  assert.equal(spec.eval.num_problems, 3);
+  const taskIds = [one.task_id];
+  const spec = await buildCodeSpec([one], { taskIds });
+  assert.equal(spec.eval.num_problems, 1);
+  assert.deepEqual(spec.eval.taskIds, taskIds);
   assert.equal(spec.env.VLLM_BASE_URL, undefined);
   assert.equal(spec.env.VLLM_API_KEY, undefined);
   const run = spawnSync("python3", ["-c", CODE_ADAPTER_SOURCE, `task_id: ${one.task_id}`], {

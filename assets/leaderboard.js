@@ -168,7 +168,7 @@ async function loadCommunity() {
 
   if (community.generatedAt) {
     document.getElementById("community-sub").textContent =
-      `Live dataset ${community.datasetVersion || "v1.2"}; task selection may differ from the paper. Updated ${new Date(community.generatedAt).toLocaleString()}.`;
+      `Live dataset ${community.datasetVersion || "v1.2"}; the same 178-task test set as the paper. Updated ${new Date(community.generatedAt).toLocaleString()}.`;
   }
 
   if (entries.length === 0 && pending.length === 0) {

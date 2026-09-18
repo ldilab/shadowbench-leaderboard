@@ -43,10 +43,10 @@
             <button data-level="L2" aria-pressed="false">L2</button>
             <button data-level="L3" aria-pressed="false">L3</button>
           </div>
-          <label for="category-filter">Category</label>
-          <select id="category-filter">
-            <option value="all">Overall</option>
-          </select>
+          <span class="filter-label">Category</span>
+          <div class="seg chip-group" id="category-seg" role="group" aria-label="Category">
+            <button type="button" class="active" data-category="all" aria-pressed="true">Overall</button>
+          </div>
           <label for="group-filter">Group</label>
           <select id="group-filter">
             <option value="all">All groups</option>

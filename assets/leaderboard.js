@@ -351,15 +351,28 @@ document.querySelectorAll("#level-seg button").forEach((b) => {
   });
 });
 
-const categoryFilter = document.getElementById("category-filter");
-if (categoryFilter) {
-  categoryFilter.insertAdjacentHTML(
+const categorySeg = document.getElementById("category-seg");
+if (categorySeg) {
+  // Up to 9 options (Overall + 8 areas) -- too many for a dropdown to beat a
+  // glance-and-click row, and unlike a Level x Category grid, this doesn't
+  // imply cells that don't exist (a category's score is already an
+  // all-levels aggregate, independent of the Level buttons -- see
+  // computeRows()).
+  categorySeg.insertAdjacentHTML(
     "beforeend",
-    CATEGORIES.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")
+    CATEGORIES.map((c) => `<button type="button" data-category="${escapeHtml(c)}" aria-pressed="false">${escapeHtml(c)}</button>`).join("")
   );
-  categoryFilter.addEventListener("change", (e) => {
-    boardState.category = e.target.value;
-    renderBoard();
+  categorySeg.querySelectorAll("button").forEach((b) => {
+    b.addEventListener("click", () => {
+      categorySeg.querySelectorAll("button").forEach((x) => {
+        x.classList.remove("active");
+        x.setAttribute("aria-pressed", "false");
+      });
+      b.classList.add("active");
+      b.setAttribute("aria-pressed", "true");
+      boardState.category = b.dataset.category;
+      renderBoard();
+    });
   });
 }
 

@@ -1,0 +1,2702 @@
+[
+ {
+  "method": "Claude Code (Opus 4.6)",
+  "group": "Agentic",
+  "agent": null,
+  "average": {
+   "compile": 4.5,
+   "saPassSoft": 1.4,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 6.2,
+   "saPassSoft": 1.8,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 1.9,
+   "saPassSoft": 1.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 3.8,
+    "saPassSoft": 1.9,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 14.3,
+    "saPassSoft": 3.6,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 8.3,
+    "saPassSoft": 4.2,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 5.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 8.0,
+    "saPassSoft": 2.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Code (Opus 4.6) + Numina",
+  "group": "Agentic",
+  "agent": "Numina-Lean-Agent",
+  "average": {
+   "compile": 47.2,
+   "saPassSoft": 15.7,
+   "saPass": 9.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 55.8,
+   "saPassSoft": 16.8,
+   "saPass": 8.8,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 36.5,
+   "saPassSoft": 17.3,
+   "saPass": 11.5,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 15.4,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 61.5,
+    "saPassSoft": 17.3,
+    "saPass": 11.5,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 31.8,
+    "saPassSoft": 9.1,
+    "saPass": 4.5,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 57.1,
+    "saPassSoft": 35.7,
+    "saPass": 25.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 42.9,
+    "saPassSoft": 17.9,
+    "saPass": 7.1,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 54.2,
+    "saPassSoft": 12.5,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 26.3,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 50.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 44.0,
+    "saPassSoft": 24.0,
+    "saPass": 16.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Code (Opus 4.8)",
+  "group": "Agentic",
+  "agent": null,
+  "average": {
+   "compile": 20.2,
+   "saPassSoft": 5.1,
+   "saPass": 2.8,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 24.8,
+   "saPassSoft": 4.9,
+   "saPass": 2.7,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 13.5,
+   "saPassSoft": 6.7,
+   "saPass": 3.8,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 7.7,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 38.5,
+    "saPassSoft": 5.8,
+    "saPass": 3.8,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 18.2,
+    "saPassSoft": 9.1,
+    "saPass": 4.5,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 17.9,
+    "saPassSoft": 5.4,
+    "saPass": 3.6,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 21.4,
+    "saPassSoft": 17.9,
+    "saPass": 14.3,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 33.3,
+    "saPassSoft": 4.2,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 15.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 5.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 8.0,
+    "saPassSoft": 2.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Code (Opus 4.8) + Numina",
+  "group": "Agentic",
+  "agent": "Numina-Lean-Agent",
+  "average": {
+   "compile": 61.8,
+   "saPassSoft": 18.3,
+   "saPass": 11.2,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 61.1,
+   "saPassSoft": 13.3,
+   "saPass": 6.2,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 71.2,
+   "saPassSoft": 31.7,
+   "saPass": 23.1,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 30.8,
+   "saPassSoft": 7.7,
+   "saPass": 7.7,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 73.1,
+    "saPassSoft": 13.5,
+    "saPass": 7.7,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 68.2,
+    "saPassSoft": 20.5,
+    "saPass": 13.6,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 67.9,
+    "saPassSoft": 33.9,
+    "saPass": 25.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 71.4,
+    "saPassSoft": 35.7,
+    "saPass": 28.6,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 62.5,
+    "saPassSoft": 16.7,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 36.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 65.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 48.0,
+    "saPassSoft": 24.0,
+    "saPass": 16.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Code (Qwen3 235B)",
+  "group": "Agentic",
+  "agent": null,
+  "average": {
+   "compile": 5.1,
+   "saPassSoft": 0.8,
+   "saPass": 0.6,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 4.4,
+   "saPassSoft": 1.3,
+   "saPass": 0.9,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 5.8,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 7.7,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 11.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 4.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 3.6,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 4.2,
+    "saPassSoft": 2.1,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 8.0,
+    "saPassSoft": 4.0,
+    "saPass": 4.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Code (Qwen3 235B) + Numina",
+  "group": "Agentic",
+  "agent": "Numina-Lean-Agent",
+  "average": {
+   "compile": 6.7,
+   "saPassSoft": 0.8,
+   "saPass": 0.6,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 8.8,
+   "saPassSoft": 1.3,
+   "saPass": 0.9,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 3.8,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 7.7,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 4.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 14.3,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 8.3,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 12.0,
+    "saPassSoft": 6.0,
+    "saPass": 4.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Codex (GPT-5.4)",
+  "group": "Agentic",
+  "agent": null,
+  "average": {
+   "compile": 16.9,
+   "saPassSoft": 3.4,
+   "saPass": 2.2,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 20.4,
+   "saPassSoft": 4.4,
+   "saPass": 2.7,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 11.5,
+   "saPassSoft": 1.9,
+   "saPass": 1.9,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 7.7,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 3.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 9.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 21.4,
+    "saPassSoft": 10.7,
+    "saPass": 10.7,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 14.3,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 20.8,
+    "saPassSoft": 2.1,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 26.3,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 20.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 20.0,
+    "saPassSoft": 10.0,
+    "saPass": 4.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Codex (GPT-5.4) + Numina",
+  "group": "Agentic",
+  "agent": "Numina-Lean-Agent",
+  "average": {
+   "compile": 55.6,
+   "saPassSoft": 16.9,
+   "saPass": 10.1,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 61.9,
+   "saPassSoft": 15.9,
+   "saPass": 8.8,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 48.1,
+   "saPassSoft": 21.2,
+   "saPass": 13.5,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 30.8,
+   "saPassSoft": 7.7,
+   "saPass": 7.7,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 65.4,
+    "saPassSoft": 19.2,
+    "saPass": 11.5,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 40.9,
+    "saPassSoft": 11.4,
+    "saPass": 4.5,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 53.6,
+    "saPassSoft": 32.1,
+    "saPass": 25.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 57.1,
+    "saPassSoft": 21.4,
+    "saPass": 14.3,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 75.0,
+    "saPassSoft": 16.7,
+    "saPass": 4.2,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 26.3,
+    "saPassSoft": 5.3,
+    "saPass": 5.3,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 90.0,
+    "saPassSoft": 2.5,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 36.0,
+    "saPassSoft": 20.0,
+    "saPass": 12.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Opus 4.6",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 1.1,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 1.8,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 3.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Sonnet 4.6",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 0.6,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.9,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Claude Haiku 4.5",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 0.6,
+   "saPassSoft": 0.3,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.9,
+   "saPassSoft": 0.4,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 3.6,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "GPT-5.4",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 3.4,
+   "saPassSoft": 0.3,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 1.8,
+   "saPassSoft": 0.4,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 5.8,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 7.7,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 3.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 9.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 3.6,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 8.3,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "GPT-5.4 mini",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 9.0,
+   "saPassSoft": 0.3,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 8.8,
+   "saPassSoft": 0.4,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 3.8,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 30.8,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 9.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 7.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 12.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 15.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 20.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 4.0,
+    "saPassSoft": 2.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "GPT-5.4 nano",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 6.7,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 6.2,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 5.8,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 15.4,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 9.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 14.3,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 12.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 10.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 15.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Gemini 3.1 Pro",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 1.7,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.9,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 15.4,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 3.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 4.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Gemini 2.5 Flash",
+  "group": "Closed-source",
+  "agent": null,
+  "average": {
+   "compile": 0.6,
+   "saPassSoft": 0.3,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.9,
+   "saPassSoft": 0.4,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 3.6,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "GPT-OSS-120B",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 0.6,
+   "saPassSoft": 0.3,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.9,
+   "saPassSoft": 0.4,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 3.6,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "GPT-OSS-20B",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 2.8,
+   "saPassSoft": 0.3,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 3.5,
+   "saPassSoft": 0.4,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 1.9,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 3.8,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 3.6,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 7.1,
+    "saPassSoft": 3.6,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 4.2,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 4.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "DeepSeek R1 0528",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 0.6,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 134
+  },
+  "L1": {
+   "compile": 0.9,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 69
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 6
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 2
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 1
+   },
+   {
+    "category": "topology",
+    "compile": 4.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 44
+ },
+ {
+  "method": "DeepSeek V3.2",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Qwen3 235B",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Qwen3-coder",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Llama3.1 70b",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Llama3.1 8b",
+  "group": "Open-source",
+  "agent": null,
+  "average": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Kimina 7B→8B",
+  "group": "Lean-specialized",
+  "agent": null,
+  "average": {
+   "compile": 0.6,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 1.9,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 4.5,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Goedel 8B→32B",
+  "group": "Lean-specialized",
+  "agent": null,
+  "average": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ },
+ {
+  "method": "Goedel 8B→8B",
+  "group": "Lean-specialized",
+  "agent": null,
+  "average": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 178,
+   "nPresent": 178
+  },
+  "L1": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 113,
+   "nPresent": 113
+  },
+  "L2": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 52,
+   "nPresent": 52
+  },
+  "L3": {
+   "compile": 0.0,
+   "saPassSoft": 0.0,
+   "saPass": 0.0,
+   "n": 13,
+   "nPresent": 13
+  },
+  "categories": [
+   {
+    "category": "algebra",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 26,
+    "nPresent": 26
+   },
+   {
+    "category": "algebraic-geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 22,
+    "nPresent": 22
+   },
+   {
+    "category": "analysis",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 28,
+    "nPresent": 28
+   },
+   {
+    "category": "combinatorics",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 14,
+    "nPresent": 14
+   },
+   {
+    "category": "geometry",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 24,
+    "nPresent": 24
+   },
+   {
+    "category": "number-theory",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 19,
+    "nPresent": 19
+   },
+   {
+    "category": "probability",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 20,
+    "nPresent": 20
+   },
+   {
+    "category": "topology",
+    "compile": 0.0,
+    "saPassSoft": 0.0,
+    "saPass": 0.0,
+    "n": 25,
+    "nPresent": 25
+   }
+  ],
+  "_missing": 0
+ }
+]

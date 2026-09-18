@@ -160,7 +160,9 @@ assets/code-submission.js      input validation and fixed code replay adapter
 assets/submit.js               submission, polling, and deletion UI
 assets/leaderboard.js          paper and community tables
 assets/metrics.js              shared SA-PASS calculation (also used by worker/index.mjs)
-data/paper_results.json        paper Table 3 values
+data/paper_results.json        paper Table 3 values, by level and by category (see
+                                leaderboard_categories/README.md for how the category
+                                breakdown was generated and how to regenerate it)
 data/community.json            published community results (Worker commits to this on publish)
 worker/index.mjs               Cloudflare Worker: /api/submit, /publish, /api/delete, and the
                                 scheduled watcher

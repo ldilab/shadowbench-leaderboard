@@ -4,6 +4,19 @@ import { existsSync, readdirSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
 
+async function checkOverflow(page) {
+  return page.evaluate(() =>
+    [...document.querySelectorAll("body *")].filter((element) => {
+      const style = getComputedStyle(element);
+      // text-overflow: ellipsis intentionally reports scrollWidth > clientWidth
+      // on the label itself -- the overflow is clipped, never visible, and
+      // never widens the page. Only a real (unclipped) overflow should fail this.
+      return style.position !== "fixed" && element.scrollWidth > element.clientWidth + 1 &&
+        !element.closest(".tbl-wrap") && style.overflowX !== "auto" && style.textOverflow !== "ellipsis";
+    }).map((element) => element.tagName + "." + element.className).slice(0, 10)
+  );
+}
+
 function browserExecutable() {
   const current = chromium.executablePath();
   if (existsSync(current)) return current;
@@ -63,17 +76,17 @@ try {
     await page.locator("[data-category-toggle]").first().click();
     await page.locator(".category-row").first().waitFor();
     await page.screenshot({ path: `/tmp/shadowbench-${viewport.width}.png`, fullPage: true });
-    const overflow = await page.evaluate(() =>
-      [...document.querySelectorAll("body *")].filter((element) => {
-        const style = getComputedStyle(element);
-        // text-overflow: ellipsis intentionally reports scrollWidth > clientWidth
-        // on the label itself -- the overflow is clipped, never visible, and
-        // never widens the page. Only a real (unclipped) overflow should fail this.
-        return style.position !== "fixed" && element.scrollWidth > element.clientWidth + 1 &&
-          !element.closest(".tbl-wrap") && style.overflowX !== "auto" && style.textOverflow !== "ellipsis";
-      }).map((element) => element.tagName + "." + element.className).slice(0, 10)
-    );
-    if (overflow.length) errors.push(`${viewport.width}px overflow: ${overflow.join(", ")}`);
+    let overflow = await checkOverflow(page);
+    if (overflow.length) errors.push(`${viewport.width}px overflow (index): ${overflow.join(", ")}`);
+
+    await page.goto(`${baseUrl}/paper.html`, { waitUntil: "domcontentloaded" });
+    await page.locator("h1").waitFor();
+    await page.locator("#copy-bibtex").click();
+    await page.getByText(/Copied|Select and copy manually/).waitFor();
+    await page.screenshot({ path: `/tmp/shadowbench-paper-${viewport.width}.png`, fullPage: true });
+    overflow = await checkOverflow(page);
+    if (overflow.length) errors.push(`${viewport.width}px overflow (paper): ${overflow.join(", ")}`);
+
     await page.goto(`${baseUrl}/submit.html`, { waitUntil: "domcontentloaded" });
     await page.locator("#f-code").fill('[{"task_id":"algebra/L2/alg_gen_L2_002","lean_code":"import Mathlib\\nexample : True := by trivial"}]');
     await page.locator("#f-code").blur();

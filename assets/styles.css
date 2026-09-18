@@ -146,6 +146,22 @@ input::file-selector-button { padding: 5px 9px; margin-right: 10px; border: 1px 
 .progress.indet > span { animation: indet 2s ease-in-out infinite; }
 @keyframes indet { from { transform: translateX(-100%); } to { transform: translateX(340%); } }
 footer { max-width: 1024px; margin: 0 auto; padding: 22px 0 36px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+
+/* --------------------------------- Paper page -------------------------------- */
+.venue-badge { display: inline-block; margin-bottom: 10px; padding: 3px 9px; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; }
+.authors { color: var(--muted); max-width: 740px; margin: 0; }
+.paper-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; }
+.abstract { max-width: 720px; color: var(--text); }
+.stat-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 14px; }
+.stat-tile { flex: 1 1 160px; min-width: 140px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 6px; background: var(--panel-2); }
+.stat-value { font-size: 26px; font-weight: 650; line-height: 1.2; }
+.stat-label { color: var(--muted); font-size: 12px; margin-top: 4px; }
+.bibtex-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 720px; margin-bottom: 5px; }
+.bibtex-head h2 { margin: 0; }
+.bibtex-wrap { max-width: 720px; }
+.bibtex { margin: 0; padding: 16px 18px; border: 1px solid var(--border); border-radius: 6px; background: var(--panel-2); color: var(--text); font: 12px/1.6 var(--mono); overflow-x: auto; white-space: pre; }
+.copy-btn { flex: 0 0 auto; min-height: 28px; padding: 4px 10px; font-size: 12px; }
+
 @media (max-width: 720px) {
   .topbar-inner { padding: 13px 18px; gap: 12px; flex-wrap: wrap; }
   .nav { order: 3; width: 100%; margin: 0; gap: 24px; font-size: 13px; }

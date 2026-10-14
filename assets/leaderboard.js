@@ -54,7 +54,7 @@ async function loadPaper() {
     `<a href="${src.arxivUrl}" target="_blank" rel="noopener">arXiv:${src.arxiv}${src.version}</a>, ${escapeHtml(src.table)}. ` +
     `${src.benchmark.problems} problems (L1 ${src.benchmark.levels.L1}, L2 ${src.benchmark.levels.L2}, L3 ${src.benchmark.levels.L3}).` +
     (paperData.rows.some((r) => r.postPaper)
-      ? ` Highlighted rows tagged <span class="new-pill"><span aria-hidden="true">✦</span> NEW</span> were run after the paper with different settings (hover the tag for details).`
+      ? ` Highlighted rows tagged <span class="new-pill"><span aria-hidden="true">✦</span> NEW</span> were run after the paper (hover the tag for details).`
       : "");
   renderBoard();
 }

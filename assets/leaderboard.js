@@ -16,18 +16,24 @@ const isPending = (status) => {
  * One ranked table + top-10 chart, mixing the paper's reported methods with
  * live community submissions (badged "community", never color-only -- see
  * table/chart rendering below). The filter box between chart and table holds
- * four controls, kept in the URL query (?level=L2&show=open&zeros=1):
+ * Level segments, Include 0.0 (on by default), and two multi-select badge
+ * rows whose badges all start selected (clicking one leaves it out); any
+ * change from those defaults is kept in the URL query
+ * (?level=L2&show=agentic,open,paper,new,community&area=algebra,analysis):
  *   - Level (Average/L1/L2/L3) and Area: which problems the three metric
- *     columns are computed over. An area's score is itself an all-levels
- *     aggregate (there is no per-level-per-area number), so picking an area
- *     resets Level to Average and picking a level resets Area to all.
- *     Community rows only have an overall and per-area score, so they drop
- *     out of the L1/L2/L3 views.
- *   - Show: agentic / non-agentic (data/paper_results.json `approach`),
- *     open / closed (`weights`), rows run after the paper (`postPaper`), or
- *     community submissions (which declare neither axis).
- *   - Include 0.0: rows at 0.0 SA-PASS in the current view are hidden by
- *     default (unless nothing in view scores above 0.0).
+ *     columns are computed over. A subset of areas pools its problems (see
+ *     poolAreas); all areas is the plain overall score. An area's score is itself an all-levels aggregate (there is
+ *     no per-level-per-area number), so picking an area resets Level to
+ *     Average and picking a level selects every area again. Community rows only have
+ *     an overall and per-area score, so they drop out of the L1/L2/L3 views.
+ *   - Show: three axes -- approach (agentic / non-agentic, from
+ *     data/paper_results.json `approach`), weights (open / closed), and source
+ *     (paper / new since the paper via `postPaper` / community). A row shows
+ *     when, on every axis, its value is among the selected badges. Community
+ *     rows declare no approach or weights, so they drop out as soon as either
+ *     axis is narrowed.
+ *   - Include 0.0: when unticked, rows at 0.0 SA-PASS in the current view are
+ *     hidden (unless nothing in view scores above 0.0).
  * Columns are always Compile rate, SA-PASS (Soft), SA-PASS, in that order.
  * --------------------------------------------------------------------- */
 
@@ -35,38 +41,73 @@ const isPending = (status) => {
 // list a category the live benchmark doesn't actually have, or miss one.
 const CATEGORIES = [...new Set(TEST_TASK_IDS.map((id) => id.split("/")[0]))].sort();
 
-const SHOWS = ["all", "agentic", "nonagentic", "open", "closed", "new", "community"];
+const SHOW_AXES = [
+  { axis: "approach", opts: [["agentic", "Agentic"], ["nonagentic", "Non-agentic"]] },
+  { axis: "weights", opts: [["open", "Open weights"], ["closed", "Closed"]] },
+  { axis: "source", opts: [["paper", "Paper"], ["new", "✦ New since the paper"], ["community", "Community"]] },
+];
+const SHOW_AXIS = Object.fromEntries(SHOW_AXES.flatMap((a) => a.opts.map(([v]) => [v, a.axis])));
 const LEVELS = ["average", "L1", "L2", "L3"];
-const DEFAULTS = { level: "average", category: "all", show: "all", zeros: false };
-const boardState = { ...DEFAULTS };
+const ALL_SHOW = Object.keys(SHOW_AXIS);
+const DEFAULTS = { level: "average", areas: [...CATEGORIES], show: [...ALL_SHOW], zeros: true };
+const boardState = { ...DEFAULTS, areas: [...DEFAULTS.areas], show: [...DEFAULTS.show] };
+const isAll = (list, all) => all.every((v) => list.includes(v));
+
+const listParam = (q, name, allowed) => (q.get(name) || "").split(",").filter((v) => allowed.includes(v));
 
 function readUrlState() {
   const q = new URLSearchParams(location.search);
   if (LEVELS.includes(q.get("level"))) boardState.level = q.get("level");
-  if (CATEGORIES.includes(q.get("area"))) { boardState.category = q.get("area"); boardState.level = "average"; }
-  if (SHOWS.includes(q.get("show"))) boardState.show = q.get("show");
-  boardState.zeros = q.get("zeros") === "1";
+  if (q.has("area")) boardState.areas = listParam(q, "area", CATEGORIES);
+  if (!isAll(boardState.areas, CATEGORIES)) boardState.level = "average";
+  if (q.has("show")) boardState.show = listParam(q, "show", ALL_SHOW);
+  boardState.zeros = q.get("zeros") !== "0";
 }
 
 function writeUrlState() {
   const q = new URLSearchParams();
   if (boardState.level !== DEFAULTS.level) q.set("level", boardState.level);
-  if (boardState.category !== DEFAULTS.category) q.set("area", boardState.category);
-  if (boardState.show !== DEFAULTS.show) q.set("show", boardState.show);
-  if (boardState.zeros) q.set("zeros", "1");
-  const qs = q.toString();
+  if (!isAll(boardState.show, ALL_SHOW)) q.set("show", boardState.show.join(","));
+  if (!isAll(boardState.areas, CATEGORIES)) q.set("area", boardState.areas.join(","));
+  if (!boardState.zeros) q.set("zeros", "0");
+  const qs = q.toString().replace(/%2C/g, ",");
   history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
 }
 
-function showsPaperRow(r) {
-  switch (boardState.show) {
-    case "agentic": return r.approach === "agentic";
-    case "nonagentic": return r.approach === "direct" || r.approach === "lean";
-    case "open": case "closed": return r.weights === boardState.show;
-    case "new": return !!r.postPaper;
-    case "community": return false;
-    default: return true;
-  }
+// Picked badges per Show axis: { approach: [...], weights: [...], source: [...] }.
+function pickedByAxis() {
+  const out = { approach: [], weights: [], source: [] };
+  for (const v of boardState.show) out[SHOW_AXIS[v]].push(v);
+  return out;
+}
+
+function showsRow({ approach, weights, source }) {
+  const p = pickedByAxis();
+  const full = (axis) => p[axis].length === SHOW_AXES.find((a) => a.axis === axis).opts.length;
+  const approachOk = full("approach") || p.approach.some((v) =>
+    v === "agentic" ? approach === "agentic" : approach === "direct" || approach === "lean");
+  const weightsOk = full("weights") || p.weights.includes(weights);
+  const sourceOk = full("source") || p.source.includes(source);
+  return approachOk && weightsOk && sourceOk;
+}
+
+// Pool several areas into one score over the union of their problems.
+// Compile rate and SA-PASS are per-problem 0/1, so each area's count is
+// recovered exactly from its one-decimal percentage (n <= 28); Soft is a
+// per-problem fraction, so it is pooled as an n-weighted mean of the
+// one-decimal area values (within 0.1 of a per-problem recomputation).
+function poolAreas(categories, areas) {
+  const picked = areas.map((a) => categories.find((c) => c.category === a)).filter(Boolean);
+  if (picked.length !== areas.length || picked.some((c) => !c.n)) return null;
+  if (picked.length === 1) return picked[0];
+  const n = picked.reduce((t, c) => t + c.n, 0);
+  const count = (k) => picked.reduce((t, c) => t + Math.round((c[k] * c.n) / 100), 0);
+  return {
+    n,
+    compile: (count("compile") / n) * 100,
+    saPass: (count("saPass") / n) * 100,
+    saPassSoft: picked.reduce((t, c) => t + c.saPassSoft * c.n, 0) / n,
+  };
 }
 let paperData = null;
 const communityState = { entries: [], pending: [], tracked: [], generatedAt: null, datasetVersion: null };
@@ -127,15 +168,15 @@ async function loadCommunity() {
 // object to actually display/sort by -- null means "no data for this view"
 // (rendered as n/a, sorted last), not "zero".
 function computeRows() {
-  const { level, category, show } = boardState;
+  const { level, areas } = boardState;
+  const allAreas = isAll(areas, CATEGORIES);
+  if (!areas.length) return [];
 
   const paperRows = (paperData?.rows || [])
-    .filter(showsPaperRow)
+    .filter((r) => showsRow({ approach: r.approach, weights: r.weights, source: r.postPaper ? "new" : "paper" }))
     .map((r) => {
       const categories = r.categories || [];
-      const m = category !== "all"
-        ? categories.find((c) => c.category === category) || null
-        : r[level];
+      const m = allAreas ? r[level] : poolAreas(categories, areas);
       // postPaper rows: same metrics and 178-task set, but run after the
       // paper's Table 3 (dated, badged, and explained in a tooltip).
       const post = r.postPaper || null;
@@ -143,13 +184,13 @@ function computeRows() {
       return { method: r.method, group: r.group, org: null, id: null, completedAt, local: false, source: "paper", post, categories, m };
     });
 
-  const includeCommunity = category !== "all" || level === "average";
+  const includeCommunity = !allAreas || level === "average";
   const communityRows = includeCommunity
     ? communityState.entries
-        .filter(() => show === "all" || show === "community")
+        .filter(() => showsRow({ approach: null, weights: null, source: "community" }))
         .map((e) => {
           const categories = e.categories || [];
-          const m = category !== "all" ? (categories.find((c) => c.category === category) || null) : e.metrics;
+          const m = allAreas ? e.metrics : poolAreas(categories, areas);
           return {
             method: e.name || e.id, group: "Community", org: e.org, id: e.id,
             completedAt: e.completedAt, local: e.local, source: "community", categories, m,
@@ -299,11 +340,13 @@ function renderTable(rows, hiddenZeros) {
   const { pending, tracked } = communityState;
 
   if (rows.length === 0 && pending.length === 0) {
-    const { show, category, level } = boardState;
+    const sources = pickedByAxis().source;
+    const onlyCommunity = sources.length === 1 && sources[0] === "community";
     host.innerHTML = `<div class="empty">${
-      show === "community" && category === "all" && level !== "average"
-        ? "Community submissions only have an overall score -- switch to Average (or pick an Area) to see them."
-        : show === "community" ? "No community submissions yet." : "No results for these filters."
+      !boardState.areas.length ? "Select at least one area."
+        : onlyCommunity && boardState.level !== "average"
+          ? "Community submissions only have an overall score -- switch to Average (or narrow the areas) to see them."
+          : onlyCommunity ? "No community submissions yet." : "No results for these filters."
     }</div>`;
     return;
   }
@@ -380,27 +423,35 @@ async function loadPending(doneIds, tracked) {
 
 /* ------------------------------ Controls --------------------------------- */
 
-const areaSel = document.getElementById("f-area");
-const showSel = document.getElementById("f-show");
+const showChips = document.getElementById("show-chips");
+const areaChips = document.getElementById("area-chips");
 const zerosBox = document.getElementById("f-zeros");
 const resetBtn = document.getElementById("reset-filters");
 
-areaSel.insertAdjacentHTML(
-  "beforeend",
-  CATEGORIES.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")
-);
+// Show and Area are multi-select badge rows that start fully selected: each
+// badge toggles, and the leading "All" badge selects the whole row again.
+// Show's three axes are set apart by a thin divider.
+showChips.innerHTML = `<button type="button" data-show="" aria-pressed="false">All</button>` +
+  SHOW_AXES.map((a) => `<span class="chip-sep" aria-hidden="true"></span>` +
+    a.opts.map(([v, t]) => `<button type="button" data-show="${v}" aria-pressed="false">${escapeHtml(t)}</button>`).join("")).join("");
+areaChips.innerHTML = `<button type="button" data-area="" aria-pressed="false">All areas</button>` +
+  CATEGORIES.map((c) => `<button type="button" data-area="${escapeHtml(c)}" aria-pressed="false">${escapeHtml(c)}</button>`).join("");
 
-function renderControls(nShown, nAll) {
-  document.querySelectorAll("#level-seg button").forEach((b) => {
-    const on = b.dataset.level === boardState.level;
+function setPressed(buttons, isOn) {
+  buttons.forEach((b) => {
+    const on = isOn(b);
     b.classList.toggle("active", on);
     b.setAttribute("aria-pressed", String(on));
   });
-  areaSel.value = boardState.category;
-  showSel.value = boardState.show;
+}
+
+function renderControls(nShown, nAll) {
+  setPressed(document.querySelectorAll("#level-seg button"), (b) => b.dataset.level === boardState.level);
+  setPressed(showChips.querySelectorAll("button"), (b) => (b.dataset.show ? boardState.show.includes(b.dataset.show) : isAll(boardState.show, ALL_SHOW)));
+  setPressed(areaChips.querySelectorAll("button"), (b) => (b.dataset.area ? boardState.areas.includes(b.dataset.area) : isAll(boardState.areas, CATEGORIES)));
   zerosBox.checked = boardState.zeros;
   document.getElementById("result-count").textContent = nShown === nAll ? `${nShown} systems` : `${nShown} of ${nAll} systems`;
-  resetBtn.hidden = Object.keys(DEFAULTS).every((k) => boardState[k] === DEFAULTS[k]);
+  resetBtn.hidden = boardState.level === DEFAULTS.level && isAll(boardState.areas, CATEGORIES) && isAll(boardState.show, ALL_SHOW) && boardState.zeros;
 }
 
 function update(changes) {
@@ -409,13 +460,23 @@ function update(changes) {
   renderBoard();
 }
 
+const toggle = (list, v) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
+
 document.querySelectorAll("#level-seg button").forEach((b) => {
-  b.addEventListener("click", () => update(b.dataset.level === "average" ? { level: "average" } : { level: b.dataset.level, category: "all" }));
+  b.addEventListener("click", () => update(b.dataset.level === "average" ? { level: "average" } : { level: b.dataset.level, areas: [...CATEGORIES] }));
 });
-areaSel.addEventListener("change", () => update(areaSel.value === "all" ? { category: "all" } : { category: areaSel.value, level: "average" }));
-showSel.addEventListener("change", () => update({ show: showSel.value }));
+showChips.querySelectorAll("button").forEach((b) => {
+  b.addEventListener("click", () => update({ show: b.dataset.show ? toggle(boardState.show, b.dataset.show) : [...ALL_SHOW] }));
+});
+areaChips.querySelectorAll("button").forEach((b) => {
+  b.addEventListener("click", () => {
+    if (!b.dataset.area) return update({ areas: [...CATEGORIES] });
+    const areas = toggle(boardState.areas, b.dataset.area);
+    update(isAll(areas, CATEGORIES) ? { areas } : { areas, level: "average" });
+  });
+});
 zerosBox.addEventListener("change", () => update({ zeros: zerosBox.checked }));
-resetBtn.addEventListener("click", () => update({ ...DEFAULTS }));
+resetBtn.addEventListener("click", () => update({ ...DEFAULTS, areas: [...DEFAULTS.areas], show: [...DEFAULTS.show] }));
 
 readUrlState();
 loadPaper();

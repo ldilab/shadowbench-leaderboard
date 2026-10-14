@@ -8,9 +8,11 @@ with SA-PASS ([paper](https://arxiv.org/abs/2608.29270)).
 
 - Shows the results reported in the paper alongside live community runs, in one ranked table.
 - A top-10 chart and one ranked table (Compile rate, SA-PASS (Soft), SA-PASS, always in that order),
-  with a filter box between them: Level (Average, L1-L3), Area, Show (agentic, non-agentic, open
-  weights, closed, new since the paper, community) and Include 0.0. The filters are kept in the
-  URL query (for example `?area=algebra&show=open`), so a view can be linked.
+  with a filter box between them: Level (Average, L1-L3), Include 0.0 (on by default), and two
+  multi-select badge rows that start fully selected (click a badge to leave it out). Show has three
+  axes (agentic / non-agentic, open weights / closed, paper / new since the paper / community); a
+  row shows when its value on every axis is selected. Area pools the problems of the selected
+  areas. Changes from the defaults are kept in the URL query, so a view can be linked.
 - `map.html` compares compile rate with the SA-PASS checkers on every output (33 systems × 178
   problems): a scatter of compile rate against "passes every checker", and one 178-problem bar per
   system split into SA-PASS, false positives (compiles, misaligned) and false negatives (aligned,

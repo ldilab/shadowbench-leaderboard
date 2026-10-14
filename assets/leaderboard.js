@@ -52,7 +52,10 @@ async function loadPaper() {
   const src = paperData.source;
   document.getElementById("paper-sub").innerHTML =
     `<a href="${src.arxivUrl}" target="_blank" rel="noopener">arXiv:${src.arxiv}${src.version}</a>, ${escapeHtml(src.table)}. ` +
-    `${src.benchmark.problems} problems (L1 ${src.benchmark.levels.L1}, L2 ${src.benchmark.levels.L2}, L3 ${src.benchmark.levels.L3}).`;
+    `${src.benchmark.problems} problems (L1 ${src.benchmark.levels.L1}, L2 ${src.benchmark.levels.L2}, L3 ${src.benchmark.levels.L3}).` +
+    (paperData.rows.some((r) => r.postPaper)
+      ? ` Rows marked <span class="badge run">post-paper</span> were run after the paper with different settings (hover for details).`
+      : "");
   renderBoard();
 }
 
@@ -103,7 +106,11 @@ function computeRows() {
       const m = category !== "all"
         ? categories.find((c) => c.category === category) || null
         : r[level];
-      return { method: r.method, group: r.group, org: null, id: null, completedAt: null, local: false, source: "paper", categories, m };
+      // postPaper rows: same metrics and 178-task set, but run after the
+      // paper's Table 3 (dated, badged, and explained in a tooltip).
+      const post = r.postPaper || null;
+      const completedAt = post ? `${post.date}T12:00:00Z` : null; // noon UTC: same calendar date in any timezone
+      return { method: r.method, group: r.group, org: null, id: null, completedAt, local: false, source: "paper", post, categories, m };
     });
 
   const includeCommunity = category !== "all" || level === "average";
@@ -161,9 +168,10 @@ function renderChart(sortedRows) {
       const widthPct = Math.max((r.m.saPass / maxVal) * 100, 1.5);
       const isCommunity = r.source === "community";
       const communityMark = isCommunity ? `<span class="chart-community-dot" aria-hidden="true"></span>` : "";
-      return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS${isCommunity ? " (community submission)" : ""}">
+      const postMark = r.post ? ` <span class="badge run">post-paper</span>` : "";
+      return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS${isCommunity ? " (community submission)" : ""}${r.post ? " (run after the paper)" : ""}">
         <div class="chart-rank">${i + 1}</div>
-        <div class="chart-label">${communityMark}${escapeHtml(r.method)}</div>
+        <div class="chart-label">${communityMark}${escapeHtml(r.method)}${postMark}</div>
         <div class="chart-bar-track"><div class="chart-bar" style="width:${widthPct}%"></div></div>
         <div class="chart-value">${pct}</div>
       </div>`;
@@ -203,11 +211,14 @@ function categoryRowsHtml(categories, groupId) {
 }
 
 function rowHtml(row, rank, idx) {
-  const { method, group, org, id, m, categories, source, completedAt, local } = row;
+  const { method, group, org, id, m, categories, source, completedAt, local, post } = row;
   const isCommunity = source === "community";
   const localTag = local ? ` <span class="badge run" title="From this browser, not in the shared sync">you</span>` : "";
   const communityTag = isCommunity
     ? ` <span class="badge run" title="Self-reported community submission, not from the paper">community</span>`
+    : "";
+  const postTag = post
+    ? ` <span class="badge run" title="${escapeHtml(post.note || "")}">post-paper</span>`
     : "";
   const idSpan = id ? `<span class="id">${escapeHtml(id)}</span>` : "";
   const date = completedAt ? new Date(completedAt).toLocaleDateString() : "n/a";
@@ -222,7 +233,7 @@ function rowHtml(row, rank, idx) {
     : "";
   return `<tr>
     <td class="rank">${rank}</td>
-    <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(method)}</span>${localTag}${communityTag}${idSpan}</span>${delBtn}</div></td>
+    <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(method)}</span>${postTag}${localTag}${communityTag}${idSpan}</span>${delBtn}</div></td>
     <td>${escapeHtml(org || "n/a")}</td>
     <td class="group">${escapeHtml(group)}</td>
     ${metricCell(m?.compile, false)}

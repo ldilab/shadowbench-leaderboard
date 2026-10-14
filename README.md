@@ -165,7 +165,7 @@ data/paper_results.json        paper Table 3 values, by level and by category (s
                                 breakdown was generated and how to regenerate it), plus
                                 rows run after the paper: these carry a `postPaper`
                                 object (date, evaluator submission id, settings note)
-                                and are badged "post-paper" on the board
+                                and are shown as highlighted rows with a "✦ NEW" tag
 data/community.json            published community results (Worker commits to this on publish)
 worker/index.mjs               Cloudflare Worker: /api/submit, /publish, /api/delete, and the
                                 scheduled watcher

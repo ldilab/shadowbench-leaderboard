@@ -15,29 +15,59 @@ const isPending = (status) => {
 /* --------------------------- One unified board ---------------------------
  * One ranked table + top-10 chart, mixing the paper's reported methods with
  * live community submissions (badged "community", never color-only -- see
- * table/chart rendering below). Level, Category, and Group are independent
- * filters over the same row set:
- *   - Level (Average/L1/L2/L3): paper rows have all four; community rows
- *     only ever have one overall score (every run covers the same fixed
- *     178-task set, no per-level split), so they drop out unless a Category
- *     is also selected or Level is "Average".
- *   - Category: a category's score is itself an all-levels aggregate (same
- *     as the paper's/community's per-category numbers always were), so
- *     picking one overrides the Level pick for scoring purposes rather than
- *     compounding with it -- there's no per-level-per-category number to
- *     show. Paper rows don't have category data yet (pending real numbers);
- *     the per-row expand arrow and this filter already work for any row
- *     that has a non-empty `categories` array, paper included, once
- *     data/paper_results.json rows carry one.
- *   - Group: same dropdown as always, "Community" included as one more
- *     value rather than a special case.
+ * table/chart rendering below). The filter box between chart and table holds
+ * four controls, kept in the URL query (?level=L2&show=open&zeros=1):
+ *   - Level (Average/L1/L2/L3) and Area: which problems the three metric
+ *     columns are computed over. An area's score is itself an all-levels
+ *     aggregate (there is no per-level-per-area number), so picking an area
+ *     resets Level to Average and picking a level resets Area to all.
+ *     Community rows only have an overall and per-area score, so they drop
+ *     out of the L1/L2/L3 views.
+ *   - Show: agentic / non-agentic (data/paper_results.json `approach`),
+ *     open / closed (`weights`), rows run after the paper (`postPaper`), or
+ *     community submissions (which declare neither axis).
+ *   - Include 0.0: rows at 0.0 SA-PASS in the current view are hidden by
+ *     default (unless nothing in view scores above 0.0).
+ * Columns are always Compile rate, SA-PASS (Soft), SA-PASS, in that order.
  * --------------------------------------------------------------------- */
 
 // Derived from the fixed 178-task set (not a static list) so it can never
 // list a category the live benchmark doesn't actually have, or miss one.
 const CATEGORIES = [...new Set(TEST_TASK_IDS.map((id) => id.split("/")[0]))].sort();
 
-const boardState = { level: "average", category: "all", group: "all" };
+const SHOWS = ["all", "agentic", "nonagentic", "open", "closed", "new", "community"];
+const LEVELS = ["average", "L1", "L2", "L3"];
+const DEFAULTS = { level: "average", category: "all", show: "all", zeros: false };
+const boardState = { ...DEFAULTS };
+
+function readUrlState() {
+  const q = new URLSearchParams(location.search);
+  if (LEVELS.includes(q.get("level"))) boardState.level = q.get("level");
+  if (CATEGORIES.includes(q.get("area"))) { boardState.category = q.get("area"); boardState.level = "average"; }
+  if (SHOWS.includes(q.get("show"))) boardState.show = q.get("show");
+  boardState.zeros = q.get("zeros") === "1";
+}
+
+function writeUrlState() {
+  const q = new URLSearchParams();
+  if (boardState.level !== DEFAULTS.level) q.set("level", boardState.level);
+  if (boardState.category !== DEFAULTS.category) q.set("area", boardState.category);
+  if (boardState.show !== DEFAULTS.show) q.set("show", boardState.show);
+  if (boardState.zeros) q.set("zeros", "1");
+  const qs = q.toString();
+  history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+}
+
+function showsPaperRow(r) {
+  switch (boardState.show) {
+    case "agentic": return r.approach === "agentic";
+    case "nonagentic": return r.approach === "direct" || r.approach === "lean";
+    case "open": case "closed": return r.weights === boardState.show;
+    case "new": return !!r.postPaper;
+    case "community": return false;
+    default: return true;
+  }
+}
 let paperData = null;
 const communityState = { entries: [], pending: [], tracked: [], generatedAt: null, datasetVersion: null };
 
@@ -97,10 +127,10 @@ async function loadCommunity() {
 // object to actually display/sort by -- null means "no data for this view"
 // (rendered as n/a, sorted last), not "zero".
 function computeRows() {
-  const { level, category, group } = boardState;
+  const { level, category, show } = boardState;
 
   const paperRows = (paperData?.rows || [])
-    .filter((r) => group === "all" || r.group === group)
+    .filter(showsPaperRow)
     .map((r) => {
       const categories = r.categories || [];
       const m = category !== "all"
@@ -116,7 +146,7 @@ function computeRows() {
   const includeCommunity = category !== "all" || level === "average";
   const communityRows = includeCommunity
     ? communityState.entries
-        .filter((e) => group === "all" || group === "Community")
+        .filter(() => show === "all" || show === "community")
         .map((e) => {
           const categories = e.categories || [];
           const m = category !== "all" ? (categories.find((c) => c.category === category) || null) : e.metrics;
@@ -139,11 +169,15 @@ function sortRows(rows) {
   });
 }
 
+const isZero = (r) => !r.m || Math.round(r.m.saPass * 10) / 10 <= 0;
+
 function renderBoard() {
   if (!paperData) return;
-  const rows = sortRows(computeRows());
+  const all = sortRows(computeRows());
+  const rows = boardState.zeros || !all.some((r) => !isZero(r)) ? all : all.filter((r) => !isZero(r));
+  renderControls(rows.length, all.length);
   renderChart(rows);
-  renderTable(rows);
+  renderTable(rows, all.length - rows.length);
 }
 
 const CHART_TOP_N = 10;
@@ -199,7 +233,6 @@ function categoryRowsHtml(categories, groupId) {
         <td class="rank"></td>
         <td class="category-name">${escapeHtml(item.category)}</td>
         <td></td>
-        <td></td>
         ${metricCell(item.compile, false)}
         ${metricCell(item.saPassSoft, false)}
         ${metricCell(item.saPass, true)}
@@ -211,7 +244,7 @@ function categoryRowsHtml(categories, groupId) {
 }
 
 function rowHtml(row, rank, idx) {
-  const { method, group, org, id, m, categories, source, completedAt, local, post } = row;
+  const { method, group, id, m, categories, source, completedAt, local, post } = row;
   const isCommunity = source === "community";
   const localTag = local ? ` <span class="badge run" title="From this browser, not in the shared sync">you</span>` : "";
   const communityTag = isCommunity
@@ -234,7 +267,6 @@ function rowHtml(row, rank, idx) {
   return `<tr${post ? ' class="post-row"' : ""}>
     <td class="rank">${rank}</td>
     <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(method)}</span>${postTag}${localTag}${communityTag}${idSpan}</span>${delBtn}</div></td>
-    <td>${escapeHtml(org || "n/a")}</td>
     <td class="group">${escapeHtml(group)}</td>
     ${metricCell(m?.compile, false)}
     ${metricCell(m?.saPassSoft, false)}
@@ -252,8 +284,7 @@ function pendingRowHtml(p) {
   const delBtn = `<button type="button" class="del-btn" data-del-id="${escapeHtml(p.id)}" title="Delete this submission">&times;</button>`;
   return `<tr>
     <td class="rank">•</td>
-    <td><div class="submission-name"><span><span class="method">${escapeHtml(p.name || p.id)}</span>${youTag}<span class="id">${escapeHtml(p.id)}</span></span>${delBtn}</div></td>
-    <td>${escapeHtml(p.org || "n/a")} ${badge}</td>
+    <td><div class="submission-name"><span><span class="method">${escapeHtml(p.name || p.id)}</span>${youTag} ${badge}<span class="id">${escapeHtml(p.id)}</span></span>${delBtn}</div></td>
     <td class="group">Community</td>
     <td class="num metric-mut">n/a</td>
     <td class="num metric-mut">n/a</td>
@@ -263,16 +294,16 @@ function pendingRowHtml(p) {
   </tr>`;
 }
 
-function renderTable(rows) {
+function renderTable(rows, hiddenZeros) {
   const host = document.getElementById("paper-board");
   const { pending, tracked } = communityState;
 
   if (rows.length === 0 && pending.length === 0) {
-    const { group, category, level } = boardState;
+    const { show, category, level } = boardState;
     host.innerHTML = `<div class="empty">${
-      group === "Community" && category === "all" && level !== "average"
-        ? "Community submissions only have an overall score -- switch to Average (or pick a Category) to see them."
-        : "No results for this filter."
+      show === "community" && category === "all" && level !== "average"
+        ? "Community submissions only have an overall score -- switch to Average (or pick an Area) to see them."
+        : show === "community" ? "No community submissions yet." : "No results for these filters."
     }</div>`;
     return;
   }
@@ -283,14 +314,14 @@ function renderTable(rows) {
   host.innerHTML = `
     <div class="tbl-wrap" role="region" aria-label="Leaderboard, ranked by SA-PASS" tabindex="0"><table class="board">
       <thead><tr>
-        <th>#</th><th>Submission</th><th>Org</th><th>Group</th>
+        <th>#</th><th>Submission</th><th>Group</th>
         <th class="num">${METRIC_LABELS.compile}</th>
         <th class="num">${METRIC_LABELS.saPassSoft}</th>
         <th class="num">${METRIC_LABELS.saPass}</th>
         <th class="num">Tasks</th><th class="num">Date</th>
       </tr></thead>
       <tbody>${pendingHtml}${rowsHtml}</tbody>
-    </table></div>`;
+    </table></div>${hiddenZeros > 0 ? `<p class="table-note">${hiddenZeros} more ${hiddenZeros === 1 ? "system scores" : "systems score"} 0.0 SA-PASS here (tick “Include 0.0” to show).</p>` : ""}`;
 
   host.querySelectorAll("[data-category-toggle]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -349,49 +380,44 @@ async function loadPending(doneIds, tracked) {
 
 /* ------------------------------ Controls --------------------------------- */
 
-document.querySelectorAll("#level-seg button").forEach((b) => {
-  b.addEventListener("click", () => {
-    document.querySelectorAll("#level-seg button").forEach((x) => {
-      x.classList.remove("active");
-      x.setAttribute("aria-pressed", "false");
-    });
-    b.classList.add("active");
-    b.setAttribute("aria-pressed", "true");
-    boardState.level = b.dataset.level;
-    renderBoard();
-  });
-});
+const areaSel = document.getElementById("f-area");
+const showSel = document.getElementById("f-show");
+const zerosBox = document.getElementById("f-zeros");
+const resetBtn = document.getElementById("reset-filters");
 
-const categorySeg = document.getElementById("category-seg");
-if (categorySeg) {
-  // Up to 9 options (Overall + 8 areas) -- too many for a dropdown to beat a
-  // glance-and-click row, and unlike a Level x Category grid, this doesn't
-  // imply cells that don't exist (a category's score is already an
-  // all-levels aggregate, independent of the Level buttons -- see
-  // computeRows()).
-  categorySeg.insertAdjacentHTML(
-    "beforeend",
-    CATEGORIES.map((c) => `<button type="button" data-category="${escapeHtml(c)}" aria-pressed="false">${escapeHtml(c)}</button>`).join("")
-  );
-  categorySeg.querySelectorAll("button").forEach((b) => {
-    b.addEventListener("click", () => {
-      categorySeg.querySelectorAll("button").forEach((x) => {
-        x.classList.remove("active");
-        x.setAttribute("aria-pressed", "false");
-      });
-      b.classList.add("active");
-      b.setAttribute("aria-pressed", "true");
-      boardState.category = b.dataset.category;
-      renderBoard();
-    });
+areaSel.insertAdjacentHTML(
+  "beforeend",
+  CATEGORIES.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")
+);
+
+function renderControls(nShown, nAll) {
+  document.querySelectorAll("#level-seg button").forEach((b) => {
+    const on = b.dataset.level === boardState.level;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-pressed", String(on));
   });
+  areaSel.value = boardState.category;
+  showSel.value = boardState.show;
+  zerosBox.checked = boardState.zeros;
+  document.getElementById("result-count").textContent = nShown === nAll ? `${nShown} systems` : `${nShown} of ${nAll} systems`;
+  resetBtn.hidden = Object.keys(DEFAULTS).every((k) => boardState[k] === DEFAULTS[k]);
 }
 
-document.getElementById("group-filter").addEventListener("change", (e) => {
-  boardState.group = e.target.value;
+function update(changes) {
+  Object.assign(boardState, changes);
+  writeUrlState();
   renderBoard();
-});
+}
 
+document.querySelectorAll("#level-seg button").forEach((b) => {
+  b.addEventListener("click", () => update(b.dataset.level === "average" ? { level: "average" } : { level: b.dataset.level, category: "all" }));
+});
+areaSel.addEventListener("change", () => update(areaSel.value === "all" ? { category: "all" } : { category: areaSel.value, level: "average" }));
+showSel.addEventListener("change", () => update({ show: showSel.value }));
+zerosBox.addEventListener("change", () => update({ zeros: zerosBox.checked }));
+resetBtn.addEventListener("click", () => update({ ...DEFAULTS }));
+
+readUrlState();
 loadPaper();
 loadCommunity();
 

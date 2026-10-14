@@ -75,9 +75,27 @@ try {
     await page.locator("#paper-board tbody tr").first().waitFor();
     await page.locator("[data-category-toggle]").first().click();
     await page.locator(".category-row").first().waitFor();
+    // Filter box: the three metric columns stay in order for every slice.
+    await page.locator("#f-area").selectOption("algebra");
+    if (!page.url().includes("area=algebra")) errors.push(`${viewport.width}px: area not kept in the URL`);
+    const heads = await page.locator("#paper-board thead th").allInnerTexts();
+    if (heads.slice(3, 6).join("|") !== "Compile rate|SA-PASS (Soft)|SA-PASS") errors.push(`${viewport.width}px: metric columns out of order: ${heads.join("|")}`);
+    await page.locator("#level-seg button[data-level=L2]").click();
+    if ((await page.locator("#f-area").inputValue()) !== "all") errors.push(`${viewport.width}px: picking a level did not reset the area`);
+    await page.locator("#f-show").selectOption("open");
+    await page.locator("#paper-board tbody tr").first().waitFor();
+    await page.locator("#reset-filters").click();
     await page.screenshot({ path: `/tmp/shadowbench-${viewport.width}.png`, fullPage: true });
     let overflow = await checkOverflow(page);
     if (overflow.length) errors.push(`${viewport.width}px overflow (index): ${overflow.join(", ")}`);
+
+    await page.goto(`${baseUrl}/map.html`, { waitUntil: "domcontentloaded" });
+    await page.locator(".strip-row").nth(3).click();
+    await page.locator(".strip-row.sel").waitFor();
+    if ((await page.locator(".pt").count()) < 10) errors.push(`${viewport.width}px: map shows too few points`);
+    await page.screenshot({ path: `/tmp/shadowbench-map-${viewport.width}.png`, fullPage: true });
+    overflow = await checkOverflow(page);
+    if (overflow.length) errors.push(`${viewport.width}px overflow (map): ${overflow.join(", ")}`);
 
     await page.goto(`${baseUrl}/paper.html`, { waitUntil: "domcontentloaded" });
     await page.locator("h1").waitFor();

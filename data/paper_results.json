@@ -29,7 +29,11 @@
   "rows": [
     {
       "method": "Claude Code (Opus 4.6)",
+      "model": "Claude Opus 4.6",
+      "scaffold": "Claude Code",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
       "average": {
         "compile": 4.5,
         "saPassSoft": 1.4,
@@ -127,7 +131,11 @@
     },
     {
       "method": "Claude Code (Opus 4.6) + Numina",
+      "model": "Claude Opus 4.6",
+      "scaffold": "Claude Code + Numina",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
       "agent": "Numina-Lean-Agent",
       "average": {
         "compile": 47.2,
@@ -226,7 +234,11 @@
     },
     {
       "method": "Claude Code (Opus 4.8)",
+      "model": "Claude Opus 4.8",
+      "scaffold": "Claude Code",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
       "average": {
         "compile": 20.2,
         "saPassSoft": 5.1,
@@ -324,7 +336,11 @@
     },
     {
       "method": "Claude Code (Opus 4.8) + Numina",
+      "model": "Claude Opus 4.8",
+      "scaffold": "Claude Code + Numina",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
       "agent": "Numina-Lean-Agent",
       "best": true,
       "average": {
@@ -424,7 +440,11 @@
     },
     {
       "method": "Claude Code (Qwen3 235B)",
+      "model": "Qwen3 235B",
+      "scaffold": "Claude Code",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "open",
       "average": {
         "compile": 5.1,
         "saPassSoft": 0.8,
@@ -522,7 +542,11 @@
     },
     {
       "method": "Claude Code (Qwen3 235B) + Numina",
+      "model": "Qwen3 235B",
+      "scaffold": "Claude Code + Numina",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "open",
       "agent": "Numina-Lean-Agent",
       "average": {
         "compile": 6.7,
@@ -621,7 +645,11 @@
     },
     {
       "method": "Codex (GPT-5.4)",
+      "model": "GPT-5.4",
+      "scaffold": "Codex",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
       "average": {
         "compile": 16.9,
         "saPassSoft": 3.4,
@@ -719,7 +747,11 @@
     },
     {
       "method": "Codex (GPT-5.4) + Numina",
+      "model": "GPT-5.4",
+      "scaffold": "Codex + Numina",
       "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
       "agent": "Numina-Lean-Agent",
       "average": {
         "compile": 55.6,
@@ -818,7 +850,10 @@
     },
     {
       "method": "Claude Opus 4.6",
+      "model": "Claude Opus 4.6",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 1.1,
         "saPassSoft": 0.0,
@@ -916,7 +951,10 @@
     },
     {
       "method": "Claude Sonnet 4.6",
+      "model": "Claude Sonnet 4.6",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 0.6,
         "saPassSoft": 0.0,
@@ -1014,7 +1052,10 @@
     },
     {
       "method": "Claude Haiku 4.5",
+      "model": "Claude Haiku 4.5",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 0.6,
         "saPassSoft": 0.3,
@@ -1112,7 +1153,10 @@
     },
     {
       "method": "GPT-5.4",
+      "model": "GPT-5.4",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 3.4,
         "saPassSoft": 0.3,
@@ -1210,7 +1254,10 @@
     },
     {
       "method": "GPT-5.4 mini",
+      "model": "GPT-5.4 mini",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 9.0,
         "saPassSoft": 0.3,
@@ -1308,7 +1355,10 @@
     },
     {
       "method": "GPT-5.4 nano",
+      "model": "GPT-5.4 nano",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 6.7,
         "saPassSoft": 0.0,
@@ -1406,7 +1456,10 @@
     },
     {
       "method": "Gemini 3.1 Pro",
+      "model": "Gemini 3.1 Pro",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 1.7,
         "saPassSoft": 0.0,
@@ -1504,7 +1557,10 @@
     },
     {
       "method": "Gemini 2.5 Flash",
+      "model": "Gemini 2.5 Flash",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 0.6,
         "saPassSoft": 0.3,
@@ -1602,7 +1658,10 @@
     },
     {
       "method": "Claude Opus 5.5",
+      "model": "Claude Opus 5.5",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 20.2,
         "saPassSoft": 5.0,
@@ -1705,7 +1764,10 @@
     },
     {
       "method": "Claude Sonnet 5.5",
+      "model": "Claude Sonnet 5.5",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 9.6,
         "saPassSoft": 1.9,
@@ -1808,7 +1870,10 @@
     },
     {
       "method": "Claude Fable 5.1",
+      "model": "Claude Fable 5.1",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 28.7,
         "saPassSoft": 7.9,
@@ -1911,7 +1976,10 @@
     },
     {
       "method": "GPT-6 Sol",
+      "model": "GPT-6 Sol",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 38.2,
         "saPassSoft": 4.8,
@@ -2014,7 +2082,10 @@
     },
     {
       "method": "GPT-6 Luna",
+      "model": "GPT-6 Luna",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 23.6,
         "saPassSoft": 5.2,
@@ -2117,7 +2188,10 @@
     },
     {
       "method": "GPT-6 Astra",
+      "model": "GPT-6 Astra",
       "group": "Closed-source LLM",
+      "approach": "direct",
+      "weights": "closed",
       "average": {
         "compile": 26.4,
         "saPassSoft": 6.8,
@@ -2220,7 +2294,10 @@
     },
     {
       "method": "GPT-OSS-120B",
+      "model": "GPT-OSS-120B",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 0.6,
         "saPassSoft": 0.3,
@@ -2318,7 +2395,10 @@
     },
     {
       "method": "GPT-OSS-20B",
+      "model": "GPT-OSS-20B",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 2.8,
         "saPassSoft": 0.3,
@@ -2416,7 +2496,10 @@
     },
     {
       "method": "DeepSeek R1 0528",
+      "model": "DeepSeek R1 0528",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 0.6,
         "saPassSoft": 0.0,
@@ -2514,7 +2597,10 @@
     },
     {
       "method": "DeepSeek V3.2",
+      "model": "DeepSeek V3.2",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 0.0,
         "saPassSoft": 0.0,
@@ -2612,7 +2698,10 @@
     },
     {
       "method": "Qwen3 235B",
+      "model": "Qwen3 235B",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 0.0,
         "saPassSoft": 0.0,
@@ -2710,7 +2799,10 @@
     },
     {
       "method": "Qwen3-coder",
+      "model": "Qwen3-coder",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 0.0,
         "saPassSoft": 0.0,
@@ -2808,7 +2900,10 @@
     },
     {
       "method": "Llama 3.1 70B",
+      "model": "Llama 3.1 70B",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 0.0,
         "saPassSoft": 0.0,
@@ -2906,7 +3001,10 @@
     },
     {
       "method": "Llama 3.1 8B",
+      "model": "Llama 3.1 8B",
       "group": "Open-source LLM",
+      "approach": "direct",
+      "weights": "open",
       "average": {
         "compile": 0.0,
         "saPassSoft": 0.0,
@@ -3004,7 +3102,10 @@
     },
     {
       "method": "Kimina 7B → 8B",
+      "model": "Kimina 7B → 8B",
       "group": "Lean-specialized",
+      "approach": "lean",
+      "weights": "open",
       "average": {
         "compile": 0.6,
         "saPassSoft": 0.0,
@@ -3102,7 +3203,10 @@
     },
     {
       "method": "Goedel 8B → 32B",
+      "model": "Goedel 8B → 32B",
       "group": "Lean-specialized",
+      "approach": "lean",
+      "weights": "open",
       "average": {
         "compile": 0.0,
         "saPassSoft": 0.0,
@@ -3200,7 +3304,10 @@
     },
     {
       "method": "Goedel 8B → 8B",
+      "model": "Goedel 8B → 8B",
       "group": "Lean-specialized",
+      "approach": "lean",
+      "weights": "open",
       "average": {
         "compile": 0.0,
         "saPassSoft": 0.0,

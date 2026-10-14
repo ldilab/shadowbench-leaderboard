@@ -6,7 +6,15 @@ with SA-PASS ([paper](https://arxiv.org/abs/2608.29270)).
 
 ## What the site does
 
-- Shows the results reported in the paper separately from live community runs.
+- Shows the results reported in the paper alongside live community runs, in one ranked table.
+- A top-10 chart and one ranked table (Compile rate, SA-PASS (Soft), SA-PASS, always in that order),
+  with a filter box between them: Level (Average, L1-L3), Area, Show (agentic, non-agentic, open
+  weights, closed, new since the paper, community) and Include 0.0. The filters are kept in the
+  URL query (for example `?area=algebra&show=open`), so a view can be linked.
+- `map.html` compares compile rate with the SA-PASS checkers on every output (33 systems × 178
+  problems): a scatter of compile rate against "passes every checker", and one 178-problem bar per
+  system split into SA-PASS, false positives (compiles, misaligned) and false negatives (aligned,
+  does not compile). Data: `data/compile_confusion.json`, see "Compile confusion data" below.
 - Accepts generated Lean solutions as JSON or JSONL. It does not ask for a model endpoint or API key.
 - Sends the uploaded solutions through the existing evaluator API and tracks the run in the browser.
 - Recomputes compile-gated Compile rate, SA-pass (Soft), and SA-pass overall and by mathematical category.
@@ -29,6 +37,18 @@ one of the 178 ids in `assets/test_task_ids.js` -- the exact "test" split of
 is passed to the evaluator as `taskIds`, which pins it to exactly those 178 problems regardless of
 what else is in its live, growing benchmark directory -- missing solutions just fail that task.
 See "Fixed task selection" below for why this exists and how to regenerate the list.
+
+## Compile confusion data
+
+`data/compile_confusion.json` is built by `scripts/build_compile_confusion_178.py` in the paper repo
+from the per-problem evaluator records behind every leaderboard row (the same sources as
+`leaderboard_categories/`, plus the post-paper runs). Per row: `compile` (standalone compile passed),
+`tp` (compiles and every checker passes = SA-PASS), `fp` (compiles, a checker fails), `fn` (every
+checker passes but the standalone compile fails; split into `fnSorry`, `fnError`, `fnUnknown` for
+agentic rows, whose records carry no error text), `alignedTimeout` (checkers pass, the compile hit
+the evaluator's wall-clock limit; kept out of `fn`) and `tn`. The script asserts that every row
+reproduces its published Compile rate and SA-PASS. `expert` holds the paper's expert review of
+compile-passed outputs (6 agentic configurations, precision 43/242 = 0.178).
 
 ## How code submission works
 
@@ -155,12 +175,16 @@ still work; everyone else needs a PR.
 
 ```
 index.html                     leaderboard
+map.html                       compile vs. SA-PASS map (assets/map.js, data/compile_confusion.json)
 submit.html                    generated-code form and run tracking
 assets/code-submission.js      input validation and fixed code replay adapter
 assets/submit.js               submission, polling, and deletion UI
 assets/leaderboard.js          paper and community tables
 assets/metrics.js              shared SA-PASS calculation (also used by worker/index.mjs)
-data/paper_results.json        paper Table 3 values, by level and by category (see
+data/paper_results.json        paper Table 3 values, by level and by category (each row also
+                                carries `model`, agentic `scaffold`, `approach`
+                                agentic|direct|lean and `weights` closed|open, which the
+                                board filters on and scripts/check_paper.mjs validates; see
                                 leaderboard_categories/README.md for how the category
                                 breakdown was generated and how to regenerate it), plus
                                 rows run after the paper: these carry a `postPaper`

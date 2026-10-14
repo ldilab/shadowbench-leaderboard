@@ -1,6 +1,7 @@
 // Guards data/paper_results.json against transcription errors: for every row and
 // metric, the Average must equal the difficulty-weighted mean of L1/L2/L3
-// (n = 113 / 52 / 13, total 178). Run with: node scripts/check_paper.mjs
+// (n = 113 / 52 / 13, total 178), and every row must carry the fields the
+// board filters on. Run with: node scripts/check_paper.mjs
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -22,8 +23,23 @@ for (const r of data.rows) {
     }
   }
 }
+// Every row needs the two classification axes the board filters on, plus a
+// display model name (agentic rows also name their scaffold).
+const APPROACHES = new Set(["agentic", "direct", "lean"]);
+const WEIGHTS = new Set(["closed", "open"]);
+for (const r of data.rows) {
+  const bad = [];
+  if (!APPROACHES.has(r.approach)) bad.push(`approach=${r.approach}`);
+  if (!WEIGHTS.has(r.weights)) bad.push(`weights=${r.weights}`);
+  if (!r.model) bad.push("model missing");
+  if (r.approach === "agentic" && !r.scaffold) bad.push("agentic row without scaffold");
+  if (bad.length) {
+    fails++;
+    console.error(`FIELDS  ${r.method}  ${bad.join(", ")}`);
+  }
+}
 if (fails) {
   console.error(`\n${fails} mismatch(es).`);
   process.exit(1);
 }
-console.log(`OK — ${data.rows.length} rows consistent (Average = weighted mean of L1/L2/L3).`);
+console.log(`OK — ${data.rows.length} rows consistent (Average = weighted mean of L1/L2/L3; approach/weights/model set).`);

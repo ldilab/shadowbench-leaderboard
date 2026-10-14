@@ -17,6 +17,7 @@
       <a class="brand" href="./index.html">ShadowBench</a>
       <nav class="nav" aria-label="Main navigation">
         <a class="active" aria-current="page" href="./index.html">Leaderboard</a>
+        <a href="./map.html">Compile vs. SA-PASS</a>
         <a href="./submit.html">Submit code</a>
         <a href="./paper.html">Paper</a>
         <a href="https://github.com/ldilab/shadowbench" target="_blank" rel="noopener">GitHub</a>
@@ -36,30 +37,35 @@
           <h2 id="reported-title">Leaderboard</h2>
           <p class="sub" id="paper-sub">Loading paper results...</p>
         </div>
-        <div class="controls">
-          <div class="seg" id="level-seg" role="group" aria-label="Difficulty level">
-            <button class="active" data-level="average" aria-pressed="true">Average</button>
-            <button data-level="L1" aria-pressed="false">L1</button>
-            <button data-level="L2" aria-pressed="false">L2</button>
-            <button data-level="L3" aria-pressed="false">L3</button>
-          </div>
-          <span class="filter-label">Category</span>
-          <div class="seg chip-group" id="category-seg" role="group" aria-label="Category">
-            <button type="button" class="active" data-category="all" aria-pressed="true">Overall</button>
-          </div>
-          <label for="group-filter">Group</label>
-          <select id="group-filter">
-            <option value="all">All groups</option>
-            <option value="Agentic">Agentic</option>
-            <option value="Closed-source LLM">Closed-source</option>
-            <option value="Open-source LLM">Open-source</option>
-            <option value="Lean-specialized">Lean-specialized</option>
-            <option value="Community">Community</option>
-          </select>
-        </div>
         <a href="./submit.html">Submit code</a>
       </div>
       <div id="paper-chart"></div>
+      <div class="filter-card" role="group" aria-label="Table filters">
+        <div class="field-inline"><span id="f-level">Level</span>
+          <div class="seg" id="level-seg" role="group" aria-labelledby="f-level">
+            <button type="button" class="active" data-level="average" aria-pressed="true">Average</button>
+            <button type="button" data-level="L1" aria-pressed="false">L1</button>
+            <button type="button" data-level="L2" aria-pressed="false">L2</button>
+            <button type="button" data-level="L3" aria-pressed="false">L3</button>
+          </div>
+        </div>
+        <label class="field-inline">Area
+          <select id="f-area"><option value="all">All areas</option></select>
+        </label>
+        <label class="field-inline">Show
+          <select id="f-show">
+            <option value="all">All systems</option>
+            <option value="agentic">Agentic</option>
+            <option value="nonagentic">Non-agentic</option>
+            <option value="open">Open weights</option>
+            <option value="closed">Closed</option>
+            <option value="new">✦ New since the paper</option>
+            <option value="community">Community</option>
+          </select>
+        </label>
+        <label class="check-inline"><input type="checkbox" id="f-zeros" /> Include 0.0</label>
+        <div class="filter-meta"><span id="result-count"></span><button type="button" class="link-btn" id="reset-filters" hidden>Reset</button></div>
+      </div>
       <div id="paper-board"><div class="empty">Loading...</div></div>
       <details class="metric-definitions">
         <summary>Metric definitions</summary>

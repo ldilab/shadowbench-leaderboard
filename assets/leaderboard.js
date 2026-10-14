@@ -54,7 +54,7 @@ async function loadPaper() {
     `<a href="${src.arxivUrl}" target="_blank" rel="noopener">arXiv:${src.arxiv}${src.version}</a>, ${escapeHtml(src.table)}. ` +
     `${src.benchmark.problems} problems (L1 ${src.benchmark.levels.L1}, L2 ${src.benchmark.levels.L2}, L3 ${src.benchmark.levels.L3}).` +
     (paperData.rows.some((r) => r.postPaper)
-      ? ` Rows marked <span class="badge run">post-paper</span> were run after the paper with different settings (hover for details).`
+      ? ` Highlighted rows tagged <span class="new-pill"><span aria-hidden="true">✦</span> NEW</span> were run after the paper with different settings (hover the tag for details).`
       : "");
   renderBoard();
 }
@@ -168,11 +168,11 @@ function renderChart(sortedRows) {
       const widthPct = Math.max((r.m.saPass / maxVal) * 100, 1.5);
       const isCommunity = r.source === "community";
       const communityMark = isCommunity ? `<span class="chart-community-dot" aria-hidden="true"></span>` : "";
-      const postMark = r.post ? ` <span class="badge run">post-paper</span>` : "";
+      const postMark = r.post ? `<span class="new-pill"><span aria-hidden="true">✦</span> NEW</span>` : "";
       return `<div class="chart-row" title="${escapeHtml(r.method)}: ${pct} SA-PASS${isCommunity ? " (community submission)" : ""}${r.post ? " (run after the paper)" : ""}">
         <div class="chart-rank">${i + 1}</div>
         <div class="chart-label">${communityMark}${escapeHtml(r.method)}${postMark}</div>
-        <div class="chart-bar-track"><div class="chart-bar" style="width:${widthPct}%"></div></div>
+        <div class="chart-bar-track"><div class="chart-bar${r.post ? " post" : ""}" style="width:${widthPct}%"></div></div>
         <div class="chart-value">${pct}</div>
       </div>`;
     })
@@ -218,7 +218,7 @@ function rowHtml(row, rank, idx) {
     ? ` <span class="badge run" title="Self-reported community submission, not from the paper">community</span>`
     : "";
   const postTag = post
-    ? ` <span class="badge run" title="${escapeHtml(post.note || "")}">post-paper</span>`
+    ? `<span class="new-pill" title="${escapeHtml(post.note || "")}"><span aria-hidden="true">✦</span> NEW</span>`
     : "";
   const idSpan = id ? `<span class="id">${escapeHtml(id)}</span>` : "";
   const date = completedAt ? new Date(completedAt).toLocaleDateString() : "n/a";
@@ -231,7 +231,7 @@ function rowHtml(row, rank, idx) {
   const delBtn = isCommunity
     ? `<button type="button" class="del-btn" data-del-id="${escapeHtml(id)}" title="Delete this submission">&times;</button>`
     : "";
-  return `<tr>
+  return `<tr${post ? ' class="post-row"' : ""}>
     <td class="rank">${rank}</td>
     <td><div class="submission-name">${expander}<span><span class="method">${escapeHtml(method)}</span>${postTag}${localTag}${communityTag}${idSpan}</span>${delBtn}</div></td>
     <td>${escapeHtml(org || "n/a")}</td>

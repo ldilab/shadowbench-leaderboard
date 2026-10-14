@@ -162,7 +162,10 @@ assets/leaderboard.js          paper and community tables
 assets/metrics.js              shared SA-PASS calculation (also used by worker/index.mjs)
 data/paper_results.json        paper Table 3 values, by level and by category (see
                                 leaderboard_categories/README.md for how the category
-                                breakdown was generated and how to regenerate it)
+                                breakdown was generated and how to regenerate it), plus
+                                rows run after the paper: these carry a `postPaper`
+                                object (date, evaluator submission id, settings note)
+                                and are badged "post-paper" on the board
 data/community.json            published community results (Worker commits to this on publish)
 worker/index.mjs               Cloudflare Worker: /api/submit, /publish, /api/delete, and the
                                 scheduled watcher

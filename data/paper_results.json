@@ -1601,6 +1601,624 @@
       ]
     },
     {
+      "method": "Claude Opus 5.5",
+      "group": "Closed-source LLM",
+      "average": {
+        "compile": 20.2,
+        "saPassSoft": 5.0,
+        "saPass": 0.0,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 27.4,
+        "saPassSoft": 6.8,
+        "saPass": 0.0,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 9.6,
+        "saPassSoft": 2.3,
+        "saPass": 0.0,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 0.0,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 34.6,
+          "saPassSoft": 2.6,
+          "saPass": 0.0,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 9.1,
+          "saPassSoft": 2.3,
+          "saPass": 0.0,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 25.0,
+          "saPassSoft": 6.9,
+          "saPass": 0.0,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 21.4,
+          "saPassSoft": 8.6,
+          "saPass": 0.0,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 29.2,
+          "saPassSoft": 8.0,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 5.3,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 5.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 24.0,
+          "saPassSoft": 10.8,
+          "saPass": 0.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-14",
+        "submissionId": "opus55-l-128000-t-0-0-frontier-maxlen-paper-19b693",
+        "note": "Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure."
+      }
+    },
+    {
+      "method": "Claude Sonnet 5.5",
+      "group": "Closed-source LLM",
+      "average": {
+        "compile": 9.6,
+        "saPassSoft": 1.9,
+        "saPass": 0.0,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 11.5,
+        "saPassSoft": 2.2,
+        "saPass": 0.0,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 7.7,
+        "saPassSoft": 1.9,
+        "saPass": 0.0,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 0.0,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 15.4,
+          "saPassSoft": 1.0,
+          "saPass": 0.0,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 0.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 10.7,
+          "saPassSoft": 2.2,
+          "saPass": 0.0,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 7.1,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 16.7,
+          "saPassSoft": 4.5,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 5.3,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 0.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 16.0,
+          "saPassSoft": 6.0,
+          "saPass": 0.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-14",
+        "submissionId": "sonnet55-l-128000-t-0-0-frontier-maxlen-paper-f61a40",
+        "note": "Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure."
+      }
+    },
+    {
+      "method": "Claude Fable 5.1",
+      "group": "Closed-source LLM",
+      "average": {
+        "compile": 28.7,
+        "saPassSoft": 7.9,
+        "saPass": 1.1,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 31.0,
+        "saPassSoft": 7.4,
+        "saPass": 0.9,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 28.8,
+        "saPassSoft": 10.8,
+        "saPass": 1.9,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 7.7,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 34.6,
+          "saPassSoft": 10.6,
+          "saPass": 7.7,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 40.9,
+          "saPassSoft": 11.4,
+          "saPass": 0.0,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 17.9,
+          "saPassSoft": 7.3,
+          "saPass": 0.0,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 35.7,
+          "saPassSoft": 13.3,
+          "saPass": 0.0,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 37.5,
+          "saPassSoft": 5.9,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 31.6,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 10.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 24.0,
+          "saPassSoft": 13.7,
+          "saPass": 0.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-14",
+        "submissionId": "fable51-l-128000-t-0-0-frontier-maxlen-paper-80e4a2",
+        "note": "Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure."
+      }
+    },
+    {
+      "method": "GPT-6 Sol",
+      "group": "Closed-source LLM",
+      "average": {
+        "compile": 38.2,
+        "saPassSoft": 4.8,
+        "saPass": 0.0,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 38.1,
+        "saPassSoft": 5.5,
+        "saPass": 0.0,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 30.8,
+        "saPassSoft": 4.0,
+        "saPass": 0.0,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 69.2,
+        "saPassSoft": 2.3,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 34.6,
+          "saPassSoft": 1.9,
+          "saPass": 0.0,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 40.9,
+          "saPassSoft": 7.3,
+          "saPass": 0.0,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 42.9,
+          "saPassSoft": 4.5,
+          "saPass": 0.0,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 21.4,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 41.7,
+          "saPassSoft": 9.2,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 47.4,
+          "saPassSoft": 1.6,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 45.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 28.0,
+          "saPassSoft": 11.0,
+          "saPass": 0.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-14",
+        "submissionId": "gpt6sol-l-128000-t-0-0-frontier-maxlen-paper-fc42b8",
+        "note": "Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure."
+      }
+    },
+    {
+      "method": "GPT-6 Luna",
+      "group": "Closed-source LLM",
+      "average": {
+        "compile": 23.6,
+        "saPassSoft": 5.2,
+        "saPass": 0.0,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 16.8,
+        "saPassSoft": 3.1,
+        "saPass": 0.0,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 40.4,
+        "saPassSoft": 11.2,
+        "saPass": 0.0,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 15.4,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 23.1,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 54.5,
+          "saPassSoft": 11.4,
+          "saPass": 0.0,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 21.4,
+          "saPassSoft": 4.5,
+          "saPass": 0.0,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 14.3,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 33.3,
+          "saPassSoft": 10.6,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 5.3,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 5.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 24.0,
+          "saPassSoft": 12.0,
+          "saPass": 0.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-14",
+        "submissionId": "gpt6luna-l-128000-t-0-0-frontier-maxlen-paper-171f69",
+        "note": "Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure."
+      }
+    },
+    {
+      "method": "GPT-6 Astra",
+      "group": "Closed-source LLM",
+      "average": {
+        "compile": 26.4,
+        "saPassSoft": 6.8,
+        "saPass": 0.6,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 29.2,
+        "saPassSoft": 7.6,
+        "saPass": 0.0,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 19.2,
+        "saPassSoft": 6.6,
+        "saPass": 1.9,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 30.8,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 34.6,
+          "saPassSoft": 7.1,
+          "saPass": 3.8,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 27.3,
+          "saPassSoft": 6.1,
+          "saPass": 0.0,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 17.9,
+          "saPassSoft": 6.2,
+          "saPass": 0.0,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 35.7,
+          "saPassSoft": 10.9,
+          "saPass": 0.0,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 29.2,
+          "saPassSoft": 4.5,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 21.1,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 20.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 28.0,
+          "saPassSoft": 18.0,
+          "saPass": 0.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-14",
+        "submissionId": "gpt6astra-l-128000-t-0-0-frontier-maxlen-paper-bb7faa",
+        "note": "Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure."
+      }
+    },
+    {
       "method": "GPT-OSS-120B",
       "group": "Open-source LLM",
       "average": {

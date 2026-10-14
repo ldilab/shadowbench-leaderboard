@@ -41,30 +41,20 @@
       </div>
       <div id="paper-chart"></div>
       <div class="filter-card" role="group" aria-label="Table filters">
-        <div class="field-inline"><span id="f-level">Level</span>
-          <div class="seg" id="level-seg" role="group" aria-labelledby="f-level">
-            <button type="button" class="active" data-level="average" aria-pressed="true">Average</button>
-            <button type="button" data-level="L1" aria-pressed="false">L1</button>
-            <button type="button" data-level="L2" aria-pressed="false">L2</button>
-            <button type="button" data-level="L3" aria-pressed="false">L3</button>
+        <div class="filter-row">
+          <div class="field-inline"><span id="f-level">Level</span>
+            <div class="seg" id="level-seg" role="group" aria-labelledby="f-level">
+              <button type="button" class="active" data-level="average" aria-pressed="true">Average</button>
+              <button type="button" data-level="L1" aria-pressed="false">L1</button>
+              <button type="button" data-level="L2" aria-pressed="false">L2</button>
+              <button type="button" data-level="L3" aria-pressed="false">L3</button>
+            </div>
           </div>
+          <label class="check-inline"><input type="checkbox" id="f-zeros" checked /> Include 0.0</label>
+          <div class="filter-meta"><span id="result-count"></span><button type="button" class="link-btn" id="reset-filters" hidden>Reset</button></div>
         </div>
-        <label class="field-inline">Area
-          <select id="f-area"><option value="all">All areas</option></select>
-        </label>
-        <label class="field-inline">Show
-          <select id="f-show">
-            <option value="all">All systems</option>
-            <option value="agentic">Agentic</option>
-            <option value="nonagentic">Non-agentic</option>
-            <option value="open">Open weights</option>
-            <option value="closed">Closed</option>
-            <option value="new">✦ New since the paper</option>
-            <option value="community">Community</option>
-          </select>
-        </label>
-        <label class="check-inline"><input type="checkbox" id="f-zeros" /> Include 0.0</label>
-        <div class="filter-meta"><span id="result-count"></span><button type="button" class="link-btn" id="reset-filters" hidden>Reset</button></div>
+        <div class="filter-row chips-row"><span class="chips-label" id="f-show">Show</span><div class="chips" id="show-chips" role="group" aria-labelledby="f-show"></div></div>
+        <div class="filter-row chips-row"><span class="chips-label" id="f-area">Area</span><div class="chips" id="area-chips" role="group" aria-labelledby="f-area"></div></div>
       </div>
       <div id="paper-board"><div class="empty">Loading...</div></div>
       <details class="metric-definitions">

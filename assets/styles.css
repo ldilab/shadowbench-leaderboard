@@ -107,7 +107,18 @@ table.board tr.post-row td:first-child { box-shadow: inset 3px 0 0 var(--brand);
 
 /* Filter box between the chart and the table: one rounded card holding the
    Level segments, the Area and Show selects, and the Include 0.0 toggle. */
-.filter-card { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; margin: 2px 0 16px; padding: 12px 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+.filter-card { display: flex; flex-direction: column; gap: 10px; margin: 2px 0 16px; padding: 12px 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+.chips-row { gap: 8px 10px; align-items: flex-start; padding-top: 10px; border-top: 1px solid var(--border); }
+.chips-label { flex: 0 0 44px; padding-top: 3px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 0; min-width: 0; }
+/* Badges work like checkboxes and start selected: selected = brand tint with
+   a check mark, left out = plain outline with muted text. */
+.chips button { padding: 2px 7px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--panel); color: var(--muted); font-size: 12px; line-height: 1.5; }
+.chips button:hover { border-color: var(--brand); }
+.chips button.active { background: var(--brand-tint); border-color: color-mix(in srgb, var(--brand) 45%, var(--border-strong)); color: var(--brand); font-weight: 600; }
+.chips button.active::before { content: "✓"; margin-right: 2px; }
+.chip-sep { width: 1px; align-self: stretch; margin: 3px 4px; background: var(--border-strong); }
 .filter-card .seg { gap: 2px; padding: 3px; border: 0; border-radius: 8px; background: var(--panel-3); overflow: visible; }
 .filter-card .seg button, .filter-card .seg button:last-child { border: 0; border-radius: 6px; background: transparent; min-height: 30px; padding: 4px 12px; color: var(--muted); font-size: 13px; }
 .filter-card .seg button.active { background: var(--brand); color: var(--on-brand); font-weight: 600; }
@@ -119,8 +130,10 @@ table.board tr.post-row td:first-child { box-shadow: inset 3px 0 0 var(--brand);
 .link-btn { padding: 0; border: 0; background: none; color: var(--brand); font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .table-note { margin: 10px 0 0; color: var(--muted); font-size: 12px; }
 @media (max-width: 560px) {
-  .filter-card { gap: 10px 14px; }
+  .filter-row { gap: 10px 14px; }
   .filter-meta { margin-left: 0; width: 100%; }
+  .chips-row { flex-direction: column; gap: 6px; }
+  .chips-label { flex: none; padding-top: 0; }
 }
 
 /* ------------------------- Compile vs. SA-PASS page ------------------------- */

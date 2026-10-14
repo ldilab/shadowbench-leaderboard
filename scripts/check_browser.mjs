@@ -76,13 +76,20 @@ try {
     await page.locator("[data-category-toggle]").first().click();
     await page.locator(".category-row").first().waitFor();
     // Filter box: the three metric columns stay in order for every slice.
-    await page.locator("#f-area").selectOption("algebra");
-    if (!page.url().includes("area=algebra")) errors.push(`${viewport.width}px: area not kept in the URL`);
+    // Area and Show badges are multi-select and start fully selected.
+    if ((await page.locator("#area-chips button.active").count()) !== 9) errors.push(`${viewport.width}px: not every area badge starts selected`);
+    for (const a of ["algebraic-geometry", "combinatorics", "geometry", "number-theory", "probability", "topology"]) {
+      await page.locator(`#area-chips button[data-area="${a}"]`).click();
+    }
+    if (!page.url().includes("area=algebra,analysis")) errors.push(`${viewport.width}px: areas not kept in the URL: ${page.url()}`);
     const heads = await page.locator("#paper-board thead th").allInnerTexts();
     if (heads.slice(3, 6).join("|") !== "Compile rate|SA-PASS (Soft)|SA-PASS") errors.push(`${viewport.width}px: metric columns out of order: ${heads.join("|")}`);
     await page.locator("#level-seg button[data-level=L2]").click();
-    if ((await page.locator("#f-area").inputValue()) !== "all") errors.push(`${viewport.width}px: picking a level did not reset the area`);
-    await page.locator("#f-show").selectOption("open");
+    if ((await page.locator('#area-chips button[data-area=""]').getAttribute("aria-pressed")) !== "true") errors.push(`${viewport.width}px: picking a level did not select every area again`);
+    await page.locator('#show-chips button[data-show="nonagentic"]').click();
+    await page.locator('#show-chips button[data-show="closed"]').click();
+    const agenticOpen = await page.locator("#paper-board tbody tr:not(.category-row)").count();
+    if (agenticOpen !== 2) errors.push(`${viewport.width}px: Agentic + Open weights shows ${agenticOpen} rows, expected 2`);
     await page.locator("#paper-board tbody tr").first().waitFor();
     await page.locator("#reset-filters").click();
     await page.screenshot({ path: `/tmp/shadowbench-${viewport.width}.png`, fullPage: true });

@@ -14,7 +14,7 @@ with SA-PASS ([paper](https://arxiv.org/abs/2608.29270)).
   row shows when its value on every axis is selected. Area pools the problems of the selected
   areas. Changes from the defaults are kept in the URL query, so a view can be linked.
 - `map.html` compares compile rate with the SA-PASS checkers on every output (33 systems × 178
-  problems): a scatter of compile rate against "passes every checker", and one 178-problem bar per
+  problems; the post-paper agentic rows have no per-problem records yet): a scatter of compile rate against "passes every checker", and one 178-problem bar per
   system split into SA-PASS, false positives (compiles, misaligned) and false negatives (aligned,
   does not compile). Data: `data/compile_confusion.json`, see "Compile confusion data" below.
 - Accepts generated Lean solutions as JSON or JSONL. It does not ask for a model endpoint or API key.
@@ -190,8 +190,13 @@ data/paper_results.json        paper Table 3 values, by level and by category (e
                                 leaderboard_categories/README.md for how the category
                                 breakdown was generated and how to regenerate it), plus
                                 rows run after the paper: these carry a `postPaper`
-                                object (date, evaluator submission id, settings note)
-                                and are shown as highlighted rows with a "✦ NEW" tag
+                                object (date, evaluator submission id where known, settings note)
+                                and are shown as highlighted rows with a "✦ NEW" tag.
+                                The 8 post-paper agentic rows (Opus 5.5, Sonnet 5.5,
+                                GPT-6.1 Sol, GPT-6 Luna, each with and without Numina)
+                                have level scores only: no `categories`, so they show
+                                n/a when Area is narrowed, and no per-problem records,
+                                so they are not on map.html
 data/community.json            published community results (Worker commits to this on publish)
 worker/index.mjs               Cloudflare Worker: /api/submit, /publish, /api/delete, and the
                                 scheduled watcher

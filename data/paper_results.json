@@ -849,6 +849,298 @@
       ]
     },
     {
+      "method": "Claude Code (Opus 5.5)",
+      "model": "Claude Opus 5.5",
+      "scaffold": "Claude Code",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 48.9,
+        "saPassSoft": 16.3,
+        "saPass": 10.7,
+        "n": 178
+      },
+      "L1": {
+        "compile": 54.9,
+        "saPassSoft": 14.2,
+        "saPass": 8.0,
+        "n": 113
+      },
+      "L2": {
+        "compile": 42.3,
+        "saPassSoft": 22.1,
+        "saPass": 17.3,
+        "n": 52
+      },
+      "L3": {
+        "compile": 23.1,
+        "saPassSoft": 11.5,
+        "saPass": 7.7,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
+      "method": "Claude Code (Opus 5.5) + Numina",
+      "model": "Claude Opus 5.5",
+      "scaffold": "Claude Code + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 94.4,
+        "saPassSoft": 28.1,
+        "saPass": 16.9,
+        "n": 178
+      },
+      "L1": {
+        "compile": 97.3,
+        "saPassSoft": 24.3,
+        "saPass": 13.3,
+        "n": 113
+      },
+      "L2": {
+        "compile": 90.4,
+        "saPassSoft": 37.5,
+        "saPass": 25.0,
+        "n": 52
+      },
+      "L3": {
+        "compile": 84.6,
+        "saPassSoft": 23.1,
+        "saPass": 15.4,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
+      "method": "Claude Code (Sonnet 5.5)",
+      "model": "Claude Sonnet 5.5",
+      "scaffold": "Claude Code",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 29.8,
+        "saPassSoft": 8.7,
+        "saPass": 4.5,
+        "n": 178
+      },
+      "L1": {
+        "compile": 33.6,
+        "saPassSoft": 6.2,
+        "saPass": 1.8,
+        "n": 113
+      },
+      "L2": {
+        "compile": 25.0,
+        "saPassSoft": 14.4,
+        "saPass": 9.6,
+        "n": 52
+      },
+      "L3": {
+        "compile": 15.4,
+        "saPassSoft": 7.7,
+        "saPass": 7.7,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
+      "method": "Claude Code (Sonnet 5.5) + Numina",
+      "model": "Claude Sonnet 5.5",
+      "scaffold": "Claude Code + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 91.6,
+        "saPassSoft": 25.8,
+        "saPass": 15.2,
+        "n": 178
+      },
+      "L1": {
+        "compile": 92.9,
+        "saPassSoft": 21.2,
+        "saPass": 11.5,
+        "n": 113
+      },
+      "L2": {
+        "compile": 88.5,
+        "saPassSoft": 36.5,
+        "saPass": 23.1,
+        "n": 52
+      },
+      "L3": {
+        "compile": 92.3,
+        "saPassSoft": 23.1,
+        "saPass": 15.4,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
+      "method": "Codex (GPT-6.1 Sol)",
+      "model": "GPT-6.1 Sol",
+      "scaffold": "Codex",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 33.7,
+        "saPassSoft": 8.1,
+        "saPass": 2.8,
+        "n": 178
+      },
+      "L1": {
+        "compile": 33.6,
+        "saPassSoft": 7.1,
+        "saPass": 0.9,
+        "n": 113
+      },
+      "L2": {
+        "compile": 30.8,
+        "saPassSoft": 12.5,
+        "saPass": 7.7,
+        "n": 52
+      },
+      "L3": {
+        "compile": 46.2,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, without Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
+      "method": "Codex (GPT-6.1 Sol) + Numina",
+      "model": "GPT-6.1 Sol",
+      "scaffold": "Codex + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 91.0,
+        "saPassSoft": 29.2,
+        "saPass": 18.5,
+        "n": 178
+      },
+      "L1": {
+        "compile": 94.7,
+        "saPassSoft": 24.8,
+        "saPass": 14.2,
+        "n": 113
+      },
+      "L2": {
+        "compile": 88.5,
+        "saPassSoft": 42.3,
+        "saPass": 30.8,
+        "n": 52
+      },
+      "L3": {
+        "compile": 69.2,
+        "saPassSoft": 15.4,
+        "saPass": 7.7,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, with Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
+      "method": "Codex (GPT-6 Luna)",
+      "model": "GPT-6 Luna",
+      "scaffold": "Codex",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 32.0,
+        "saPassSoft": 5.3,
+        "saPass": 2.2,
+        "n": 178
+      },
+      "L1": {
+        "compile": 29.2,
+        "saPassSoft": 4.4,
+        "saPass": 1.8,
+        "n": 113
+      },
+      "L2": {
+        "compile": 32.7,
+        "saPassSoft": 8.7,
+        "saPass": 3.8,
+        "n": 52
+      },
+      "L3": {
+        "compile": 53.8,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, without Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
+      "method": "Codex (GPT-6 Luna) + Numina",
+      "model": "GPT-6 Luna",
+      "scaffold": "Codex + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 79.8,
+        "saPassSoft": 28.7,
+        "saPass": 18.5,
+        "n": 178
+      },
+      "L1": {
+        "compile": 82.3,
+        "saPassSoft": 26.1,
+        "saPass": 16.8,
+        "n": 113
+      },
+      "L2": {
+        "compile": 80.8,
+        "saPassSoft": 38.5,
+        "saPass": 25.0,
+        "n": 52
+      },
+      "L3": {
+        "compile": 53.8,
+        "saPassSoft": 11.5,
+        "saPass": 7.7,
+        "n": 13
+      },
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, with Numina-Lean-Agent. Scored on the 178-problem test split; no per-area breakdown yet."
+      }
+    },
+    {
       "method": "Claude Opus 4.6",
       "model": "Claude Opus 4.6",
       "group": "Closed-source LLM",

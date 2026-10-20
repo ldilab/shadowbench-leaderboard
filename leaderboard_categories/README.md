@@ -11,6 +11,7 @@ difficulty level, by mathematical area, and overall.
 | `leaderboard_178_long.csv` | one row per (method, split) | direct leaderboard ingest. `split_type` is `all`, `level` or `category`; `split` is `all`, `L1`/`L2`/`L3`, or the area name |
 | `method_results_178.json` | one object per method, nested `average` / `L1` / `L2` / `L3` / `categories[]` | same numbers, nested |
 | `per_task_178.csv` | one row per (method, task), 27 x 178 rows | recompute any other split (e.g. level x area) |
+| `post_paper_agentic_per_task_178.csv` | same columns plus `aligned` and `compile_timeout`, 8 x 178 rows | the 8 agentic rows run after the paper (see below) |
 
 Percentages are rounded to one decimal, over the fixed denominator `n`. `n_present` (`nPresent` in the
 JSON) is how many of those `n` tasks have a source record for the method; the rest are scored 0. For the
@@ -92,3 +93,14 @@ the withdrawn problem as a compile pass), and the Kimina cell is a rounding arte
 | GPT-OSS-20B | L1 Compile | 4.4 | 3.5 | 5/114 vs 4/113; the withdrawn problem was one of its compile passes |
 | GPT-OSS-20B | Avg Compile | 3.4 | 2.8 | 6/179 vs 5/178 |
 | Kimina 7B->8B | Avg Compile | 0.5 | 0.6 | paper value mixes rounded 135-core and 44 values; exact is 1/178 |
+
+## Post-paper agentic rows
+
+`post_paper_agentic_per_task_178.csv` holds the 8 agentic runs added after the paper (Claude Code with
+Opus 5.5 / Sonnet 5.5, Codex with GPT-6.1 Sol / GPT-6 Luna, each with and without Numina-Lean-Agent).
+It is normalized from the run's wide per-task export (`sb179_latest4_per_task_siterule_wide.csv`), which
+covers ShadowBench-179 minus `algebra/L2/alg_gen_L2_006`: the withdrawn `topology/L2/top_gen_L2_013` is
+dropped and `alg_gen_L2_006` is added with `present` = 0, scored as a failure. `aligned` = every forward
+and backward checker passed, compile ignored; `compile_timeout` = the standalone compile hit the
+wall-clock limit. The rows in `data/paper_results.json` (levels and areas) and
+`data/compile_confusion.json` are computed from this file and are not in the files above.

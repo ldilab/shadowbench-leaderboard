@@ -9,13 +9,15 @@ initTheme();
  *   tp = both (this is SA-PASS)          fp = compiles, misaligned
  *   fn = aligned, does not compile       alignedTimeout = aligned, compile hit
  *   tn = neither                         the evaluator's time limit
- * It is built by scripts/build_compile_confusion_178.py in the paper repo,
- * whose counts reproduce every row's published Compile rate and SA-PASS.
+ * It is built by scripts/build_compile_confusion_178.py in the paper repo
+ * (the post-paper agentic rows from
+ * leaderboard_categories/post_paper_agentic_per_task_178.csv); the counts
+ * reproduce every row's published Compile rate and SA-PASS.
  * Display names, approach and weights come from data/paper_results.json.
  * ----------------------------------------------------------------------- */
 
 const key = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-const MAX = 70; // both axes share one scale, so the diagonal is y = x
+const MAX = 100; // both axes share one scale, so the diagonal is y = x
 const APPROACH_LABEL = { agentic: "Agentic", direct: "Direct", lean: "Lean-specialized" };
 const WEIGHTS_LABEL = { closed: "Closed", open: "Open weights" };
 const pct = (n, d) => (d ? (n / d) * 100 : 0);
@@ -64,13 +66,15 @@ function render() {
 
 function renderKpis() {
   const t = conf.totals, e = conf.expert, n = conf.problems;
-  const post = rows.filter((r) => r.post).reduce((a, r) => ({ tp: a.tp + r.tp, fn: a.fn + r.fn, to: a.to + r.alignedTimeout }), { tp: 0, fn: 0, to: 0 });
+  // Post-paper direct-prompting runs only; the post-paper agentic runs are a different setting.
+  const postRows = rows.filter((r) => r.post && r.approach === "direct");
+  const post = postRows.reduce((a, r) => ({ tp: a.tp + r.tp, fn: a.fn + r.fn, to: a.to + r.alignedTimeout }), { tp: 0, fn: 0, to: 0 });
   document.getElementById("scope").textContent = `${t.systems} systems × ${n} problems = ${t.outputs.toLocaleString("en-US")} outputs`;
   const cards = [
     { k: "Compiled but misaligned", v: `${Math.round(pct(t.fp, t.compile))}%`, d: `${t.fp} of the ${t.compile} outputs that compile fail at least one checker: false positives of compile rate.` },
     { k: "Expert check (6 agentic systems)", v: `${f1(e.precision * 100)}%`, d: `of the ${e.reviewed} compile-passed outputs two mathematicians reviewed were aligned (the paper's expert study).` },
     { k: "Aligned but not compiling", v: String(t.fn), d: `outputs pass every checker yet fail the standalone compile, mostly a sorry or a broken proof: false negatives${t.alignedTimeout ? `, plus ${t.alignedTimeout} compile time-outs` : ""}.` },
-    { k: "Run after the paper", v: `FN ${post.fn} · TP ${post.tp}`, d: `Across the six direct-prompting runs added after the paper, compile rejected ${post.fn} statements that pass every checker${post.to ? ` (plus ${post.to} compile time-outs)` : ""} and accepted only ${post.tp} that do.` },
+    { k: "Run after the paper", v: `FN ${post.fn} · TP ${post.tp}`, d: `Across the ${postRows.length} direct-prompting runs added after the paper, compile rejected ${post.fn} statements that pass every checker${post.to ? ` (plus ${post.to} compile time-outs)` : ""} and accepted only ${post.tp} that do.` },
   ];
   document.getElementById("kpis").innerHTML = cards.map((c) => `
     <div class="card kpi"><div class="kpi-k">${escapeHtml(c.k)}</div><div class="kpi-v">${escapeHtml(c.v)}</div><div class="kpi-d">${escapeHtml(c.d)}</div></div>`).join("");
@@ -79,7 +83,7 @@ function renderKpis() {
 function renderPlot() {
   const host = document.getElementById("plot");
   const n = conf.problems;
-  const ticks = [0, 10, 20, 30, 40, 50, 60, 70];
+  const ticks = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   const shownRows = rows.filter((r) => r.compile > 0 || r.aligned > 0);
   const atOrigin = rows.length - shownRows.length;
   // Label the selected system and the most striking false-positive case.

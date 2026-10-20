@@ -13,7 +13,7 @@ with SA-PASS ([paper](https://arxiv.org/abs/2608.29270)).
   axes (agentic / non-agentic, open weights / closed, paper / new since the paper / community); a
   row shows when its value on every axis is selected. Area pools the problems of the selected
   areas. Changes from the defaults are kept in the URL query, so a view can be linked.
-- `map.html` compares compile rate with the SA-PASS checkers on every output (33 systems × 178
+- `map.html` compares compile rate with the SA-PASS checkers on every output (41 systems × 178
   problems): a scatter of compile rate against "passes every checker", and one 178-problem bar per
   system split into SA-PASS, false positives (compiles, misaligned) and false negatives (aligned,
   does not compile). Data: `data/compile_confusion.json`, see "Compile confusion data" below.
@@ -44,8 +44,10 @@ See "Fixed task selection" below for why this exists and how to regenerate the l
 
 `data/compile_confusion.json` is built by `scripts/build_compile_confusion_178.py` in the paper repo
 from the per-problem evaluator records behind every leaderboard row (the same sources as
-`leaderboard_categories/`, plus the post-paper runs). Per row: `compile` (standalone compile passed),
-`tp` (compiles and every checker passes = SA-PASS), `fp` (compiles, a checker fails), `fn` (every
+`leaderboard_categories/`, plus the post-paper runs); the 8 post-paper agentic rows come from
+`leaderboard_categories/post_paper_agentic_per_task_178.csv` instead. Per row: `compile`
+(standalone compile passed), `tp` (compiles and every checker passes = SA-PASS), `fp` (compiles, a
+checker fails), `fn` (every
 checker passes but the standalone compile fails; split into `fnSorry`, `fnError`, `fnUnknown` for
 agentic rows, whose records carry no error text), `alignedTimeout` (checkers pass, the compile hit
 the evaluator's wall-clock limit; kept out of `fn`) and `tn`. The script asserts that every row
@@ -190,7 +192,7 @@ data/paper_results.json        paper Table 3 values, by level and by category (e
                                 leaderboard_categories/README.md for how the category
                                 breakdown was generated and how to regenerate it), plus
                                 rows run after the paper: these carry a `postPaper`
-                                object (date, evaluator submission id, settings note)
+                                object (date, evaluator submission id where known, settings note)
                                 and are shown as highlighted rows with a "✦ NEW" tag
 data/community.json            published community results (Worker commits to this on publish)
 worker/index.mjs               Cloudflare Worker: /api/submit, /publish, /api/delete, and the

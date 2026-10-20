@@ -28,7 +28,7 @@
   <main class="container">
     <div class="page-intro">
       <h1>Compiling is not the same as being right</h1>
-      <p>Compile rate counts a formalization as correct when its Lean code type-checks. ShadowBench's checkers test whether the statement actually says what the problem says. Here the two are compared on every output: <span id="scope">33 systems × 178 problems</span>.</p>
+      <p>Compile rate counts a formalization as correct when its Lean code type-checks. ShadowBench's checkers test whether the statement actually says what the problem says. Here the two are compared on every output: <span id="scope">41 systems × 178 problems</span>.</p>
     </div>
 
     <section class="kpi-grid" id="kpis" aria-label="Summary"></section>
@@ -72,7 +72,7 @@
         <dt>Aligned</dt><dd>Every forward and backward checker passes, whether or not the standalone compile did. Against the paper's expert review of compile-passed outputs, the checkers reach precision 1.000 and recall 0.930: they never accept a misaligned statement, and miss 3 of the 43 aligned ones (auxiliary declarations named differently from the reference).</dd>
         <dt>False positive</dt><dd>Compiles but fails at least one checker: compile rate counts it, SA-PASS does not.</dd>
         <dt>False negative</dt><dd>Passes every checker but does not compile, usually a proof left as <code>sorry</code> or a broken proof under a correct statement. Outputs that only hit the evaluator's compile time limit are shown separately.</dd>
-        <dt>Source</dt><dd>Per-problem evaluator records for all 33 leaderboard rows (<code>data/compile_confusion.json</code>); the counts reproduce every row's published Compile rate and SA-PASS.</dd>
+        <dt>Source</dt><dd>Per-problem evaluator records for all 41 leaderboard rows (<code>data/compile_confusion.json</code>); the counts reproduce every row's published Compile rate and SA-PASS.</dd>
       </dl>
     </details>
   </main>

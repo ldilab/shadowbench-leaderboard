@@ -1,0 +1,1425 @@
+method,group,task_id,area,level,record_level,compile,sa_pass_soft,sa_pass,present,aligned,compile_timeout
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5),Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Opus 5.5) + Numina,Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5),Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,0,0.0,0,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,0,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,1,0.5,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,1,0.0,0,1,0,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,1,1.0,1,1,1,0
+Claude Code (Sonnet 5.5) + Numina,Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,0,0.0,0,1,1,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,0,0.0,0,1,1,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6.1 Sol),Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,0,0.0,0,1,1,1
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol),Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,0,0.0,0,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6.1 Sol) + Numina,Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,0,0.0,0,1,0,1
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna),Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_002,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_004,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_005,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_006,algebra,L1,L2,0,0.0,0,0,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_007,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_009,algebra,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_016,algebra,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_017,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_026,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_gen_L2_030,algebra,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_grob_L2_005,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_grob_L2_011,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_grob_L2_013,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_grob_L2_014,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_grob_L2_015,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_grob_L2_022,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L2/alg_grob_L2_024,algebra,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L3/alg_gen_L3_001,algebra,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L3/alg_gen_L3_002,algebra,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L3/alg_gen_L3_004,algebra,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L3/alg_gen_L3_005,algebra,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L4/alg_geom_L4_001,algebra,L3,L4,0,0.0,0,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L4/alg_geom_L4_002,algebra,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebra/L4/alg_geom_L4_003,algebra,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L2/alg_gen_L2_001,algebraic-geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L2/alg_sche_L2_001,algebraic-geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_001,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_002,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_003,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_004,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_005,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_006,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_007,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_008,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_009,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_010,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_011,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_012,algebraic-geometry,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_013,algebraic-geometry,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_gen_L3_014,algebraic-geometry,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_001,algebraic-geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L3/alg_sche_L3_003,algebraic-geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_001,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L4/alg_gen_L4_002,algebraic-geometry,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_001,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,algebraic-geometry/L4/alg_sche_L4_002,algebraic-geometry,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_comp_L2_001,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_comp_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_four_L2_001,analysis,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_four_L2_002,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_four_L2_003,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_four_L2_004,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_gen_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_gen_L2_002,analysis,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_gen_L2_003,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_gen_L2_004,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_gen_L2_004_v2,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_gen_L2_005,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_mero_L2_001,analysis,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L2/ana_mero_L2_002,analysis,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_comp_L3_001,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_001,analysis,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_002,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_003,analysis,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_004,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_005,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_006,analysis,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_007,analysis,L2,L3,0,0.0,0,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_gen_L3_008,analysis,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L3/ana_pde_L3_001,analysis,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L4/ana_func_L4_001,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L4/ana_func_L4_002,analysis,L3,L4,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L4/ana_func_L4_003,analysis,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,analysis/L4/ana_real_L4_001,analysis,L3,L4,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_001,combinatorics,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_002,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_003,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_004,combinatorics,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_005,combinatorics,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_006,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_007,combinatorics,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L2/com_gen_L2_008,combinatorics,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L3/com_gen_L3_001,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L3/com_gen_L3_002,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L3/com_gen_L3_003,combinatorics,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L3/com_gen_L3_004,combinatorics,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L3/com_gen_L3_005,combinatorics,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,combinatorics/L3/com_gen_L3_006,combinatorics,L2,L3,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_diff_L2_002,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_003,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_004,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_005,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_006,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_007,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_008,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_010,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_011,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_012,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_013,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_014,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_015,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_016,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_017,geometry,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_018,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_020,geometry,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L2/geo_gen_L2_021,geometry,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L3/geo_gen_L3_001,geometry,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L3/geo_gen_L3_002,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L3/geo_gen_L3_003,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L3/geo_gen_L3_004,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L3/geo_gen_L3_005,geometry,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,geometry/L3/geo_gen_L3_006,geometry,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_001,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_003,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_004,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_005,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_006,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_007,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_008,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_009,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_010,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_011,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_012,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_013,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_014,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_015,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_016,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_017,number-theory,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L2/nt_gen_L2_018,number-theory,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L4/nt_gen_L4_001,number-theory,L3,L4,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,number-theory/L4/nt_gen_L4_002,number-theory,L3,L4,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_001,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_002,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_003,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_004,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_005,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_006,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_007,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_008,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_009,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_010,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_011,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_012,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_013,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_014,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_015,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_016,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_017,probability,L1,L2,0,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_018,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L2/prob_gen_L2_019,probability,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,probability/L3/prob_gen_L3_001,probability,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_001,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_004,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_005,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_006,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_007,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_008,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_009,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_010,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_011,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_012,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_014,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_015,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_016,topology,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_017,topology,L1,L2,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_018,topology,L1,L2,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L2/top_gen_L2_019,topology,L1,L2,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_001,topology,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_002,topology,L2,L3,1,0.5,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_003,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_004,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_006,topology,L2,L3,1,0.0,0,1,0,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_007,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_008,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_gen_L3_008_v2,topology,L2,L3,1,1.0,1,1,1,0
+Codex (GPT-6 Luna) + Numina,Agentic,topology/L3/top_homo_L3_001,topology,L2,L3,1,0.5,0,1,0,0

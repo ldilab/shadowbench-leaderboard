@@ -849,6 +849,858 @@
       ]
     },
     {
+      "method": "Claude Code (Opus 5.5)",
+      "model": "Claude Opus 5.5",
+      "scaffold": "Claude Code",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 48.3,
+        "saPassSoft": 16.3,
+        "saPass": 10.7,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 54.0,
+        "saPassSoft": 14.2,
+        "saPass": 8.0,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 42.3,
+        "saPassSoft": 22.1,
+        "saPass": 17.3,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 23.1,
+        "saPassSoft": 11.5,
+        "saPass": 7.7,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 61.5,
+          "saPassSoft": 13.5,
+          "saPass": 11.5,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 22.7,
+          "saPassSoft": 9.1,
+          "saPass": 4.5,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 50.0,
+          "saPassSoft": 21.4,
+          "saPass": 10.7,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 50.0,
+          "saPassSoft": 25.0,
+          "saPass": 21.4,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 54.2,
+          "saPassSoft": 10.4,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 26.3,
+          "saPassSoft": 5.3,
+          "saPass": 5.3,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 45.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 68.0,
+          "saPassSoft": 42.0,
+          "saPass": 32.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
+      "method": "Claude Code (Opus 5.5) + Numina",
+      "model": "Claude Opus 5.5",
+      "scaffold": "Claude Code + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 93.8,
+        "saPassSoft": 28.1,
+        "saPass": 16.9,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 96.5,
+        "saPassSoft": 24.3,
+        "saPass": 13.3,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 90.4,
+        "saPassSoft": 37.5,
+        "saPass": 25.0,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 84.6,
+        "saPassSoft": 23.1,
+        "saPass": 15.4,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 96.2,
+          "saPassSoft": 15.4,
+          "saPass": 7.7,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 68.2,
+          "saPassSoft": 27.3,
+          "saPass": 13.6,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 92.9,
+          "saPassSoft": 32.1,
+          "saPass": 17.9,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 92.9,
+          "saPassSoft": 35.7,
+          "saPass": 28.6,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 100.0,
+          "saPassSoft": 33.3,
+          "saPass": 8.3,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 100.0,
+          "saPassSoft": 5.3,
+          "saPass": 5.3,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 100.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 100.0,
+          "saPassSoft": 68.0,
+          "saPass": 52.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
+      "method": "Claude Code (Sonnet 5.5)",
+      "model": "Claude Sonnet 5.5",
+      "scaffold": "Claude Code",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 29.8,
+        "saPassSoft": 8.7,
+        "saPass": 4.5,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 33.6,
+        "saPassSoft": 6.2,
+        "saPass": 1.8,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 25.0,
+        "saPassSoft": 14.4,
+        "saPass": 9.6,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 15.4,
+        "saPassSoft": 7.7,
+        "saPass": 7.7,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 38.5,
+          "saPassSoft": 3.8,
+          "saPass": 3.8,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 13.6,
+          "saPassSoft": 9.1,
+          "saPass": 4.5,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 25.0,
+          "saPassSoft": 5.4,
+          "saPass": 0.0,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 42.9,
+          "saPassSoft": 32.1,
+          "saPass": 21.4,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 37.5,
+          "saPassSoft": 8.3,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 31.6,
+          "saPassSoft": 5.3,
+          "saPass": 5.3,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 20.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 32.0,
+          "saPassSoft": 14.0,
+          "saPass": 8.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
+      "method": "Claude Code (Sonnet 5.5) + Numina",
+      "model": "Claude Sonnet 5.5",
+      "scaffold": "Claude Code + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 91.0,
+        "saPassSoft": 25.8,
+        "saPass": 15.2,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 92.0,
+        "saPassSoft": 21.2,
+        "saPass": 11.5,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 88.5,
+        "saPassSoft": 36.5,
+        "saPass": 23.1,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 92.3,
+        "saPassSoft": 23.1,
+        "saPass": 15.4,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 96.2,
+          "saPassSoft": 13.5,
+          "saPass": 7.7,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 77.3,
+          "saPassSoft": 27.3,
+          "saPass": 13.6,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 85.7,
+          "saPassSoft": 30.4,
+          "saPass": 17.9,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 92.9,
+          "saPassSoft": 35.7,
+          "saPass": 28.6,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 95.8,
+          "saPassSoft": 22.9,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 84.2,
+          "saPassSoft": 5.3,
+          "saPass": 5.3,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 95.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 100.0,
+          "saPassSoft": 66.0,
+          "saPass": 48.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
+      "method": "Codex (GPT-6.1 Sol)",
+      "model": "GPT-6.1 Sol",
+      "scaffold": "Codex",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 33.7,
+        "saPassSoft": 8.1,
+        "saPass": 2.8,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 33.6,
+        "saPassSoft": 7.1,
+        "saPass": 0.9,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 30.8,
+        "saPassSoft": 12.5,
+        "saPass": 7.7,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 46.2,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 46.2,
+          "saPassSoft": 7.7,
+          "saPass": 3.8,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 18.2,
+          "saPassSoft": 4.5,
+          "saPass": 4.5,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 32.1,
+          "saPassSoft": 8.9,
+          "saPass": 3.6,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 50.0,
+          "saPassSoft": 25.0,
+          "saPass": 14.3,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 50.0,
+          "saPassSoft": 12.5,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 36.8,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 20.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 20.0,
+          "saPassSoft": 10.0,
+          "saPass": 0.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
+      "method": "Codex (GPT-6.1 Sol) + Numina",
+      "model": "GPT-6.1 Sol",
+      "scaffold": "Codex + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 91.0,
+        "saPassSoft": 29.2,
+        "saPass": 18.5,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 94.7,
+        "saPassSoft": 24.8,
+        "saPass": 14.2,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 88.5,
+        "saPassSoft": 42.3,
+        "saPass": 30.8,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 69.2,
+        "saPassSoft": 15.4,
+        "saPass": 7.7,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 92.3,
+          "saPassSoft": 13.5,
+          "saPass": 7.7,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 63.6,
+          "saPassSoft": 27.3,
+          "saPass": 18.2,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 92.9,
+          "saPassSoft": 46.4,
+          "saPass": 32.1,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 92.9,
+          "saPassSoft": 35.7,
+          "saPass": 28.6,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 95.8,
+          "saPassSoft": 33.3,
+          "saPass": 8.3,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 100.0,
+          "saPassSoft": 5.3,
+          "saPass": 5.3,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 95.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 96.0,
+          "saPassSoft": 62.0,
+          "saPass": 44.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
+      "method": "Codex (GPT-6 Luna)",
+      "model": "GPT-6 Luna",
+      "scaffold": "Codex",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "average": {
+        "compile": 32.0,
+        "saPassSoft": 5.3,
+        "saPass": 2.2,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 29.2,
+        "saPassSoft": 4.4,
+        "saPass": 1.8,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 32.7,
+        "saPassSoft": 8.7,
+        "saPass": 3.8,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 53.8,
+        "saPassSoft": 0.0,
+        "saPass": 0.0,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 26.9,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 40.9,
+          "saPassSoft": 6.8,
+          "saPass": 0.0,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 50.0,
+          "saPassSoft": 10.7,
+          "saPass": 10.7,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 21.4,
+          "saPassSoft": 3.6,
+          "saPass": 0.0,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 45.8,
+          "saPassSoft": 8.3,
+          "saPass": 0.0,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 15.8,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 25.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 20.0,
+          "saPassSoft": 10.0,
+          "saPass": 4.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
+      "method": "Codex (GPT-6 Luna) + Numina",
+      "model": "GPT-6 Luna",
+      "scaffold": "Codex + Numina",
+      "group": "Agentic",
+      "approach": "agentic",
+      "weights": "closed",
+      "agent": "Numina-Lean-Agent",
+      "average": {
+        "compile": 79.2,
+        "saPassSoft": 28.1,
+        "saPass": 18.0,
+        "n": 178,
+        "nPresent": 177
+      },
+      "L1": {
+        "compile": 81.4,
+        "saPassSoft": 25.2,
+        "saPass": 15.9,
+        "n": 113,
+        "nPresent": 112
+      },
+      "L2": {
+        "compile": 80.8,
+        "saPassSoft": 38.5,
+        "saPass": 25.0,
+        "n": 52,
+        "nPresent": 52
+      },
+      "L3": {
+        "compile": 53.8,
+        "saPassSoft": 11.5,
+        "saPass": 7.7,
+        "n": 13,
+        "nPresent": 13
+      },
+      "categories": [
+        {
+          "category": "algebra",
+          "compile": 76.9,
+          "saPassSoft": 13.5,
+          "saPass": 11.5,
+          "n": 26,
+          "nPresent": 25
+        },
+        {
+          "category": "algebraic-geometry",
+          "compile": 63.6,
+          "saPassSoft": 20.5,
+          "saPass": 4.5,
+          "n": 22,
+          "nPresent": 22
+        },
+        {
+          "category": "analysis",
+          "compile": 85.7,
+          "saPassSoft": 46.4,
+          "saPass": 35.7,
+          "n": 28,
+          "nPresent": 28
+        },
+        {
+          "category": "combinatorics",
+          "compile": 71.4,
+          "saPassSoft": 35.7,
+          "saPass": 28.6,
+          "n": 14,
+          "nPresent": 14
+        },
+        {
+          "category": "geometry",
+          "compile": 91.7,
+          "saPassSoft": 27.1,
+          "saPass": 4.2,
+          "n": 24,
+          "nPresent": 24
+        },
+        {
+          "category": "number-theory",
+          "compile": 52.6,
+          "saPassSoft": 5.3,
+          "saPass": 5.3,
+          "n": 19,
+          "nPresent": 19
+        },
+        {
+          "category": "probability",
+          "compile": 80.0,
+          "saPassSoft": 0.0,
+          "saPass": 0.0,
+          "n": 20,
+          "nPresent": 20
+        },
+        {
+          "category": "topology",
+          "compile": 100.0,
+          "saPassSoft": 66.0,
+          "saPass": 48.0,
+          "n": 25,
+          "nPresent": 25
+        }
+      ],
+      "postPaper": {
+        "date": "2026-10-20",
+        "note": "Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure."
+      }
+    },
+    {
       "method": "Claude Opus 4.6",
       "model": "Claude Opus 4.6",
       "group": "Closed-source LLM",
